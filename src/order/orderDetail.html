@@ -1,0 +1,33 @@
+<html>
+
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no">
+	<!-- http://www.stg.helijia.com/mobile/build/APP/order/orderDetail.html?order_id=1265298&user_id=ce0453afd985417bb851fc8196326e64&token=FMfpR6mnPMKTPEFONbun&from_type=app -->
+	<!-- 
+	<meta http-equiv="pragma" content="no-cache"> 
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate"> 
+	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"> 
+	<meta http-equiv="expires" content="0"> 
+   -->
+	<title>订单详情</title>
+	<link rel="shortcut icon" href="../resources/images/logo.png" type="image/x-icon" />
+	<link href="../resources/style/order.css" rel="stylesheet">
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+	window.onAfterLoad = function () {
+		var me = this;
+		KISSY.use('APP/order/mods/OrderDetail', function (S, OrderDetail) {
+			var orderDetail = new OrderDetail();
+			orderDetail.render(S.one(document.body))
+		});
+	}
+
+</script>
+<script src="../startup.js" type="text/javascript"></script>

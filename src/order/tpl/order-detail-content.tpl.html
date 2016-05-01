@@ -1,0 +1,143 @@
+<section class="section list-block sec-customer">
+	<ul class="dashed-color-border">
+		<li class="item-order-status  has-corner">
+			<i class="corner corner-left-top"></i>
+			<i class="corner corner-right-top"></i>
+				<i class="corner corner-right-bottom"></i>
+			<i class="corner corner-left-bottom"></i>
+			<a href="javascript:;" class="item-link">
+				<div class="item-content" style="min-height: 50px;">
+				 <div>
+					<span style="margin-right:10px;">订单状态</span>
+					<span class="color-love">{{getOrderStatusName status}}</span>
+				 </div>
+				</div>
+			</a>
+		</li>
+		
+		<li class="">
+			<a href="javascript:;">
+				<div class="item-content">
+            <div class="item-media"><i class="icon iconfont icon-user" style="color:#46bce8;"></i></div>
+            <div class="item-inner"> 
+              <div class="item-title">
+							{{#if user_name}}
+							<span class="nick-name">{{user_name}}</span>
+							{{/if}}
+              	<span class="mobile">{{user_mobile}}</span>
+              </div>
+              
+            </div>
+          </div>
+			</a>
+		</li>
+		
+		<li class="">
+			<a href="javascript:;" >
+				<div class="item-content">
+            <div class="item-media">
+            	<i class="icon iconfont icon-datetime" style="color:#8284a4;"></i>
+            </div>
+            <div class="item-inner"> 
+						<!-- service_mode -->
+              <div class="item-title">{{reserve_time}}</div>
+            </div>
+          </div>
+			</a>
+		</li>
+		
+		<li class="">
+			<a href="javascript:;">
+				<div class="item-content">
+            <div class="item-media">
+            	<i class="icon iconfont icon-location" style="color:#f7ad58;"></i>
+            </div>
+            <div class="item-inner" style="padding-right: 15px;"> 
+              <div class="item-title" style="white-space: normal;">{{address}}</div>
+            </div>
+          </div>
+			</a>
+		</li>
+	</ul>
+</section>
+<!--手艺人 -->
+<section class="section sec-artisan list-block">
+	<div class="flex-item item-arstisan">
+	
+		<a href="{{getArtisanHref artisan_id}}" class="artisan-header">
+		<!--artisan_avatar -->
+		 
+			<img src="{{getPic artisan_avatar}}" style="">
+			{{artisan_name}}
+			 
+			<i class="fr icon iconfont icon-forward" style=""></i>
+		</a>
+		<div class="contact-block clear-float" style="height: 100%;">
+			<a href="http://app.helijia.com/zmw/v2/htmlParams?btnType=artisanSendMessage" class="button-contact fl">
+				<i class="icon iconfont icon-smile" style="color:#f97fac;"></i>
+				<span class="contact-label">私信</span>
+			</a>
+		 {{#shouldShowContactArtisan status}}
+			<a href="tel:{{artisan_mobile}}" class="button-contact fl" >
+				<i class="icon iconfont icon-phone" style="color:#46bceb;"></i>
+				<span class="contact-label">电话</span>
+			</a>
+		{{/shouldShowContactArtisan}}
+		</div>
+	</div>	
+	<div class="" style="padding-left:15px;">
+			<a href="{{getProductHref product_id}}" class="flex-item  no-padding-left item-icon-right" >
+				<div class="product clear-float">
+					<img class="product-img fl" src="{{getPic product_pic}}">
+					<div class="fl">
+							<div class="product-info" style="margin-auto;">
+									<div class="name"> {{product_name}}</div>
+									<div class="price">￥{{formatPrice product_price}}</div>
+							</div>
+					</div>
+				</div>
+				<!-- service_mode service_mode_value -->
+				{{#if service_mode}}
+				<div class="on2many-label"><img src="../resources/images/one2many-label.png" style="width:100%;"></div>
+				{{/if}}
+				<!--
+				<i class="icon iconfont icon-forward"></i>
+				-->
+			</a>
+			{{#if coupon_name}}
+			<div class="flex-item no-padding-left hairline-remove" style="border-width:0; padding-bottom:10px;">
+				<span><span class="color-dark">优惠券：</span>{{coupon_name}}</span>
+				<span class="price">-￥{{coupon_price}}</span>
+			</div>
+			{{/if}}
+			{{#if extra_fee_desc}}
+			<div class="flex-item no-padding-left" style="padding-top:0;">
+				<span><span class="color-dark">附加费：</span>{{extra_fee_desc}}</span>
+				<span>+￥{{extra_fee_price}}</span>
+			</div>
+			{{/if}}
+	</div>
+	
+	<div class="flex-item" >
+		<span>实付金额</span>
+		<span class="price" style="font-weight: bold;">￥{{formatPrice real_pay_price}}</span>
+	</div>
+	<div class="flex-item">
+		<div style="margin-left: auto;" class="operate-buttons" name="operate-buttons">
+		</div>
+	</div>
+</section>
+
+<section class="sec-insurance">
+{{#if insured_name}}
+ <div style="margin-bottom:20px;">
+	 已申请河狸家为消费者购买的意外保险，本保险由众安保险提供,被保人“{{insured_name}}”。
+ 	<a href="{{getHost}}/active/safe/query.html?{{order_no}}">查看赠险信息</a>
+ </div>
+{{/if}}
+ <div>
+	<div>点击拨打客服电话: <a href="tel:4000088311" style="color: inherit;">400-008-8311</a></div>
+ 	<div>订单编号:{{order_no}}</div>
+ 	<div>创建时间:{{order_time}}</div>
+ </div>
+</section>

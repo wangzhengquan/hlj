@@ -1,0 +1,34 @@
+{{#if is_q}}
+<div class="flex-item item-icon-left">
+	<i class="icon iconfont item-icon icon-certification" style="color:#46a5e8; font-size:17px;"></i>
+	<span class="item-label">认证信息</span>
+	<span>{{getAdvancedAuthTitle artisan_type is_q}}</span>
+</div>
+{{/if}}
+<!--<div class="flex-item item-icon-left">
+	<i class="icon iconfont item-icon icon-belong" style="color:#f7ac56; font-size:17px;"></i>
+	<span class="item-label">所属</span>
+	<span>所属机构</span>
+</div>-->
+<div  class="item item-intro">
+	<div class="flex">
+		<label class="item-label">简介：</label>
+		<p class="word-wrap flex-1">{{desc}}</p>
+	</div>
+		<div  class="switches">
+		<a href="javascript:;" class="switch switch-expand">查看全部<i class="icon iconfont icon-expand"></i></a>
+		<a href="javascript:;" class="switch switch-collapse">点击收起<i class="icon iconfont icon-collapse"></i></a>
+	</div>
+</div>
+<div class="item item-other">
+	<p><label class="item-label">籍贯：</label>{{#if hail}} {{hail}} {{else}}未填写   {{/if}} </p>
+	<p><label class="item-label">爱好：</label>{{#if hobbies}} {{hobbies}} {{else}}未填写 {{/if}} </p>
+	<p><label class="item-label">星座：</label>{{#if constellation}}  {{constellation}} {{else}} 未填写 {{/if}}</p>
+</div>
+<ul class="item item-photo clear-float">
+{{#each photos}}
+	<li>
+		<a href="javascript:;"><img src="{{getImgAbsolutePath this}}" alt=""></a>
+	</li>
+{{/each}}
+</ul>

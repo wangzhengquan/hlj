@@ -1,0 +1,29 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>店铺装修</title>
+	<link rel="shortcut icon" href="../resources/images/logo.png" type="image/x-icon" />
+	<link href="../resources/style/artisan.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+	<!-- http://www.stg.helijia.com/mobile/build/APP/artisan/shopDecorate.html?artisan=d294ffae4b7f4654ba0b3f2dee699921&from_type=app&device_type=ios&version=2.9.5&channel=artisan&sign=a728e42e614a3c6b2d4d6c323d6b1934&artisan_id=d294ffae4b7f4654ba0b3f2dee699921  -->
+	<script type="text/javascript">
+		window.onAfterLoad = function () {
+			KISSY.use('APP/artisan/mods/shop/ShopDecoratePanel', function (S, ShopDecoratePanel) {
+				var shopDecoratePanel = new ShopDecoratePanel();
+				shopDecoratePanel.render(S.one(document.body))
+			});
+		}
+	</script>
+	<script src="../startup.js" type="text/javascript"></script>
+</body>
+
+</html>

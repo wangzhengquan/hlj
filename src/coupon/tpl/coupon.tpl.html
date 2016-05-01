@@ -1,0 +1,19 @@
+<div class="main coupon background">
+	<header class="bar-love header bar">
+		<button class="button button-clear button-back">
+			<i class="icon iconfont icon-back"></i></button>
+		<h1 class="title">可用优惠券</h1>
+		<div class="buttons buttons-right">	
+		</div>
+	</header>
+	<div class="content has-header">
+		<div class="scroll-content" style="">
+			{{#each coupons}}
+			<a href="javascript:;" action="select_coupon" data-index="{{xindex}}" class="flex-item">
+				<span>{{coupon_name}}: {{coupon_price}}元</span> <span>{{formatDateTime use_over_date "yyyy.MM.dd"}}到期</span>
+			</a>
+		  {{/each}}
+		</div>
+		<button class="button button-full button-love button-not-use" action="select_coupon">不使用优惠券</button>
+	</div>
+</div>

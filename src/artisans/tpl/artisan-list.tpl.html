@@ -1,0 +1,12 @@
+<div name="artisan_list" class="list-panel">
+	{{^if hideTabNavSort}}
+  <ul class="sort-nav-tab row row-no-padding">
+ 		<li class="sort-tab-item col" ><a class="border-box">综合排序</a></li>
+ 		<li class="sort-tab-item col" data-order_by="popularity"><a class="border-box">人气优先</a></li>
+ 		<li class="sort-tab-item col price-tab-item" data-order_by="price_up">
+ 			<a class="border-box ">均价排序<i class="sort-tag"></i></a>
+ 		</li>
+ 	</ul>
+	{{/if}}
+	<div class="artisan-list-content" name="artisan_list_content"> </div>
+</div>

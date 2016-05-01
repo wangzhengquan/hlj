@@ -1,0 +1,122 @@
+@import 
+	"../../lib/ufo/resources/scss/popup";
+	
+.slider-tab, .tab-slider{
+	.tabbar{
+		.tabbar-inner{
+			background-color: rgb(255, 255, 255);
+			.tab {
+				 color: rgba(247, 132, 167, 1);
+			   &.active{
+		    	 color: rgba(247, 132, 167, 1);
+		     }
+			}
+		}
+		.tab-link-highlight-track{
+			background: #FFF;
+		}
+		&:after {
+		    content: '';
+		    position: absolute;
+		    left:0;
+		    bottom: -1px;
+		    right: 0;
+		    top: auto;
+		    height: 0;
+		    border-bottom: 1px solid $item-light-border;
+		    display: block;
+		    z-index: 2;
+		    @include transform(scaleY(.5));
+		}
+	}
+	
+	
+}
+/*订单-order-list.html*/
+.h_order{
+	width:95%;
+	margin:10px auto ;
+	border-radius:2px;
+	background:#fff;
+	li{
+		border-bottom:1px solid #eeeded;
+		margin-left:10px;;
+		line-height:40px;
+		width:94%;
+		margin:0 auto;
+		overflow: hidden;
+		p{
+			float:left;
+			margin:0;
+			font-size: 12px;
+		}
+		span{
+			float:right;
+			color:#565656;
+			font-size:12px;
+		}
+		b{
+			color:#b4b4b4;
+			margin-left:8px;
+		}
+	
+		.h_orderspan{
+			color: #ff5c93;
+		}
+		.h_ordermax{
+			font-size: 16px;
+	        font-weight: bold;
+	        margin-right: 10px;
+	    }	
+	    @media screen and (max-width:320px){.h_orderwid{width:157px;}}
+		@media screen and (max-width:375px){.h_orderwid{width:157px;}}
+		@media screen and (min-width:375px){.h_orderwid{width:196px;}}
+		@media screen and (min-width:414px){.h_orderwid{width:224px;}}
+	}
+	dl{
+		width:100%;
+		height:128px;
+		overflow:hidden;
+		color:#565656;
+		position: relative;
+		dt{
+			height:137px;
+			width:20%;
+			float:left;
+			padding-top:10px;
+			img{
+				width:100%;
+				border-radius:5px;
+			}
+		}
+		dd{
+		    width:80%;
+		    float:left;
+		    height: 20px;
+		    line-height: 20px;
+		    font-size: 13px;
+		    padding-left:10px;
+		    padding-top:10px;
+		}
+		.h_orderpo{position:absolute;right:0;top:0;width:55px;}
+	}
+	
+	.order-toolbar{
+		border-bottom:none;
+		> .button{
+			float: right;
+			height:30px;
+			min-height: 30px;
+			line-height: 30px;
+			background:#fff;
+			border:1px solid #b9b9b9;
+			margin:15px 4px;
+			border-radius:3px;
+			color: #565656;
+			font-size: 12px;
+		}
+	}
+
+}
+
+

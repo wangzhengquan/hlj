@@ -1,0 +1,162 @@
+<section  class="section">
+		<a  href="javascript:;" class="item item-icon-right hairline-remove">
+			<span>{{order.user_name}}</span>&nbsp; <span>{{order.user_mobile}}</span>
+			<i class="icon iconfont icon-forward"></i>
+		</a>
+</section>
+<section class="section list-block">
+	<ul class="">
+		<li>
+			<a href="javascript:;">
+				<div class="item-content">
+            <div class="item-media">
+            	<i class="icon iconfont icon-datetime" style="color:#8284a4;"></i>
+            </div>
+            <div class="item-inner"> 
+						<!-- service_mode -->
+              <div class="item-title">{{order.reserve_time}}</div>
+            </div>
+          </div>
+			</a>
+		</li>
+		
+		<li>
+			<a href="javascript:;" >
+				<div class="item-content">
+            <div class="item-media">
+            	<i class="icon iconfont icon-location" style="color:#f7ad58;"></i>
+            </div>
+            <div class="item-inner" style="padding-right: 15px;"> 
+              <div class="item-title" style="white-space: normal;">{{order.address}}</div>
+            </div>
+          </div>
+			</a>
+		</li>
+	</ul>
+</section>
+
+<section class="section sec-artisan list-block">
+	<div class="flex-item item-arstisan">
+		<a href="../artisan/index.html?artisan={{order.artisan_id}}" class="artisan-header">
+		<!--artisan_avatar -->
+			<img src="{{getImgAbsolutePath order.artisan_avatar}}">
+			{{order.artisan_name}}
+		</a>
+	 
+	</div>	
+	<div class="" style="padding-left:15px;">
+			<a href="../product/index.html?product_id={{order.product_id}}" class="flex-item  no-padding-left item-icon-right">
+				<div class="product clear-float">
+					<img class="product-img fl" src="{{getImgAbsolutePath order.product_pic}}">
+					<div class="fl">
+							<div class="product-info" style="margin-auto;">
+									<div class="name"> {{order.product_name}}</div>
+									<div class="price" name="product_price">￥{{formatPrice order.product_price}}</div>
+							</div>
+					</div>
+				</div>
+				
+				<!--
+				<i class="icon iconfont icon-forward"></i>
+				-->
+			</a>
+			
+			<ul class="hairline-remove hairline-remove-top">
+			<!-- 
+				<li>
+					<a href="javascript:;">
+						<div class="item-content no-padding-left">
+		            <div class="item-media">
+		            	<i class="icon iconfont icon-coupons"></i>
+		            </div>
+		            <div class="item-inner"> 
+		              <div class="item-title">河狸家周年庆每单减50元</div>
+		            </div>
+		          </div>
+					</a>
+				</li>
+			 -->
+			 <!-- 优惠券 -->
+			 {{^if order.order_id}}
+				<li>
+					<a href="javascript:;" class="item-link" action="showCouponModal">
+						<div class="item-content no-padding-left">
+		            <div class="item-media">
+		            	<i class="icon iconfont icon-coupons"></i>
+		            </div>
+		            <div class="item-inner item-icon-right"> 
+		              <div class="item-title coupon-name" style="white-space: normal;"></div>
+		              <div class="coupon-price"></div>
+		              <i class="icon iconfont icon-forward"></i>
+		            </div>
+		          </div>
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+			
+	</div>
+	
+	<div class="flex-item hairline-top">
+		<span>实付金额</span>
+		<span class="price" name="real_pay" style="font-weight: bold;">
+		￥{{#if order.extra_fee_price>0}}{{formatPrice order.extra_fee_price}}{{else}}{{formatPrice order.should_pay_price}}{{/if}}
+		</span>
+	</div>
+</section>
+
+{{^if order.order_id}}
+<section class="section">
+	<div class="item item-toggle hairline-remove" style="font-size:12px;">
+	 <div class="item-title">河狸家赠送意外险，保障人身及财产安全</div> 
+	 <label class="toggle toggle-love">
+	   <input type="checkbox" value="on" name="insurance_handle">
+	   <div class="track">
+		 <div class="handle"></div>
+	   </div>
+	 </label>
+  </div>
+  
+  <div name="form_insurance" class="form-insurance hairline-top hairline-bottom" >
+  	<label class=" item-input">
+	    <span class="input-label">投保人:</span>
+	    <input type="text" name="insured_name">
+	  </label>
+	  
+	  <label class=" item-input">
+	    <span class="input-label">身份证:</span>
+	    <input type="text" name="insured_identity">
+	  </label>
+	  
+	  <p style="font-size:12px;">
+	  	本保险保费由河狸家承担，无需消费者额外支付。选择即为默认同意<a href="http://www.helijia.com/active/safe/index.html" class="color-love">《投保须知》&《保险同款》</a>
+	  </p>
+  </div>
+</section>
+{{/if}}
+
+<section class="section">
+	<div class="item">	
+		支付方式
+	</div>
+	<div class="pay-list">
+	{{#each pay_way_list}}
+		<label class="item item-radio" data-index="">
+			<div class="item-content">
+				<span class="pay-logo {{logoCls}}"></span>
+				 {{title}}
+			</div>
+			<input type="radio" {{#if isDefault}}checked{{/if}} name="pay_way" value="{{value}}"/>
+			<div class="round-radio"></div>
+		</label>
+	{{/each}}
+	 
+	 
+		
+		
+	</div>
+</section>
+
+<section class="section" style="padding: 10 15px;">
+	<button action="submit-order" class="button button-full button-love">去支付</button>
+</section>

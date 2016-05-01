@@ -1,0 +1,65 @@
+<html>
+  <head>
+ 	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 
+	<meta http-equiv="pragma" content="no-cache"> 
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate"> 
+	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"> 
+	<meta http-equiv="expires" content="0"> 
+   -->
+    <title></title>
+    <link href="../resources/style/showList.css" rel="stylesheet">
+   <!--   <script src="../../lib/kissy/build/seed-min.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&amp;ak=KsGMXCk1t4D3nljli0WY23j6"></script>
+    <script src="//g.alicdn.com/??kissy/k/1.4.14/seed-min.js"  data-config="{combine:true}" type="text/javascript"></script>
+    <script src="../ufo/src/UFO.js" type="text/javascript"></script>
+	<script src="../config.js" type="text/javascript"></script>
+  </head>
+
+   <body style="background-color: #ebebeb;">
+	 
+  </body>
+</html>
+<script>
+ 
+ //file:///D:/workspace/helijia/web/mobile/src/APP/list/view/ShowListAppoint.html?longitude=116339928&latitude=40084456&user_id=25aa15ef06a44695ab4880bfeb511db7&reserve_time=2015-07-28%2016%3A30&filter_category=tag_mei_rong&token=hwBV0RzK3ZgK1FBpWzpY&city=110100
+
+ KISSY.use('APP/list/mods/ShowList, APP/app', function(S, ShowList, app){
+	var params = S.unparam(decodeURIComponent(location.search.slice(1)));
+	params.page_size = 20;
+	
+	var showList = new ShowList({
+		hasFooter: false,
+		productTypeName: 'filter_category',
+		artisanTypeName: 'filter_category',
+		productHref: '../list/homeorderdetails.html'
+	});
+	showList.setCity( app.getCity( params.city));
+	var block = {
+		search_types1:[{
+			value: params.filter_category,
+			img_type: params.filter_category
+		}],
+		search_types2:[{
+			value: params.filter_category,
+			img_type: params.filter_category
+		}],
+		url1: '/v2/reserve_products?',
+		url2: '/v2/reserve_artisans?',
+	};
+	showList.block = block;
+	showList.set('params', params);
+ 	showList.productList.setQueryUrl(block.url1);
+ 	showList.artisanList.setQueryUrl(block.url2);
+ 	
+ 	showList.setActiveHeaderTab(0);
+ 	showList.render(S.one(document.body))
+	 
+	
+}); 
+</script>
+ 
+

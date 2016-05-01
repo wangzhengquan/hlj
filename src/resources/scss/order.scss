@@ -1,0 +1,281 @@
+@charset "UTF-8";
+
+@import 
+  "global",
+	"share",
+	"../../lib/ufo/resources/scss/popup",
+	"../../lib/ufo/resources/scss/toggle",
+	"../../lib/ufo/resources/scss/radio";
+	
+html ,body{
+	color: #333;
+}
+
+/*order-detail*/
+.order-detail{
+	.flex-item{
+		padding-right: 15px;
+	}
+	.item-arstisan{
+		height:62px;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right:0;
+	}
+	.iconfont{
+		font-size: 18px;
+	}
+}
+
+.list-block {
+	ul {
+		&.dashed-color-border{
+		  padding-top:3px;
+			&:before{
+			  height: 3px;
+				background: url(../images/border_dashed_color.png) repeat-x;
+	    	background-size: 47.5px 3px;
+	    	border-bottom:0;
+			}
+		}
+	}
+}
+.section{
+	background-color:#fff;
+	margin-top:15px;
+}
+.contact-block {
+	 
+}
+.button-contact{
+	height:100%;
+	display: block;
+	border:1px solid $item-light-border;
+	border-width:0 1px;
+	padding: 10px 22px 10px;
+	.icon{
+		display: block;
+		font-size:20px;
+		margin-bottom:5px;
+		
+	}
+	.contact-label{
+		display: block;
+		color:#9b9b9b;
+		font-size:12px;
+	}
+	+ .button-contact{
+		border-left-width:0;
+	}
+  /* @include display-flex();
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include flex-direction(column); */
+}
+.item-order-status{
+	 border-bottom: 1px dashed $item-light-border;
+}
+
+.artisan-header-item{
+
+}
+.artisan-header {
+	position: relative;
+	padding-right: 15px;
+	@include fit(1);
+	&:after {
+	    position: absolute;
+	    top: -15px;
+	    right: 0px;
+	    bottom: -15px;
+	    left: 0px;
+	    content: ' ';
+	}
+	img{
+		width:30px;
+		height:30px;
+		display:inline-block;
+		border-radius:100%;
+		-border:1px solid gray;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+	.icon{
+		position: absolute;
+		top:50%;
+		right:15px;
+		@include translate3d(0, -50%, 0);
+	}
+}
+
+.product {
+	.product-img{
+		width:50px;
+		height:50px;
+		display:inline-block;
+		border-radius:3px;
+		margin-right: 10px;
+		vertical-align: top;
+	}
+}
+
+.product-info{
+	.name{
+		margin:5px 0 5px 0;
+		font-size:14px;
+	}
+	.price{
+		color:#f97fac;
+		font-weight:bold;
+		
+	}
+}
+.on2many-label{
+	position: absolute;
+	top:0; 
+	right:0;
+	color: #fff;
+	width: 70px;
+	 
+}
+.operate-buttons {
+	.button {
+		min-height: 40px;
+		background-color: #fff;
+		border-color: #9b9b9b;
+		color: #9b9b9b;
+		border-radius: 3px;
+		padding: 0 5px;
+		+ .button{
+			margin-left: 15px;
+		}
+	}
+}
+.sec-customer{
+    .nick-name{
+    	margin-right: 20px;
+    }
+}
+.sec-artisan{
+	@include hairline(top);
+}
+.sec-insurance{
+	padding:15px;
+	line-height:1.5;
+	color:#aaa;
+	font-size: 13px;
+	a{
+		color: #333;
+    text-decoration: underline;
+	}
+	 
+}
+
+.price{
+	color:#f97fac;
+}
+
+.color-light{
+	color: #9b9b9b;
+}
+
+.has-corner{
+	position: relative;
+	.corner{
+		display:block;
+		position:absolute;
+		width:9px;
+		height:9px;
+		z-index:10;
+	}
+	.corner-left-top{
+		left:0;
+		bottom:0;
+		background: url(../images/border-corner.png) no-repeat center;
+		background-size: 9px 9px;
+		@include rotate(90deg);
+	}
+	.corner-right-top{
+		right:0;
+		bottom:0;
+		background: url(../images/border-corner.png) no-repeat center;
+		background-size: 9px 9px;
+	}
+	.corner-right-bottom{
+		right:0;
+		bottom:-9px;
+		background: url(../images/border-corner.png) no-repeat center;
+		background-size: 9px 9px;
+		@include rotate(-90deg);
+	}
+	.corner-left-bottom{
+		left:0;
+		bottom:-9px;
+		background: url(../images/border-corner.png) no-repeat center;
+		background-size: 9px 9px;
+		@include rotate(180deg);
+	}
+}
+
+
+/*order-confirm*/
+.form-insurance{
+	padding:15px;
+	@include transition-duration(300ms);
+	.item-input {
+		font-size: 14px;
+		background: #eee;
+		margin-bottom: 10px;
+		padding: 0 10px;
+		.input-label{
+			width: auto;
+			font-size: 14px;
+		}
+	}
+}
+
+.pay-list{
+	padding-left:15px;
+
+	.item, .item-content{
+		padding-left:0;
+	}
+	.pay-logo{
+		display: inline-block;
+		width: 35px;
+    height: 23px;
+		vertical-align: top;
+		margin-right: 10px;
+		img{
+			width:100%;
+		}
+	}
+	.mywallet-logo{
+		background: url(../images/pay.png)  no-repeat 0 0;
+	}
+	.alipay-logo{
+		background: url(../images/pay.png)  no-repeat -36px 0;
+	}
+	.wechatpay-logo{
+		background: url(../images/pay.png)  no-repeat -74px 0;
+	}
+	.baidupay-logo{
+		background: url(../images/pay.png)  no-repeat -112px 0;
+	}
+	.unionpay-logo{
+		background: url(../images/pay.png)  no-repeat -150px 0;
+	}
+}
+
+.icon-forward{
+	color:#d6dadd;
+}
+
+.coupon-name, .coupon-price{
+	color: $love;
+}
+
+
+
+
+

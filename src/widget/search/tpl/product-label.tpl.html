@@ -1,0 +1,11 @@
+{{#each this}}
+	{{#if xindex%3===0}}
+		  {{#if xindex>0}}
+            </tr>
+          {{/if}}
+         {{^if xindex===xcount-1}}
+		   <tr>
+         {{/if}}
+    {{/if}}
+  	<td align="center"><a data-value="{{id}}" data-label="{{tag}}" class="product-label">{{tag}}</a></td>
+{{/each}}

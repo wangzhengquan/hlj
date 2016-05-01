@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+@import 
+  "global",
+	"share",
+	"../../lib/ufo/resources/scss/toggle",
+	"../../lib/ufo/resources/scss/popup",
+	"./checkbox",
+	"../../lib/ufo/resources/scss/radio";
+.flex-item, .item{
+	font-size: 14px;
+	padding-top: 15px;
+	padding-bottom:15px;
+	color:#333333;
+}
+.item-radio{
+	padding:0;
+}
+.section{
+	background-color:#fff;
+	margin-top:15px;
+}
+.section-amount{
+	@include hairline(top);
+	@include hairline(bottom);
+	
+	padding-top:15px;
+	padding-bottom:15px;
+	
+	.flex-item{
+		border-width: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right:15px;
+		min-height: 25px;
+		+ .flex-item{
+			-padding-top:5px;
+		}
+	}
+}
+
+.section-reason{
+	padding-left: 15px;	
+	@include hairline(top);
+	@include hairline(bottom);
+	.title{
+		font-size:14px;
+		display:block;
+		padding:15px 0;
+		color:#9b9b9b;
+		margin-bottom: 0;
+	}
+	.item{
+		padding-left:0;
+		padding-top: 20px;
+  		padding-bottom: 20px;
+		&:first-child{
+		 	
+		}
+		&:last-child{
+			 @include hairline-remove(bottom);
+		}
+	}
+	.item-content{
+		padding-left:0;
+		padding-top: 20px;
+  		padding-bottom: 20px;
+	}
+}
+
+.section-reason-input{
+	
+	margin-top: 0;
+	padding: 15px 0 0;
+	
+	.title{
+		margin-bottom:15px;
+		font-size:14px;
+		color:#9b9b9b;
+	}
+	.textarea-wrapper{
+		width:100%;
+		padding: 0 15px;
+		position: relative;
+		.max-input-tip{
+			float: right;
+			font-size:10px;
+			color:#9b9b9b;
+			padding: 3px 0 4px;
+			.hightlight{
+				color: $love;
+			}
+		}
+	}
+	textarea{
+		width:100%;
+		height: 100px;
+	    padding:5px;
+		background-color:#f9f9f9;
+		@include placeholder(#b5abc, 1,  14px);
+	}
+}
+
+.button-commit{
+	color:#fff;
+	background-color: #f97fa4;
+	border-color:#f97fa4;
+	margin:0;
+	border-radius: 3px;
+	&[disabled]{
+		background-color:#c0b7ba;
+		border-color:#c0b7ba;
+		opacity:1;
+		margin:0px;
+	}
+}
+
+/*退款规则*/
+ul.rule-list{
+	list-style-type: decimal;
+	background-color: #fff;
+	padding-left: inherit;
+	li{
+	  line-height:1.2;
+		margin-bottom:15px;
+		&:last-child{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+ul.calc-rule-list{
+	padding-left: inherit;
+	list-style-type: disc;
+	li{
+		margin-bottom: 15px;
+		
+	}
+}
+
+.calc-rule-title{
+		font-size:14px;
+		font-weight: bold;
+		margin-bottom: 20px;
+}
+ 
+.color-light{
+	color:#9b9b9b;
+}
+
+/*退款成功*/
+.order-cancel-suc-content{
+	width:100%;
+	padding:  60px 40px 0;
+	text-align:center;
+	.flag-suc{
+		margin-bottom:30px;
+	}
+	.title{
+		font-size: 17px;
+		color: #333;
+		font-weight: bold;
+		margin-top:0;
+		margin-bottom: 10px;
+	}
+	.button-back{
+		border-color:$love;
+		border-radius: 3px;
+	}
+}
+
+.flag-suc{
+  display: table;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  margin: auto;
+}
+
+
+
+
+
+
+

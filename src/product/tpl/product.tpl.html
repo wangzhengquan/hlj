@@ -1,0 +1,275 @@
+<div class="main product-detail has-fix-footer-button background">
+	<header class="bar-love header bar">
+		<a href="javascript:history.go(-1);" class="button button-clear button-back">
+			<i class="icon iconfont icon-back"></i>
+		</a>
+		<h1 class="title">{{product_name}}</h1>
+		<div class="buttons buttons-right">	
+		</div>
+	</header>
+	<div class="content has-header">	
+		<section class="section section-product">
+			<div id="product_pic_slides" class="product_pic_slides slides">
+					{{#if promotion_pic}}
+						<img class="label-promotion" src="{{getImgAbsolutePath promotion_pic}}">
+					{{/if}}
+			<!--Slide控件开始-->
+					<div class="slides_container tab-content clearfix">
+					{{#each pics}}
+						<div class="tab-pannel">
+						  <textarea class="data-lazyload">
+ 								<a href="javascript:;" class="product-img-wrapper">
+								<img  src="{{getImgAbsolutePath this}}">
+							</a>
+           	  </textarea>
+						</div>
+					{{/each}}
+					</div>
+					{{#if pics.length>1}}
+					<ul class="tab-nav pagination">
+						{{#each pics}}
+						<li class="pagination-bullet">
+							<a href="javascript:void(0);"></a>
+						</li>
+						{{/each}}
+					</ul>
+					{{/if}}
+			 </div>
+			<div class="title">
+				<b>{{product_name}}</b>
+				{{#if service_mode}}
+				<span class="label-one2-many">已报:{{product_ext_info_multiple.apply_nums}}</span>
+				{{else}}
+				<span class="sold-amount">{{sold_amount}}人做过</span>
+				{{/if}}
+				<p> 
+				￥{{formatPrice price}}{{#if customer_visit_price!==price}}~{{formatPrice customer_visit_price}}{{/if}}
+				</p>
+				<del>市场价：{{formatPrice market_price}}元</del>
+			</div>
+			<!-- 一对多不显示在这里 -->
+			{{^if service_mode}}
+			<div class="desc">
+				{{#if service_sex}}
+				<span class="spec-desc">仅支持为女宾提供预约服务</span>
+				{{/if}}
+				<p>	
+				{{desc}}
+				</p>
+				{{#if work_time}}
+				<div class="label-metrics" style="margin-right: 10px;"><span class="name">耗时</span><span class="value">{{work_time}}</span></div>
+				{{/if}}
+				{{#if keep_time}}{{^if keep_time==="0天"}}
+				<div class="label-metrics label-metrics-orange"><span class="name">保持</span><span class="value">{{keep_time}}</span></div>
+				{{/if}}{{/if}}
+			</div>
+			{{/if}}
+			<!--  
+			<ul class="opera">
+				<li class="h_shoucang">
+				<i class="icon iconfont icon-star" style="color:#d2ad55"></i>收藏</li>
+				<img src="../resources/images/shu.jpg">
+				<a href="javascript:;"><li class="h_lianxi"><i class="icon iconfont icon-smile" style="color:#d45987"></i>联系ta</li></a>
+			</ul>
+			-->
+		</section>
+		
+		<!-- 一对多 服务时间地址 -->
+		{{#if service_mode}}
+		<section class="section list-block">
+			<ul class="">
+				<li>
+					<a href="javascript:;">
+						<div class="item-content">
+		            <div class="item-media">
+		            	<i class="icon iconfont icon-datetime" style="color:#8284a4;"></i>
+		            </div>
+		            <div class="item-inner"> 
+								<!-- service_mode -->
+		              <div class="item-title">{{product_ext_info_multiple.service_time}}</div>
+		            </div>
+		          </div>
+					</a>
+				</li>
+				
+				<li>
+					<a href="javascript:;" >
+						<div class="item-content">
+		            <div class="item-media">
+		            	<i class="icon iconfont icon-location" style="color:#f7ad58;"></i>
+		            </div>
+		            <div class="item-inner" style="padding-right: 15px;"> 
+		              <div class="item-title" style="white-space: normal;">{{product_ext_info_multiple.address}}</div>
+		            </div>
+		          </div>
+					</a>
+				</li>
+			</ul>
+		</section>
+		{{/if}}
+	
+		<!--服务内容-->
+		{{#if processes&&processes.length}}
+		<section class="section section-service-items">
+			<div class="item hairline-remove">服务内容（{{processes.length}}个步骤）</div>
+			<div id="service_items_slides" class="service-items-slides"><!--Slide控件开始-->
+				<div class="slides_container tab-content">
+				{{#each processes}}
+					<div class="tab-pannel">
+						 {{#if xcount>1}}
+						 <textarea class="data-lazyload">
+						 {{/if}}
+							<a href="javascript:;">
+								<img src="{{getImgAbsolutePath pic_url}}">
+								<span class="label-step">{{process_seq}}</span>
+								<div class="footer-wrapper">
+			        	   <h3>{{process_name}}<span>({{process_time}})</span></h3>
+			        	   <p>{{process_desc}}</p>
+		        	   </div>
+							</a>
+						{{#if xcount>1}}
+						</textarea>
+						{{/if}}
+					</div>
+				{{/each}}
+				</div>
+		  </div>
+		</section>
+		{{/if}}
+	
+		<!-- 项目产品 -->
+		 {{#if materials&&materials.length}}
+		 <section class="section section-material">
+		 	 <div class="item hairline-remove">项目产品</div>
+			 <div id="material_slides" class="material-slides"><!--Slide控件开始-->
+					<div class="slides_container tab-content">
+					{{#each materials}}
+						<div class="tab-pannel">
+						 {{#if xcount>1}}
+						 <textarea class="data-lazyload">
+						 {{/if}}
+							<a href="#" class="item item-thumbnail-left">                                                         
+							  <img src="{{getImgAbsolutePath pic_url}}">
+							  <h3>{{material_name}}</h3>
+							  <div class="desc">{{material_desc}}</div>
+							  <div class="brand">品牌：{{brand_name}}</div>
+							  <div class="origin">产地：{{product_area}}</div>
+							</a>
+						 {{#if xcount>1}}
+						 </textarea>
+						 {{/if}}
+						</div>
+					{{/each}}
+					</div>
+			 </div>
+		 </section>
+		 {{/if}}
+		 
+		
+		 <!-- 项目说明  -->
+		 <!-- 一对多 -->
+		 {{#if service_mode}}
+		 		<section class="section section-instruction">
+		 			<div class="item no-padding-left">项目说明</div>
+		 			<div class="item-class item-enroll">报名截止：{{product_ext_info_multiple.apply_end_time}}</div>
+		 			<div class="item-class item-enroll">最低开班：{{product_ext_info_multiple.lower_nums}}（限{{product_ext_info_multiple.limit_nums}}人）</div>
+		 			<p class="item-class item-desc">
+		 			{{desc}}
+		 			</p>
+		 		</section>
+		 {{else}}
+			 {{#if fit_people||matter_attent}}
+			 <section class="section section-instruction">
+			 	<div class="item no-padding-left">项目说明</div>
+			 	{{#if fit_people}}
+			 	<div class="label-left-field">
+					<label class="label">适用人群：</label>
+					<div class="field">{{fit_people}}</div>
+				</div>
+				{{/if}}
+				
+				{{#if matter_attent}}
+				<div class="label-left-field">
+					<label class="label">注意事项：</label>
+					<div class="field">{{matter_attent}}</div>
+				</div>
+				{{/if}}
+			 </section>
+			 {{/if}}
+		 {{/if}}
+		
+	  <!-- 预约时间 -->
+	  {{^if service_mode}}
+		<section class="section">
+			<a name="service_time" class="item item-icon-left item-icon-right" href="javascript:;" action="showServiceTimeModal">
+				<i class="icon iconfont icon-datetime" style="color:#75c4af;"></i>
+				<span class="item-content">查看预约时间</span>
+				<i class="icon iconfont icon-forward"></i>
+			</a>
+		</section>
+		{{/if}}
+		
+		
+		<textarea class="lazyload" name="section-artisan">
+		<section class="section section-artisan">
+			<a href="../artisan/index.html?artisan_id={{artisan.artisan_id}}" class="item item-thumbnail-left item-header item-icon-right">
+				<span class="item-image"  style="left:0;" href="javascript:;">
+					<img class="header-img" src="{{getImgAbsolutePath artisan.avatar}}"> 
+				</span>
+				<div class="item-detail">
+					<h3 class="name">{{artisan.name}}</h3>
+					<span class="star-info">
+					{{#if artisan.artisan_level}}
+					<img src="../resources/images/star/{{artisan.artisan_level*0.5}}.gif" style="width:{{calStarWidth artisan.artisan_level}}px;"> 
+					{{/if}}
+					{{#if artisan.artisan_glory}}<img src="../resources/images/star/glory.jpg" style="width: 20px; margin-top:3px; margin-left:-7px;" >{{/if}}
+					({{artisan.artisan_level_value}})
+					</span>
+					<div class="flex row-center detail">
+						<span class="price">均价:￥{{formatPrice artisan.ave_price}}</span>
+						<span class="time">接单数:{{formatPrice artisan.service_times}}</span>
+					</div>
+				</div>
+				<i class="icon iconfont icon-forward"></i>
+			</a>
+			
+			<ul class="item item-score flex row-divid-line-col no-padding-left" style="padding-top:10px; padding-bottom:10px;">
+				<li class="col">专业：<i class="i1">{{fixedDigits artisan.score_skill 2}}</i></li>
+				<li class="col">沟通：<i class="i2">{{fixedDigits artisan.score_communication 2}}</i></li>
+				<li class="col">守时：<i class="i3">{{fixedDigits artisan.score_punctuality 2}}</i></li>
+			</ul>
+			
+			<div class="item item-district">
+				<div class="item item-icon-left hairline-remove no-padding-left" style="border-width:0;padding-bottom:5px;">
+					<i class="icon iconfont icon-position" style="top:3px;"></i> 服务商圈
+				</div>
+				<div class="detail">
+					<p class="word-wrap">	{{join artisan.service_range}}</p>
+		      <div  class="switches">
+						<a href="javascript:;" class="switch switch-expand">  全部范围<i class="icon iconfont icon-expand"></i></a>
+						<a href="javascript:;" class="switch switch-collapse">点击收起<i class="icon iconfont icon-collapse"></i></a>
+					</div>
+				</div>
+			</div>
+			
+			<a href="../comment/index.html?artisan_id={{artisan.artisan_id}}&total={{artisan.reviews}}&excited={{artisan.excited}}&good={{artisan.good}}&normal={{artisan.normal}}&bad={{artisan.bad}}" class="item no-padding-left item-icon-left item-icon-right" >
+					<i class="icon iconfont icon-comment" ></i>
+					<div>顾客评价<span>({{artisan.reviews}})</span></div>
+					<i class="icon iconfont icon-forward"></i>
+			</a>
+		</section>
+		
+		<section class="section">
+			<a href="../other/service_illustration.html" class="item item-icon-right" >
+				平台服务说明
+				<i class="icon iconfont icon-forward"></i>
+			</a>
+		</section>
+		</textarea>
+		<section class="section section-foot" style="margin-bottom:0;">
+			<button class="button button-full button-love" action="buy_confirm">购买</button>
+		</section>  	 
+	 
+	
+	</div>
+</div>

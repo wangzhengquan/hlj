@@ -1,0 +1,97 @@
+@import 
+"global", "share", "../../lib/ufo/resources/scss/slide-box";
+
+@media screen and (max-width:750px) {
+  body {
+    font-size: 100%;
+  }
+}
+@media screen and (max-width:480px) {
+  body {
+    font-size: 64%;
+  }
+}
+.main{background:#f0f0f0}
+.shop-page {
+  color: #333333;
+  h3 {
+    font-size: 1.125rem;
+    margin: 0;
+    line-height: 2.8rem;
+    color:#333333
+  }
+  .intro-tip {
+    color: #9b9b9b;
+    font-size: 0.875rem;
+  }
+  .shop-intro {
+    padding: 0 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: #ffffff;
+    border-top: 1px solid #dce0e2;
+    border-bottom: 1px solid #dce0e2;
+    line-height: 1.4;
+    font-size: 0.875rem;
+    .intro-cont{
+      overflow:hidden;
+      font-size:14px;
+      line-height: 20px;
+    }
+    .view-more {
+      float: right;
+      font-size: 0.6875rem;
+      color: #9b9b9b;
+      i {
+        margin-left: 4px;
+        font-size: 12px;
+      }
+      font-size: 12px;
+      line-height: 18px;
+      margin-bottom: 10px;
+    }
+    .detail-location p {
+      border-bottom: 1px solid #dde0e3;
+    }
+    .detail {
+      display: table;
+      width: 100%;
+      .detail-icon {
+        margin: auto;
+        vertical-align: middle;
+        display: table-cell;
+
+        i {
+          margin-right: 1rem;
+        }
+      }
+      .detail-text {
+        width: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+        line-height: 1.4;
+        padding: 1rem 0;
+      }
+      .detail-phone i{float:right;}
+    }
+  }
+}
+.slider-pagination-bullet{
+  background:#fff;
+}
+.slider-pagination-bullet.active{
+  background: #c55468;
+}
+.slider-horizontal .slider-pagination{
+  left: 0;
+  right: 0;
+  padding: 10px;
+  bottom: 0;
+  overflow: hidden;
+  margin: auto;
+}
+#imgArr .slider-img-zoom-container>img{
+    max-height: 100%;
+    max-width: none;
+}

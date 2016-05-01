@@ -1,0 +1,15 @@
+table.product-label-list {
+  width: 100%;
+  border-spacing: 5px;
+  border-collapse: separate;
+}
+
+.product-label {
+  border: 1px solid #c6929f;
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  width: 100%;
+  border-radius: 3px;
+  color: #c07d8f;
+}

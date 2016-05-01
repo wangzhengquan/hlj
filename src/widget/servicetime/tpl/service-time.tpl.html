@@ -1,0 +1,34 @@
+<div class="main service-time">
+	<header class="bar-love header bar">
+		<button class="button button-clear button-back">
+			<i class="icon iconfont icon-close"></i>
+		</button>
+		<h1 class="title">预约你的服务时间</h1>
+		<div class="buttons buttons-right">	
+			<button class="button button-clear button-ok">
+				 确定
+			</button>
+		</div>
+	</header>
+	<div class="content has-header">
+	<!-- service-time-wrapper start -->
+		<div class="service-time-wrapper">
+			<div class="bar-day">
+				<ul class="bar-day-inner clearfix">
+				</ul>
+				<span class="bar-corner"></span>
+			</div>
+			<!-- bar-day end -->
+			<div class="time-wrapper">
+			</div>
+		</div>
+		<!-- service-time-wrapper end -->
+	</div>
+	
+	<footer class="item item-divider item-footer" style="text-align: center;">滑动顶部日历条，查看30天可预约时间。</footer>
+	{{#if isFirstTime}}
+	<div class="pic-time-guid">
+		 <img class="pic-time-hand" src="../resources/images/pic_time_hand.png">
+	</div>
+	{{/if}}
+</div>

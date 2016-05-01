@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+@import 
+  "global";
+  
+body{
+	 -background-color: #f0f0f0;
+	 color:#333333;
+}
+
+.top{
+	text-align:center;
+	padding:25px 0 20px;
+	background-color: #fff;
+}
+
+.logo{
+	width:70px;
+	border-radius:14px;
+	
+}
+
+.version-label{
+    font-size:12px;
+    color:#9b9b9b;
+
+}
+.version-label1{
+    margin-top:10px;
+    font-size:19px;
+    color:#333333; 
+    font-weight: bold;
+}
+.content{
+	background-color:#fff;
+	padding: 25px 25px 40px;
+	@include hairline(top, 15px);
+	p{
+		margin-bottom: 20px;
+    text-align: justify;
+    text-indent: 2em;
+    font-size:14px;
+    line-height:1.4;
+    color:#333;
+	}
+}
+.bottom{
+	text-align:center;
+	padding: 20px;
+	font-size:10px;
+	color:#9b9b9b;
+	background-color: #fff;
+}
+

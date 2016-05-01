@@ -1,0 +1,107 @@
+<form name="comment-form">
+<section class="sec-comment-level">
+	<ul class="row">
+		<li class="col">
+			<label class="item-radio">
+				<input type="radio" name="star" value="bad" {{#if evaluate==="data.bad"}}checked{{/if}}>
+				<div class="button-comment-level">
+					<div class="">
+							<i class="icon icon-comment-level-1" ></i>
+						<span class="level-title">不满意</span>
+					</div>
+				</div>
+			</label>
+		</li>
+		<li class="col">
+			<label class="item-radio">
+				<input type="radio" name="star" value="normal" {{#if data.evaluate==="normal"}}checked{{/if}}>
+				<div class="button-comment-level">
+					<div class="">
+							<i class="icon icon-comment-level-2"></i>
+						<span class="level-title">基本满意</span>
+					</div>
+				</div>
+			</label>
+		</li>
+		<li class="col">
+			<label class="item-radio">
+				<input type="radio" name="star" value="good" {{#if  data.evaluate==="good"}}checked{{/if}}>
+				<div class="button-comment-level">
+					<div class="">
+							<i class="icon icon-comment-level-3"></i>
+						<span class="level-title">很满意</span>
+					</div>
+				</div>
+			</label>
+		</li>
+		<li class="col">
+			<label class="item-radio">
+				<input type="radio" name="star" value="excited" {{#if  data.evaluate==="excited"}}checked{{/if}}>
+				<div class="button-comment-level">
+					<div class="">
+							<i class="icon icon-comment-level-4"></i>
+						<span class="level-title">超出期待</span>
+					</div>
+				</div>
+			</label>
+		</li>
+	</ul>
+</section>
+
+<section class="sec-content">
+	<textarea name="contents" class="comment-content">{{data.contents}}</textarea>
+	<div class="comment-pic">
+		<i class="icon icon-camera"></i>
+		<ul class="add-pic-wrapper">
+			{{#each data.photos}}
+			<li class="button-add-pic">
+				<div class="pic">{{#if this}}<img src="{{getImgAbsolutePath this}}"> {{else}} <i>+</i> {{/if}}</div>
+				<input type="file" {{#if this}}value="{{getImgAbsolutePath this}}"{{/if}}>
+			</li>
+			{{/each}}
+		 
+		</ul>
+	</div>
+</section>
+
+<section class="sec-star">
+	<div class="flex-item no-padding-left">
+	 <span>专业</span>
+	 <div class="star-wrapper">
+		{{#each stars}}
+	 		<a class="button-star{{#if xindex<../data.score_skill}} active{{/if}}">
+		 		<i class="icon icon-star"></i>
+		 		<i class="icon icon-star-solid"></i>
+		 	</a>
+	 	{{/each}}
+	 </div>
+	 <textfield class="score" name="score_skill" data-type="number" data-value="{{data.score_skill}}">{{data.score_skill}}</textfield>
+	</div>
+	
+	<div class="flex-item no-padding-left">
+	 <span>沟通</span>
+	 <div class="star-wrapper">
+	 	{{#each stars}}
+	 		<a class="button-star{{#if xindex<../data.score_communication}} active{{/if}}">
+		 		<i class="icon icon-star"></i>
+		 		<i class="icon icon-star-solid"></i>
+		 	</a>
+	 	{{/each}}
+	 </div>
+	 <textfield class="score" name="score_communication" data-type="number" data-value="{{data.score_communication}}">{{data.score_communication}}</textfield>
+	</div>
+	
+	<div class="flex-item no-padding-left">
+	 <span>守时</span>
+	 <div class="star-wrapper">
+	 	{{#each stars}}
+	 		<a class="button-star{{#if xindex<../data.score_punctuality}} active{{/if}}">
+		 		<i class="icon icon-star"></i>
+		 		<i class="icon icon-star-solid"></i>
+		 	</a>
+	 	{{/each}}
+	 </div>
+	 <textfield class="score" name="score_punctuality" data-type="number" data-value="{{data.score_punctuality}}">{{data.score_punctuality}}</textfield>
+	</div>
+</section>
+</form>

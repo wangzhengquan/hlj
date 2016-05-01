@@ -1,0 +1,79 @@
+{{#each data}}
+<ul class="h_order order-item" data-order_id="{{order_id}}" data-order_seq="{{order_seq}}">
+	<a href="../artisan/index.html?artisan_id={{artisan_id}}">
+		<li><p>手艺人：</p><p>{{artisan_name}}</p><b>></b><span class="h_orderspan">{{getOrderStatusName status}}</span></li>
+	</a>
+	<a href="../order/orderDetail.html?order_id={{order_id}}">
+		<li>
+			<dl>
+				<dt><img src="{{getImgAbsolutePath product_image}}"></dt>
+				<dd><p>项目：</p><p>{{product_name}}</p></dd>
+				<dd><p>价格：</p><p>￥{{product_price}}</p></dd>
+				<dd><p>预约时间：</p><p>{{reserve_time}}</p></dd>
+				<dd><p>服务地点：</p><p class="h_orderwid">{{address}}</p></dd>
+				{{#if service_mode}}
+				<img src="../resources/images/one2many-label.png" class="h_orderpo">
+				{{/if}}
+			</dl>
+		</li>
+	</a>
+	<li>
+		<span class="h_ordermax">￥{{should_pay_price}}</span><span>合计：</span>
+		<span  class="h_ordermax">￥{{extra_fee_price}}</span><span>附加费：</span>
+	</li>
+	<li class="order-toolbar">
+	{{#if status===../ORDER_STATUS.kOrderStatusNeedPay}}
+		<a href="../order/orderCancel.html?order_id={{order_id}}&order_no={{order_seq}}&status={{status}}&back_url={{encodeURIComponent '../home/index.html#order'}}" class="button">
+		取消订单
+		</a>
+		<a href="../order/orderConfirm.html?order_id={{order_id}}&order_no={{order_seq}}" action="goPay" class="button">
+		去支付
+		</a>
+	{{/if}}
+	<!-- 10订单已经支付  ; 40  已出发 ;50    已到达-->
+	{{#if status===../ORDER_STATUS.kOrderStatusIsPay||status===../ORDER_STATUS.kOrderStatusDoingTwo||status===../ORDER_STATUS.kOrderStatusDoingThree}}
+			<a href="../order/orderCancel.html?order_id={{order_id}}&order_no={{order_no}}&status={{status}}" action="cancel"  class="button">
+			取消订单
+			</a>
+	{{/if}}
+	<!-- 订单已取消   20 -->
+	{{#if status===../ORDER_STATUS.kOrderStatusIsCancel}}
+		<button action="delete" class="button">删除订单</button>
+		<a href="../product/index.html?product_id={{product_id}}" class="button">
+		再次预约
+		</a>
+		
+	{{/if}}
+	<!-- 进行中 -->
+	{{#if status===../ORDER_STATUS.kOrderStatusDoing}}
+	<a href="tel:4000088311" class="button">联系客服</a>
+	{{/if}}
+	
+	{{#if status===../ORDER_STATUS.kOrderStatusNeedSure}}
+		{{#if extra_fee_price>0}}
+		<a href="../order/orderConfirm.html?order_id={{order_id}}&order_no={{order_seq}}" action="payAdditionFei" class="button">
+		支付附加费
+		</a>
+		{{else}}
+		<button action="sureCompleted" class="button">确认完成</button>
+		{{/if}}
+	{{/if}}
+	<!-- 服务完成 -->
+	{{#if status===../ORDER_STATUS.kOrderStatusComplate}}
+		<button action="delete" class="button">删除订单</button>
+		<a href="../product/index.html?product_id={{product_id}}" class="button">再次预约</a>
+		{{#if can_comment}}
+			{{#if comment_id}}
+					<a href="../comment/addComment.html?artisan_id={{artisan_id}}&order_id={{order_id}}&order_number={{order_seq}}&comment_id={{comment_id}}" class="button">
+					追加评价
+					</a>
+			{{else}}
+					<a href="../comment/addComment.html?artisan_id={{artisan_id}}&order_id={{order_id}}&order_number={{order_seq}}" class="button">
+					去评价
+					</a>
+			{{/if}}
+		{{/if}}
+	{{/if}}
+	</li>
+</ul>
+{{/each}}

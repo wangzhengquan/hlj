@@ -1,0 +1,205 @@
+@charset "UTF-8"; 
+
+@import
+  // Variables
+  "../../lib/ufo/resources/scss/mixins",
+  "./variables",
+  "../../lib/ufo/resources/scss/scaffolding",
+  // Components
+  "../../lib/ufo/resources/scss/bar",
+  "../../lib/ufo/resources/scss/tabs",
+  "../../lib/ufo/resources/scss/loading",
+  "../../lib/ufo/resources/scss/items",
+  "../../lib/ufo/resources/scss/list",
+  "../../lib/ufo/resources/scss/spinner",
+  "../../lib/ufo/resources/scss/backdrop",
+  "../../lib/ufo/resources/scss/modal",
+  "../../lib/ufo/resources/scss/form",
+
+  // Buttons
+  "../../lib/ufo/resources/scss/button",
+  "../../lib/ufo/resources/scss/button-bar",
+
+  // Util
+  "../../lib/ufo/resources/scss/grid",
+  "../../lib/ufo/resources/scss/util",
+
+  // Animations
+  "../../lib/ufo/resources/scss/animations",
+  "../../lib/ufo/resources/scss/transitions";
+
+@media screen and (min-width:680px) {
+  body,html{width:680px;margin:0 auto;}
+} 
+
+.bar.bar-love {
+  background: url(../images/header_bg.jpg) no-repeat;
+  background-size: 100%;
+  border-color: #f784a7;
+  color: #fff;
+
+  .title {
+    color: #fff;
+  }
+  .iconfont{
+  	 color: #fff;
+  }
+  .button {
+	  border-color: #0c63ee;
+	  background-color: #387ef5;
+	  color: #fff;
+	
+	  &:hover {
+	    color: #fff;
+	    text-decoration: none;
+	  }
+	
+	  &.active {
+	    border-color: #0c63ee;
+	    background-color: #0c63ee;
+	    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+	  }
+	  &.button-clear {
+	    border-color: transparent;
+	    background: none;
+	    box-shadow: none;
+	    color: #fff;
+	    font-size: 17px;
+	  }
+	
+	  &.button-icon {
+	    border-color: transparent;
+	    background: none;
+	  }
+  }
+}
+.button.button-lightred {
+  border-color: #e9519f;
+  background-color: #f784a7;
+  color: #fff;
+}
+ 
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: 49px;
+  border-style: solid;
+  border-top-width: 1px;
+  background-size: 0;
+  background-color: #fff;
+}
+
+
+/* .app {
+ 	.bar {
+	  height: $bar-height + 20px;
+	  -padding-top:20px;
+	  .button {
+			 max-height:none;
+			 padding-top:20px;
+	  }
+	  .title {
+	    padding-top:20px;
+	  }
+	} 
+	
+	.has-header {
+	  padding-top: $bar-height + 20px;
+	} 
+} */
+ 
+body.app{ 
+	position: relative; 
+	padding-top: 20px;
+	&:before {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    content: "";
+    background: url(../images/header_bg.jpg) no-repeat;
+    background-size: 100%;
+    border-color: #f784a7;
+	}
+}
+ 
+.modal.app{
+	top:20px;
+}
+
+.flex-2 {
+ @include fit(2);
+}
+
+.flex-1 {
+ @include fit(1);
+}
+ 
+/**/
+/* .header {
+  top: 0;
+  position:fixed;
+} */
+
+.main{
+	overflow:hidden;
+	width:100%;
+	min-height:100%;
+	position: relative;
+}
+
+.background {
+  background-color: $background;
+}
+
+.color-love{
+	color: $love;
+}
+.color-dark{
+	color: $dark;
+}
+.background-love{
+	background-color: $love;
+	color: #fff;
+  border-color:$love;
+}
+
+.button-love {
+    color: #fff;
+    background-color: #f97fa4;
+    border-color: #f97fa4;
+    margin: 0;
+    border-radius: 3px;
+}
+
+.label-left-field{
+	@include display-flex();
+	padding: 15px 0;
+	&+.label-left-field{
+		padding-top:0;
+	}
+	
+	.label{
+		 color: #9b9b9b;
+	}
+	.field{
+		@include fit(1);
+		@include  transition-duration( 300ms);
+    line-height: 1.5;
+    white-space: normal;
+	}
+}
+ 
+
+
+
+
+
+
+
+
+

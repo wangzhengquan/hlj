@@ -1,0 +1,77 @@
+<div name="first-screen" class="list first-screen">
+	<section>
+		<div class="item item-thumbnail-left item-header">
+			<a class="item-image" data-url="{{#if large_avatar}}{{large_avatar}}{{else}}{{avatar}}{{/if}}" style="left:0;" href="javascript:;">
+			<img class="header-img" src="{{#if avatar}}{{getImgAbsolutePath avatar}}{{else}}../resources/images/default_user.png{{/if}}"> </a>
+			<div class="item-detail">
+				<h3 class="name">{{name}}</h3>
+				<a href="javascript:;" class="star-info">
+					{{#if artisan_level}}
+					<img src="../resources/images/star/{{artisan_level*0.5}}.gif" style="width:{{calWidth artisan_level}}px;"> 
+					{{/if}}
+					{{#if artisan_glory}}<img src="../resources/images/star/glory.jpg" style="width: 20px; margin-top:3px; margin-left:-7px;" >{{/if}}
+					({{artisan_level_value}})
+				</a>
+				<div class="flex row-center detail">
+					<span class="price">均价:￥{{ave_price}}</span>
+					<span class="time">接单数:{{service_times}}</span>
+				</div>
+			</div>
+		</div>
+	
+		<ul class="item item-score flex row-divid-line-col" style="padding-top:10px; padding-bottom:10px;">
+			<li class="col">专业：<i class="i1">{{fixedDigits score_skill}}</i></li>
+			<li class="col">沟通：<i class="i2">{{fixedDigits score_communication}}</i></li>
+			<li class="col">守时：<i class="i3">{{fixedDigits score_punctuality}}</i></li>
+		</ul>
+		<ul class="item flex row-divid-line-col">
+			<a href="javascript:;" action="collect" class="col"> 
+				<i class="icon iconfont icon-star icon-collect" style="font-size:17px;"></i> <i class="icon iconfont icon-star-solid icon-collected" style="font-size:17px;"></i> 
+				<span>收藏手艺人</span>
+			</a>
+			<a href="http://www.helijia.com/v2/#/artisanSendMessage" class="col"> <i class="icon iconfont icon-smile icon-contact" style="font-size:17px;"></i> 联系Ta</a>
+		</ul>
+		{{#if store_serial}}
+		<a class="item  item-icon-right" href="../shop/shopDisplay.html?store_serial={{store_serial}}&isApp={{isApp}}">
+		  <label class="item-label">来自：</label>
+		  {{store_name}}
+			<i class="icon iconfont icon-forward"></i>
+		</a>
+		{{/if}}
+	</section>	
+	<section>
+		<a class="item item-icon-left item-icon-right" href="{{getCommentHref artisan_id}}">
+			<i class="icon iconfont icon-comment"  ></i> 顾客评价 <i class="color-dark">（{{reviews}}）</i>
+			<i class="icon iconfont icon-forward"></i>
+		</a>            
+		
+		<div class="item item-district" >
+			<div class="item item-icon-left hairline-remove" style="border-width:0;padding-bottom:5px;">
+				<i class="icon iconfont icon-position" style="top:3px;"></i> 服务商圈
+			</div>
+			<div class="detail">
+				<p class="word-wrap">{{getServiceRange service_range}}</p>
+	      <div  class="switches">
+					<a href="javascript:;" class="switch switch-expand">  全部范围<i class="icon iconfont icon-expand"></i></a>
+					<a href="javascript:;" class="switch switch-collapse">点击收起<i class="icon iconfont icon-collapse"></i></a>
+				</div>
+			</div>
+		</div>
+		{{#notEmpty decor}}
+	   <div class="item editor">
+			{{#each decor}}
+				{{#if type==="text"}}
+					<p class="text">{{content}}</p>
+				{{/if}}
+				{{#if type==="image"}}
+					<p class="img">
+						<a  href="{{getProductLink link}}" >
+							<img src="{{getImgAbsolutePath content}}" width="100%">
+						</a>
+					</p>
+				{{/if}}
+			{{/each}}
+	   </div>
+		{{/notEmpty}}
+	</section>
+</div>
