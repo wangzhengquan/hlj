@@ -25,7 +25,7 @@ KISSY.add(function (S, Action, Promise, Storage) {
 					defer.resolve(HOME_CONFIG);
 					console.log('Loade home_config from Storage');
 				} else {
-					Action.query2('/home_config.json', {
+					Action.query('/v2/home_config.json', {
 						//device_type:'h5',  
 						device_type: 'iOS'
 					}, function (json) {

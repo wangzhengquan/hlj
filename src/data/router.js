@@ -17,9 +17,9 @@ KISSY.add("app/data/router",
       else if (options.url.indexOf('/exchange.json') >= 0) {
         return require("./exchange");
       }
-      else if (options.url.indexOf('/products.json') >= 0) {
+      else if (options.url.indexOf('/products.json') >= 0 || options.url.indexOf('/get_artisan_products_six.json') >= 0 ) {
         var products = require("./products_list");
-        return products(ParamUtil.packParam(options.url))
+        return products(options.url, ParamUtil.packParam(options.url))
       }
       else if (options.url.indexOf('/get_product_tags.json') >= 0) {
         var products_tag = require("./products_tags");
