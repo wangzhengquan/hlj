@@ -5,12 +5,12 @@ KISSY.add(function (S) {
       {
         "img_url": "../resources/images/banner/banner1.jpg",
         "jump_type": "html5",
-        "name": "河狸家全品类服务最低价，免上门费！"
+        "name": "满减活动专区"
       },
       {
         "img_url": "../resources/images/banner/banner2.jpg",
         "jump_type": "html5",
-        "name": "福利来啦！美甲58元，美容58元，快来抢！（河狸家新人专享）"
+        "name": "满减活动专区"
       },
       {
         "img_url": "../resources/images/banner/banner3.jpg",
@@ -20,7 +20,7 @@ KISSY.add(function (S) {
       {
         "img_url": "../resources/images/banner/banner4.jpg",
         "jump_type": "html5",
-        "name": "高颜值头像专题"
+        "name": "满减活动专区"
       }
     ]
   }

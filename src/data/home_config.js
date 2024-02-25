@@ -6,9 +6,9 @@ KISSY.add(function(S){
         "block": [
           {
             "jump_type": "reserve",
-            "name": "预约服务",
+            "name": "满减活动专区",
             "description": [
-              "只挑有空手艺人"
+              "满500赠100"
             ],
             "img_type": "reserve",
             "img_url": "",
@@ -33,36 +33,12 @@ KISSY.add(function(S){
                 "background_highlighted": 16751507,
               },
               {
-                "name": "美足",
-                "value": "tag_mei_zu",
-                "img_type": "tag_mei_zu",
-                "img_url": "../resources/images/type/icon_bespeak_meizu.png",
-                "background_normal": 12883170,
-                "background_highlighted": 12883170,
-              },
-              {
                 "name": "美容",
                 "value": "tag_mei_rong",
                 "img_type": "tag_mei_rong",
                 "img_url": "../resources/images/type/icon_bespeak_meirong.png",
                 "background_normal": 7917034,
                 "background_highlighted": 7917034,
-              },
-              {
-                "name": "美体",
-                "value": "tag_mei_ti",
-                "img_type": "tag_mei_ti",
-                "img_url": "../resources/images/type/icon_bespeak_meiti.png",
-                "background_normal": 16357822,
-                "background_highlighted": 16357822,
-              },
-              {
-                "name": "手足护理",
-                "value": "tag_hu_li",
-                "img_type": "tag_hu_li",
-                "img_url": "../resources/images/type/icon_bespeak_huli.png",
-                "background_normal": 16754288,
-                "background_highlighted": 16754288,
               },
               {
                 "name": "化妆造型",
@@ -72,50 +48,35 @@ KISSY.add(function(S){
                 "background_normal": 16242031,
                 "background_highlighted": 16242031,
               },
-              {
-                "name": "美发",
-                "value": "tag_mei_fa",
-                "img_type": "tag_mei_jia",
-                "img_url": "../resources/images/type/icon_bespeak_hair.png",
-                "background_normal": 16749474,
-                "background_highlighted": 16749474,
-              },
-              {
-                "name": "健身",
-                "value": "tag_jian_shen",
-                "img_type": "tag_mei_jia",
-                "img_url": "../resources/images/type/icon_bespeak_jianshen2.png",
-                "background_normal": 16240495,
-                "background_highlighted": 16240495,
-              },
-              {
-                "name": "口语交流",
-                "value": "tag_kou_yu",
-                "img_type": "tag_kou_yu",
-                "img_url": "../resources/images/type/icon_bespeak_kouyu.png",
-                "background_normal": 12052381,
-                "background_highlighted": 12052381,
-              },
-              {
-                "name": "绘画摄影",
-                "value": "tag_mei_shu",
-                "img_type": "tag_mei_shu",
-                "img_url": "../resources/images/type/icon_bespeak_meishu.png",
-                "background_normal": 10788084,
-                "background_highlighted": 10788084,
-              },
-              {
-                "name": "声乐器乐",
-                "value": "tag_yin_yue",
-                "img_type": "tag_yin_yue",
-                "img_url": "../resources/images/type/icon_bespeak_yinyue.png",
-                "background_normal": 16753353,
-                "background_highlighted": 16753353,
-              }
+              // {
+              //   "name": "美发",
+              //   "value": "tag_mei_fa",
+              //   "img_type": "tag_mei_jia",
+              //   "img_url": "../resources/images/type/icon_bespeak_hair.png",
+              //   "background_normal": 16749474,
+              //   "background_highlighted": 16749474,
+              // },
+              // {
+              //   "name": "健身",
+              //   "value": "tag_jian_shen",
+              //   "img_type": "tag_mei_jia",
+              //   "img_url": "../resources/images/type/icon_bespeak_jianshen2.png",
+              //   "background_normal": 16240495,
+              //   "background_highlighted": 16240495,
+              // }
+               
             ],
             "search_conditions1": [],
             "url2": "",
-            "search_types2": [],
+            "search_types2": [
+              {
+                "name": "美容师",
+                "value": "3",
+                "img_type": "",
+                "background_normal": 16711680,
+                "background_highlighted": 16711580,
+              }
+            ],
             "search_conditions2": []
           },
           {

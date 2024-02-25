@@ -145,6 +145,8 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 				me.setArtisanActiveTypeTab(0);
 			} else if (search_types.length == 1) {
 				this.filterArtisanByType(search_types[0].value);
+			} else {
+				console.error('search_types.length == 0')
 			}
 		},
 
