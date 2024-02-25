@@ -153,6 +153,7 @@ module.exports = function (grunt) {
                         src: [
                             'lib/ufo/UFO.js',
                             'lib/mock.min.js',
+                            'upload',
                             '**/*.html',
                             '!**/*.tpl.html',
                             'resources/images/**/*.*',

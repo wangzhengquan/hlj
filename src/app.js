@@ -72,7 +72,8 @@ KISSY.add(function (S, Storage, ParamUtil) {
 	}
 
 	var config = {
-		imgBaseUrl: 'http://p0.static.helijia.cn/zmw/',
+		// imgBaseUrl: 'http://p0.static.helijia.cn/zmw/',
+		imgBaseUrl:'../',
 		version: version,
 	};
 
