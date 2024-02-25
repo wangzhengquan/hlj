@@ -1,0 +1,1 @@
+grep -rl 'http://api.map.baidu.com/api' ./src --exclude-dir=".git"  --exclude-dir="build" | xargs sed -i ''  's,http://api.map.baidu.com/api,//api.map.baidu.com/api,g'
