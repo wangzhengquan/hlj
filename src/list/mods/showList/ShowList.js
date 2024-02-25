@@ -211,6 +211,8 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 			} else if (search_types1.length == 1) {
 
 				me.filterProductByType(search_types1[0].value);
+			} else {
+				console.log('createProductServiceTabNav search_types1.length == 0')
 			}
 
 		},

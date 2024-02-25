@@ -26,7 +26,8 @@ KISSY.add(function(S, IO, app){
 		},
 		
 		ajax: function(config){
-			config.url =   app.config.baseUrl + config.url ;
+			// console.log('app.config', app.config)
+			config.url = app.config.baseUrl + config.url ;
 			
 			return this.ajax2(config);
 		},

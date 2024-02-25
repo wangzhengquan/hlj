@@ -151,7 +151,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 			var me = this;
 
 			productParams = this.productParams = (productParams || this.productParams);
-			Action.query("/products.json", productParams, function (json) {
+			Action.query("/v2/products.json", productParams, function (json) {
 				var products = json.data;
 				me.productListContent.append(listItemTpl.render({
 					products: products,

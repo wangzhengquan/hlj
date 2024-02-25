@@ -76,8 +76,8 @@ KISSY.add(function (S, Storage, ParamUtil) {
 		version: version,
 	};
 
-	S.merge(config, REAL_CONFIG)
-
+	S.mix(config, REAL_CONFIG)
+	// console.log("merge ====", config)
 
 	var app = {
 		config: config,
