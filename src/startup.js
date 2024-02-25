@@ -3,8 +3,6 @@
 
 	var	tag = '20160118';
 
-	var APP = global.APP = global.APP || {};
-
 	var configKissy = function () {
 		// 该配置中的path是浏览器的访问路径，网站host对应根目录
 		KISSY.config({
@@ -60,7 +58,7 @@
 	/**
 	 * 引入脚本
 	 */
-	var createScript = APP.createScript = function (url, config) {
+	var createScript = function (url, config) {
 		var success,
 			error,
 			charset,
@@ -140,7 +138,7 @@
 		start = function () {
 			console.log('--Program begin to start--');
 			configKissy();
-			APP.onstartup();
+			global.onAfterLoad();
 		},
 		countToStart = function () {
 			if (--count === 0) {

@@ -23,34 +23,20 @@
 <body style="background-color:#ebebeb;">
 
 	<script>
-		window.APP = {
-			onstartup: function () {
-				var me = this;
-				KISSY.use('app/list/mods/showList/index, app/data/router', function (S, showList) {
-					//document.body.scrollTop = 100;
-					showList.init();
+		function onafterrender() {
+		}
+		
+		window.onAfterLoad = function () {
+			var me = this;
+			KISSY.use('app/list/mods/showList/index, app/data/router', function (S, showList) {
+				//document.body.scrollTop = 100;
+				showList.init();
 
-					me.onafterrender();
-				});
+				me.onafterrender();
+			});
 
-			},
-			onafterrender: function () {
-
-				//  this.createScript('http://s11.cnzz.com/z_stat.php?id=1255575295&web_id=1255575295');
-				//  /*访问统计*/
-				//  KISSY.use('node, ua',function(S, Node, UA) {
-				//  	var params = S.unparam(decodeURIComponent(location.search.slice(1))),
-				//  		imgParams ={
-				//  			event:'productList',
-				//  			artisanIndex: params.version,
-				//  			sysVersion: UA.os ,//手机系统版本
-				//  			deviceId: UA.mobile, //设备号
-				//  			artisanId: params.artisan
-				//  	   	};
-				//  	S.one(document.body).append('<img style="display: none;" src="'+app.config.collectUrl+'?'+S.param(imgParams)+'">');
-				//  });
-			}
 		};
+			
 	</script>
 	<script src="../startup.js" type="text/javascript"></script>
 </body>
