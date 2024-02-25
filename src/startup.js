@@ -51,23 +51,7 @@
 		});
 	};
 
-	/**
-	 * 获得cookie
-	 */
-	var getCookie = APP.getCookie = function (c_name) {
-		var c_start;
-		if (document.cookie.length > 0) {
-			c_start = document.cookie.indexOf(c_name + "=");
-			if (c_start != -1) {
-				c_start = c_start + c_name.length + 1;
-				c_end = document.cookie.indexOf(";", c_start);
-				if (c_end == -1) c_end = document.cookie.length;
-				return unescape(document.cookie.substring(c_start, c_end));
-			}
-		}
-		return "";
-	};
-
+	
 	var docHead = function () {
 		return doc.getElementsByTagName('head')[0] || doc.documentElement;
 	};
@@ -164,11 +148,15 @@
 			}
 		};
 
-	var pre_load_js = ['../lib/mock.min.js', '../lib/ufo/UFO.js?t=' + tag,
-	 {url: seedUrl, config: {attrs: { 'data-config': data_config }}}];
+	var pre_load_js = [
+		'../lib/mock.min.js', 
+		'../lib/ufo/UFO.js?t=' + tag,
+	  {url: seedUrl, config: {attrs: { 'data-config': data_config }}}
+	];
 
+	// load js files
 	for (var i =0, len = pre_load_js.length; i< len; i++) {
-		var url, config ;
+		var url, config;
 		if (typeof pre_load_js[i] === 'object') {
 			url = pre_load_js[i].url
 			config = pre_load_js[i].config

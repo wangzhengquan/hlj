@@ -51,13 +51,13 @@ KISSY.add(function (S, Storage, ParamUtil) {
 				name: '重庆市',
 				code: '500100'
 			}];
-	
+
 	// app.config.
 	//正式环境
 	var REAL_CONFIG = {
 		apiHost: '//app.helijia.com',
 		baseUrl: '//app.helijia.com/zmw',
-		
+
 	};
 
 	var TEST_CONFIG = {
@@ -78,10 +78,24 @@ KISSY.add(function (S, Storage, ParamUtil) {
 
 	S.merge(config, REAL_CONFIG)
 
- 
+
 	var app = {
 		config: config,
-		
+		// 获得cookie
+		getCookie: function (c_name) {
+			var c_start;
+			if (document.cookie.length > 0) {
+				c_start = document.cookie.indexOf(c_name + "=");
+				if (c_start != -1) {
+					c_start = c_start + c_name.length + 1;
+					c_end = document.cookie.indexOf(";", c_start);
+					if (c_end == -1) c_end = document.cookie.length;
+					return unescape(document.cookie.substring(c_start, c_end));
+				}
+			}
+			return "";
+		},
+
 		getCity: function (code) {
 			return this.getCityMap()[code] || this.getCityMap()['110100'];
 		},
