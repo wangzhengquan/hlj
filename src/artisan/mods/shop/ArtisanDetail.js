@@ -528,7 +528,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			 * 点击手艺人头像
 			 */
 			me.el.delegate('click', '.item-header a.item-image', function (event) {
-				var url = GLOBAL_CONFIG.imgBaseUrl + S.one(event.currentTarget).attr('data-url');
+				var url = app.config.imgBaseUrl + S.one(event.currentTarget).attr('data-url');
 				if (!me.headerImgModal) {
 					me.headerImgModal = new PhotoBrowserModal({
 						animation: 'scale-in',
@@ -556,7 +556,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 
 				for (var i = 0, len = images.length; i < len; i++) {
 					data.push({
-						url: GLOBAL_CONFIG.imgBaseUrl + images[i]
+						url: app.config.imgBaseUrl + images[i]
 					});
 				}
 

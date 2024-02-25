@@ -49,6 +49,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= src%>',
+                        // src里添加的是主文件，被引用的文件会被合并到主文件里
                         src: [
                            
                             'app.js',
@@ -76,7 +77,6 @@ module.exports = function (grunt) {
 
                             'home/mods/Home.js',
                             'home/mods/index.js',
-                            'home/mods/HomeTab.js',
                             'home/mods/OrderTab.js',
 
                             'product/mods/Product.js',

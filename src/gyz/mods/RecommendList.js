@@ -114,7 +114,7 @@ KISSY.add(function(S, Node, DOM, Event, XTemplate, Component, Action, Lazyload,
 							{
 								commands:{
 									'getImgAbsolutePath': function (scopes, option) {
-					                	return GLOBAL_CONFIG.imgBaseUrl+option.params[0];
+					                	return app.config.imgBaseUrl+option.params[0];
 					                },
 					                'getProductHref': function (scopes, option) {
 					                	var product_id = option.params[0];

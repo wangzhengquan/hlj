@@ -1,5 +1,5 @@
 KISSY.add(function (S, Storage, ParamUtil) {
-
+	var version = '2.9.5'
 	var _PARAM = ParamUtil.processParam(S.unparam(decodeURIComponent(location.search.slice(1)))),
 		ua = navigator.userAgent.toLowerCase(),
 		app_ua_arr = ua.match(/(hlj-\w+)\/(\d\.\d\.\d)/i);
@@ -51,7 +51,37 @@ KISSY.add(function (S, Storage, ParamUtil) {
 				name: '重庆市',
 				code: '500100'
 			}];
-	return {
+	
+	// app.config.
+	//正式环境
+	var REAL_CONFIG = {
+		apiHost: '//app.helijia.com',
+		baseUrl: '//app.helijia.com/zmw',
+		
+	};
+
+	var TEST_CONFIG = {
+		apiHost: '//test.stg.helijia.com',
+		baseUrl: '//test.stg.helijia.com/zmw',
+	}
+
+
+	var PUB_CONFIG = {
+		apiHost: '//apppub.helijia.com',
+		baseUrl: '//apppub.helijia.com/zmw',
+	}
+
+	var config = {
+		imgBaseUrl: 'http://p0.static.helijia.cn/zmw/',
+		version: version,
+	};
+
+	S.merge(config, REAL_CONFIG)
+
+ 
+	var app = {
+		config: config,
+		
 		getCity: function (code) {
 			return this.getCityMap()[code] || this.getCityMap()['110100'];
 		},
@@ -190,10 +220,9 @@ KISSY.add(function (S, Storage, ParamUtil) {
 					}
 				}, 500);
 			}, 500);
-		}
-
-
+		},
 	};
+	return app
 }, {
 	requires: ["UFO/util/Storage", "./util/ParamUtil"]
 });

@@ -19,14 +19,14 @@ KISSY.add(function(S, IO, app){
 						
 			}
 			config.data = S.mix({
-				version: GLOBAL_CONFIG.version
+				version: app.config.version
 			}, config.data);
 			
 			return $.io(config);
 		},
 		
 		ajax: function(config){
-			config.url =   GLOBAL_CONFIG.baseUrl + config.url ;
+			config.url =   app.config.baseUrl + config.url ;
 			
 			return this.ajax2(config);
 		},
@@ -118,7 +118,7 @@ KISSY.add(function(S, IO, app){
 			
 			var formData = new FormData();
 			formData.append('uploadImage', config.file);
-			oReq.open("post", GLOBAL_CONFIG.baseUrl + '/v2/upload_image', true);
+			oReq.open("post", app.config.baseUrl + '/v2/upload_image', true);
 			oReq.send(formData);
 		},
 	 
@@ -149,7 +149,7 @@ KISSY.add(function(S, IO, app){
 			
 			S.mix(config, {
 			   type: "post",
-			   url: GLOBAL_CONFIG.baseUrl + url,
+			   url: app.config.baseUrl + url,
 			   data: formData,
 			   dataType:'json',
 			   headers: {

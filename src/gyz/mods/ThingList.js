@@ -53,7 +53,7 @@ KISSY.add(function(S, Node,Event, XTemplate, Component, MessageBox, app,
                 			city: me.city_code
 	                	};
 	                	//return "http://app.helijia.com/zmw/v2/search?type=products&filter_category=tag_mei_shu&filter_label=228,229,232&city=110100";
-	                	return  GLOBAL_CONFIG.baseUrl+'/v2/search?type=products&filter_category='+category_code+'&filter_label='+label_code+'&city='+me.city_code;
+	                	return  app.config.baseUrl+'/v2/search?type=products&filter_category='+category_code+'&filter_label='+label_code+'&city='+me.city_code;
 	                }
 				}
 				
@@ -71,7 +71,7 @@ KISSY.add(function(S, Node,Event, XTemplate, Component, MessageBox, app,
 			
 				var search = '?type=products&filter_category='+category_code+'&filter_label='+label_code+'&city='+me.city_code;
 				if(app.isApp()){
-					location.href =  GLOBAL_CONFIG.baseUrl+"/v2/search"+search; 
+					location.href =  app.config.baseUrl+"/v2/search"+search; 
 				}else{
 					location.href = "../list/ProductList4Active.html"+search;
 				}

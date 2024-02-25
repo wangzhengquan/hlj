@@ -66,7 +66,7 @@ KISSY.add(function (S, node, XTemplate,
 				me.getBodyContainer().html(new XTemplate(content_tpl,{
 						commands:{
 							'getPic': function (scopes, option) {
-								return GLOBAL_CONFIG.imgBaseUrl + option.params[0];
+								return app.config.imgBaseUrl + option.params[0];
 			                },
 			                
 			                'getCustomerMobile': function (scopes, option) {

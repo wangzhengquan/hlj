@@ -81,7 +81,7 @@ KISSY.add(function(S, Node, Xtemplate, Action, app, redShare_tpl) {
 						S.one('#sh-cum').html(new Xtemplate(redShare_tpl, {
 							commands: {
 								'getActionUrl': function(scopes, option) {
-									return GLOBAL_CONFIG.baseUrl + '/v2/receive/coupon_group';
+									return app.config.baseUrl + '/v2/receive/coupon_group';
 								},
 								'getSui': function(scopes, option) {
 									return _reslutOne;

@@ -123,7 +123,7 @@ KISSY.add(function(S,
 					wx.onMenuShareTimeline({
 						title: data_friend.title, // 分享标题
 						link: encodeURI(window.location.href), // 分享链接
-						imgUrl: GLOBAL_CONFIG.imgBaseUrl + data_friend.pic, // 分享图标
+						imgUrl: app.config.imgBaseUrl + data_friend.pic, // 分享图标
 						success: function() {
 							//self.callback && self.callback();
 						},
@@ -135,7 +135,7 @@ KISSY.add(function(S,
 						title: data_friend.title, // 分享标题
 						desc: data_friend.des, // 分享描述
 						link: encodeURI(window.location.href), // 分享链接
-						imgUrl: GLOBAL_CONFIG.imgBaseUrl + data_friend.pic, // 分享图标
+						imgUrl: app.config.imgBaseUrl + data_friend.pic, // 分享图标
 						type: '', // 分享类型,music、video或link，不填默认为link
 						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
 						success: function() {},
@@ -342,7 +342,7 @@ KISSY.add(function(S,
 					
 					//new
 					/*if(app.isMicroMessenger()){
-					   location.href= GLOBAL_CONFIG.zmwHost + "/hlj_wx/hlj/auth4H5";
+					   location.href= app.config.zmwHost + "/hlj_wx/hlj/auth4H5";
 					}else{
 						location.href="../order/orderConfirm.html";
 					}*/
@@ -357,7 +357,7 @@ KISSY.add(function(S,
 						city: order.city
 					};
 					
-					location.href= GLOBAL_CONFIG.zmwHost + "/hlj_wx/hlj/createOrder?"+encodeURI(encodeURI(decodeURIComponent(S.param(_param))));
+					location.href= app.config.zmwHost + "/hlj_wx/hlj/createOrder?"+encodeURI(encodeURI(decodeURIComponent(S.param(_param))));
 				
 				};
 				

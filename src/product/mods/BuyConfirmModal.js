@@ -86,7 +86,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 			return new XTemplate(buy_confirm_tpl, {
 				commands:{
 					'getProductPic': function (scopes, option) {
-						return GLOBAL_CONFIG.imgBaseUrl + option.params[0][0];
+						return app.config.imgBaseUrl + option.params[0][0];
 	                }
 				}
 			}).render(this.data);
@@ -281,7 +281,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 				
 				//new
 				/*if(app.isMicroMessenger()){
-				   location.href= GLOBAL_CONFIG.zmwHost + "/hlj_wx/hlj/auth4H5";
+				   location.href= app.config.zmwHost + "/hlj_wx/hlj/auth4H5";
 				}else{
 					location.href="../order/orderConfirm.html";
 				}*/
@@ -302,7 +302,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 				if(order.service_addr.city){
 					_param.city = app.getCity(order.service_addr.city).name;
 				}
-				location.href= GLOBAL_CONFIG.zmwHost + "/hlj_wx/hlj/createOrder?"+encodeURI(encodeURI(decodeURIComponent(S.param(_param))));
+				location.href= app.config.zmwHost + "/hlj_wx/hlj/createOrder?"+encodeURI(encodeURI(decodeURIComponent(S.param(_param))));
 				// location.href = '/'
 				return false;
 			});

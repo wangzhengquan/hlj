@@ -260,7 +260,7 @@ console.log("weichat_pay config", config);
 				}, function(json){
 					console.log("balance_pay", json);
 					if(json.ret){
-						location.href = GLOBAL_CONFIG.baseUrl+'/red/share.html?order_seq='+order_no+'&user_id='+user.user_id;
+						location.href = app.config.baseUrl+'/red/share.html?order_seq='+order_no+'&user_id='+user.user_id;
 						suc && suc();
 					}else{
 						error && error();
@@ -271,7 +271,7 @@ console.log("weichat_pay config", config);
 					 
 				});
 			}else {
-				var return_url = GLOBAL_CONFIG.baseUrl+'/red/share.html?order_seq='+order_no+'&user_id='+user.user_id;
+				var return_url = app.config.baseUrl+'/red/share.html?order_seq='+order_no+'&user_id='+user.user_id;
 				
 				var initServiceParam =  {
 					order_number: order_no,

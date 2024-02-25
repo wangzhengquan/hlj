@@ -25,7 +25,7 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,MessageBox,app, Action, t
 	                		params.filter_product_tag = label_code;
 	                	}
 	                	
-	                	var url = GLOBAL_CONFIG.baseUrl+"/v2/search?type=artisans&city="+me.city_code+"&filter_type="+type_code;
+	                	var url = app.config.baseUrl+"/v2/search?type=artisans&city="+me.city_code+"&filter_type="+type_code;
 	                	if(label_code){
 	                		url = url + "&filter_product_tag="+label_code;
 	                	}
@@ -89,7 +89,7 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,MessageBox,app, Action, t
 					search = search + "&filter_product_tag="+label_code;
             	}
 				if(app.isApp()){
-					location.href =  GLOBAL_CONFIG.baseUrl+"/v2/search"+search; 
+					location.href =  app.config.baseUrl+"/v2/search"+search; 
 				}else{
 					location.href = "../list/ArtisanList4Active.html"+search;
 				}

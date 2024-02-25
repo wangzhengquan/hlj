@@ -23,7 +23,7 @@ KISSY.add(function(S, Node, XTemplate,Action, shopdisplay_tpl,ImageSlider,PhotoB
 
 		var imgData=[];
 		for(var x=0;x<arr.length;x++){
-			imgData.push({"url":GLOBAL_CONFIG.imgBaseUrl+arr[x]})
+			imgData.push({"url":app.config.imgBaseUrl+arr[x]})
 		}
 		//document.body.scrollTop = 100;
 		var slider = new ImageSlider({
