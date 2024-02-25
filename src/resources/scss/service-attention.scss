@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@import 
+	"global",
+	 "share";
+.h_sertop{
+	width: 100%;
+    padding-left:30px;
+    padding-right:30px;
+	p{
+		font-size:16px;
+		color:#575757;
+		margin-top:30px;
+	}
+	span{
+		margin-left:15px;
+		font-size:14px;
+    	color: #575757;
+    	line-height:26px;
+	}
+}
+.h_serfoot{
+	width:100%;
+	position: fixed;
+	bottom:45px;
+	img{
+	    padding-left:30px;
+	    padding-right:30px;
+	    width:100%;
+	}
+}

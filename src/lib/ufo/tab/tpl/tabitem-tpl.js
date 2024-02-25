@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(){return'<a class="tab-item {{activeCls}}" name="{{name}}" href="javascript:;">\n	<i class="icon {{iconCls}}"></i>\n	{{#if iconInCls}}<i class="icon icon-in {{iconInCls}}"></i>{{/if}}\n	<span class="tab-title">{{title}}</span>\n</a>'});

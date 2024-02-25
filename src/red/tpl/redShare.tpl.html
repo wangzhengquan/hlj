@@ -1,0 +1,9 @@
+<form action="{{getActionUrl}}" id="myForm">
+	<div class="head pic"><img src="{{url}}" id="sh-pic"/></div>
+	<div class="sh-name" id="sh-name">HI,我是{{nickName}}</div>
+	<div class="sh-wd">送你<span>300</span>元优惠劵</div>
+	<div class="sh-wd1">输入手机号即可领取</div>
+	<input type='hidden' class="sh-tel" id="sh-sui" name="sui" value="{{getSui}}"/>
+	<input type='tel' class="sh-tel" placeholder="点此输入手机号" id="sh-tel" name="receiveUser"/>
+	<input type="submit" class="s-button" value="立即领取" id="s-button"/>
+</form>

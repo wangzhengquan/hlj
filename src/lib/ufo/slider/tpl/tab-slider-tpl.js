@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(){return'	<div class="slider slider-horizontal tab-slider" style="visibility: visible;">\n			<div class="tabbar">\n				<div class="tabbar-inner">\n				</div>\n				\n				<div class="tab-link-highlight-track">\n			  	<span class="tab-link-highlight" style="transform: translate3d(0, 0, 0);"></span>\n			  </div>\n			</div>\n			\n			<div class="slider-wrapper">\n			</div>\n	</div>'});

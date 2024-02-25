@@ -1,0 +1,158 @@
+ 
+@import 
+ "../../lib/ufo/resources/scss/mixins",
+ "./variables";
+ 
+$time-check-box-size: 15px;
+
+.bar-day{
+	  overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    position: relative; 
+    
+    /* z-index: 1; */
+    .bar-corner{
+      display: block;
+	    position: fixed;
+	    right: 0;
+	    top: 50px;
+	    width: 14%;
+	    height: 62px;
+	    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%);
+	    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%);
+    	
+    }
+}
+ul.bar-day-inner{
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	padding: 0 4px;
+	li{
+		position: relative;
+		float:left;
+		display: block;
+		padding: 10px 4px;
+		&.select:after{
+			content: '';
+	    position: absolute;
+	    bottom: 0;
+	    left: 50%;
+	    margin-left: -3.5px;
+	    width: 7px;
+	    height: 7px;
+	    background-color: $love;
+	    border-radius: 50%;
+		}
+	}
+	.button-day{
+		display: block;
+		width: 100%;
+		padding:6px 3px;
+		text-align: center;
+		font-size: 12px;
+		line-height: 1;
+		.week{
+			color:#9f9f9f;
+			margin-bottom: 6px;
+		}
+		.day{
+			color:#616161;
+		}
+		&.active{
+			background-color: $love;
+			color: #fff;
+			border-radius: 10px;
+			*{
+				color: #fff;
+			}
+		}
+		
+	}
+}
+
+.time-wrapper{
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	border-top: 1px solid #d6d9dc;
+  border-left: 1px solid #d6d9dc;
+	.time-cell{
+		display: block;
+		position: relative;
+		text-align: center;
+		float: left;
+		width: 16.66%;
+		height: 60px;
+		line-height: 60px;
+		color: #202020;
+		border: 1px solid #d6d9dc;
+		border-left: 0;
+		border-top: 0;
+		box-sizing: border-box;
+		 
+		&[disabled]{
+			color:#bdbdbd;
+		}
+		
+		&.select{
+		  border: 2px solid $love;
+			&:before{
+				position: absolute;
+				display: table;
+				right:0;
+			  bottom:0;
+		    width: $time-check-box-size;
+		    height:$time-check-box-size;
+		    content: '';
+		    border: 1px solid $love;
+		    background-color: $love;
+			}
+			&:after{
+				@include rotate(-45deg);
+			  position: absolute;
+			  right:$time-check-box-size * 0.25;
+			  bottom:$time-check-box-size * 0.33;
+			  display: table;
+			  width: ($time-check-box-size / 2);
+			  height: ($time-check-box-size / 2) - 2;
+			  border: $checkbox-check-width solid $checkbox-check-color;
+			  border-top: 0;
+			  border-right: 0;
+			  content: ' ';
+			}
+		}
+	}
+}
+
+.item-footer{
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+}
+
+.pic-time-guid{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	background:  rgba(0, 0, 0, .5) url(../images/pic_time_guide.png)  no-repeat calc(50% - 15px) 80px ;
+	background-size: 210px 125px;
+	z-index: 10000;
+	.pic-time-hand{
+		position: absolute;
+		width: 27px;
+		height: 39px;
+		top: 110px;
+    left: calc(50% + 50px);
+	}
+	.hand-move{
+		@include translate(-100px, 0);
+    @include transition(all  1000ms ease-out 400ms);
+	}
+}
+
+

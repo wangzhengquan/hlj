@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a,b,c,d){function e(a){e.superclass.constructor.call(this,a)}return a.extend(e,c),UFO.augment(e,{alias:"loadingAnimMask",createMaskBody:function(){return d}}),e},{requires:["node","./Mask","./tpl/loading-svg-tpl"]});

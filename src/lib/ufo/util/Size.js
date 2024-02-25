@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+Ufo.define(function(){return{calcSize:function(a,b){var c,d,e=/(\d*(\.\d+)?)([^\d]+)$/,f=null!=a&&void 0!=a?a+"":a,g=null!=b&&void 0!=b?b+"":b,h=f?f.match(e):f,i=g?g.match(e):g;return h&&(f=h[1],c=h[3]),i&&(g=i[1],d=i[3]),c=c||"px",d=d||"px",f=f?Number(f):f,g=g?Number(g):g,{width:f,height:g,wunit:c,hunit:d}}}});

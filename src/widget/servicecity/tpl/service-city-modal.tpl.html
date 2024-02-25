@@ -1,0 +1,29 @@
+	<div class="main background">
+  	<div class="bar-love bar bar-header disable-user-behavior">
+			<div class="buttons buttons-left" style="transition-duration: 0ms;">
+				<button class="button button-clear iconfont icon-close" action="close"> </button>			 
+ 			</div>
+			<div class="title title-center header-item" style="transform: translate3d(0px, 0px, 0px);">
+				选择城市
+			</div>
+		</div>
+	  
+	  <div class="pane has-header" style="min-height:375px; overflow: auto;">
+ 			<div class="scroll-content background">
+ 					<div class="item item-divider ">GPS定位城市</div>
+ 					<a href="javascript:;" name="cur-city" class="item"></a>
+ 					<div class="item item-divider ">已开通服务城市</div>
+ 					<ul name="service-city-list" class="list padding-left hairline-bottom" style="background:#fff;">
+ 						{{#each this}}
+ 						<label data-code="{{code}}" data-name="{{name}}" class="item item-radio">
+							<div class="item-content">
+							  {{name}}
+							</div>
+							<input type="radio" name="group" value="on">
+							<i class="iconfont radio-icon icon-checkmark"></i>
+						</label>
+						{{/each}}
+ 					</ul>
+ 			</div>
+ 		</div>
+  </div>

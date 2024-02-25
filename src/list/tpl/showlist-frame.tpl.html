@@ -1,0 +1,20 @@
+ <div class="main">
+    <header class="bar-love header bar">
+	   	<a class="button button-clear back-button icon iconfont icon-back" href="javascript:history.go(-1);"> </a>
+	   	<h1 class="title">
+	   		{{title}}
+	   	</h1>
+    </header>
+	<div class="content has-header {{^if hasFooter===false}}has-footer{{/if}}">
+	</div>
+	{{^if hasFooter===false}}
+  <footer class="footer">
+   	<div class="item item-icon-left item-icon-right location-item">
+   		<a name="refresh_location" class="icon iconfont icon-refresh"></a>
+			<a name="set_location" class="button-set-location" style=""></a>
+			<span name="address" class="ellipsis" style="padding-left: 5px;">请设置服务地址</span>
+    	<i class="icon iconfont icon-forward"></i>
+   	</div>
+  </footer>
+  {{/if}}
+ </div>

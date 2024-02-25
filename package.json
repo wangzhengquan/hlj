@@ -1,0 +1,26 @@
+{
+  "version": "2.9.0",
+  "private": true,
+  "name": "hlj-mobile",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "devDependencies": {
+  	"lodash": "^4.3.0",
+    "grunt": "",
+    "grunt-contrib-clean": "",
+    "grunt-contrib-copy": "",
+    "grunt-contrib-cssmin": "",
+    "grunt-contrib-htmlmin": "",
+    "grunt-contrib-sass": "",
+    "grunt-contrib-uglify": "",
+    "grunt-contrib-watch": "",
+    "grunt-kmc": "",
+    "grunt-replace": "",
+    "http-server": ""
+     
+  },
+  "scripts": {
+    "start": "http-server src -a 0.0.0.0 -p 80"
+  }
+}

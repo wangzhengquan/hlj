@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+@import 
+	"global",
+	 "share",
+	 "../../lib/ufo/resources/scss/radio",
+	 "../../lib/ufo/resources/scss/slide-box",
+	 "order-list_",
+	 "login_";
+ 
+$row-height: 33.333%;
+$col-width: 50%;
+
+.flex-direction-column {
+	@include flex-direction(column);
+}
+
+.tab-item {	
+	.icon {
+	  display: block;
+	  margin: 0 auto;
+	  height: $tabs-icon-size;
+	  line-height: $tabs-icon-size;
+	  font-size: 25px;
+	  color: #333;
+	}
+	.icon-in{
+		display: none;
+	}
+	&.tab-item-active{
+		color: $love;
+		.icon{
+			color: $love;
+			display: none;
+		}
+		.icon-in{
+			display: block;
+		}
+	}
+}
+
+.icon-popup-city{
+	margin-left:-5px;
+	.icon{
+		font-size: 15px !important;
+	}
+}
+
+.card-container{
+	padding:3px;
+}
+
+.cell{
+	padding:3px;
+	display: block;
+}
+
+.touch-anim{
+	@include transition(all cubic-bezier(0, 0, 1, 1) 300ms);
+	@include transform(scale(1));
+	&.enter-active{
+		@include transform(scale(0.9));
+	}
+}
+
+
+.card-item {
+	position: relative;
+	display:block; 
+	min-height:80px;
+	height:100%;
+	color:#fff;
+	
+	img{
+		width:80px;
+	}
+
+	h5, h6{
+	  padding-top:5px;
+		color:#fff;
+		line-height:1;
+	}	
+	
+	h5.has-line{
+		display: inline-block;
+		border-bottom:1px solid #fff;
+		-padding-right:10px;
+	}
+	
+	h5{
+	 	padding-bottom:5px;
+	}
+}
+
+.rowspan-2 .card-item img{
+		height: 100%;
+    width: auto;
+}
+
+.card-item:not([disabled]){
+	@extend .touch-anim;
+}
+.-card-item:not([disabled]):hover{
+	@include transform(scale(0.9));
+}
+.slider-pagination-bullet {
+    background: #fff;
+    &.active{
+    	 opacity: 1;
+    	 background: $love;
+    }
+}
+
+.column{
+	display: block;
+	height:100%;
+	width:50%;
+	float:left;
+}
+
+.rowspan-1{
+	height: $row-height ;
+}
+
+.rowspan-2{
+	height:$row-height * 2;
+}
+
+.slider-container{
+	height: 30%;
+}
+.card-container{
+	height: 70%;
+}
+
+.slider-img-zoom-container > img2{
+	  width: 100%;
+    height: 100%;
+    max-width: auto;
+    max-height: auto;
+}
+
+.label-have-not-open{
+	display: block;
+	position: absolute;
+  top: 0;
+  right: 0;
+	background: url(../images/icon.png) no-repeat;
+	display: block;
+  width: 100px;
+  height: 100px;
+  zoom: 0.5;
+  background-position: -148px 0;
+}
+
+
+ 
+ 

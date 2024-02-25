@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a,b,c,d){var e=document;return{hideOn:function(a,b,f,g){var h=function(i){c.contains(b,i.target)||b===i.target||(f?f.call(b,i)!==!1&&c.hide(b):c.hide(b),g&&d.undelegate(e,a,h))};return d.delegate(e,a,h),h}}},{requires:["node","dom","event"]});

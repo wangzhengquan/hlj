@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a,b){return{getRecord:function(b){a.isString("form")&&(b=a.one(b));var c={};return b.all("input[type=text], input[type=radio]:checked, select, textfield, textarea").each(function(a,b){var d=a.attr("data-type"),e=a.attr("data-value")||a.val();void 0!=e&&null!=e&&(d&&"NUMBER"==d.toUpperCase()&&(e=Number(e)),c[a.attr("name")]=e)}),c},loadRecord:function(a,b){var b=b||{};a.find("input[type=text], select").each(function(a,c){a.val(b($this.attr("name")))})}}},{requires:["node"]});

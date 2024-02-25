@@ -1,0 +1,12 @@
+{{#each data}}
+<li class="{{@if type}}bo1{{else}}bo2{{/if}}">
+	<div class="cl1"><span>￥</span>{{couponPrice}}</div>
+	<div class="cl2 fle">{{couponDesc}}</div>
+	<div class="cl3"><a href="{{getProductListHref filter_category filter_active type}}">下单</a></div>
+	<div class="shuoming orient">
+		<p><span>使用规则说明：</span>{{{remark}}}</p>
+		<input type="button" name="button" class="li-button" value="确定"/>
+	</div>
+</li>
+{{/each}}
+				 

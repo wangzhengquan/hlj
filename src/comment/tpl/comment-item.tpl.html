@@ -1,0 +1,17 @@
+{{#each comments}}
+<a class="item item-avatar" href="#">
+  <img src="{{#if avatar}}{{getImgAbsolutePath avatar}}{{else}}../resources/images/default_user.png{{/if}}">
+  <h2>{{#if nick}}{{nick}}{{else}}{{mobile}}{{/if}}</h2>
+  <p>{{contents}}</p>
+  {{#if photos&&photos.length}}
+  <div class="img-scroll hscroll-content">
+  	<div class="img-scroll-inner clearfix" style="width:{{photos.length*90}}px">
+  		{{#each photos}}
+  		<div class="recommend-img-wrapper"><img src="{{getImgAbsolutePath this}}"></div>
+  	 {{/each}}
+  	</div>
+  </div>
+  {{/if}}
+  <span class="datetime">{{#if user_id}}{{formatDateTime create_at 'yyyy-MM-dd hh:mm'}}{{else}}{{/if}}</span>
+</a>
+{{/each}}

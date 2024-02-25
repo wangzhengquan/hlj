@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+@import 
+	"global",
+	 "share";
+body{background-color:#f2f2f2}
+
+.h_accounttop{
+	background-color:#fff;
+	height:60px;
+	line-height:60px;
+	border-bottom:1px solid #d9d9d9;
+	font-size:18px;
+	overflow: hidden;
+	p{
+		float:left;
+		margin-left:15px;
+	}
+	span{
+		float:left;
+		color:#e73e77;
+		margin-left:15px;
+		font-weight: bold;
+	}
+}
+.h_accountli{
+	li{
+		background-color:#fff;
+		height:100px;
+		margin:15px 15px 0;
+		border-radius: 3px;
+				    border-bottom:0.5px solid #333;
+
+		color:#fff;
+		h3{
+			float:left;
+			color:#fff;
+			text-align:left;
+		    margin-left: 15px;
+		    margin-top: 10px;
+		    width:100%;
+
+		}
+		b{
+			color:#fff;
+			font-size:12px;
+		}
+		p{
+			font-size:12px;
+			float:left;
+			margin-left:15px;
+			margin-top:10px;
+		}
+		span{
+			font-size:12px;
+			padding:0 30px;
+			background-color:#fff;
+			color:#f99fb9;
+			float:left;
+			margin-left:15px;
+		}
+	}
+	.h_accountcolor1{background-color:#f99fb9;}
+	.h_accountcolor2{background-color:#f99fdd;}
+	.h_accountcolor3{background-color:#f99fb9;}
+	.h_accountcolor4{background-color:#c09ffa;}
+	.h_accountcolor5{background-color:#9fb2f9;}
+
+}
+
+
+
+.h_accountfoot{
+	background-color:#fff;
+	height:60px;
+	line-height:60px;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    color:#393939;
+    p{
+    	float:left;
+    	margin-left:15px;
+    }
+    button{
+    	margin-right:15px;
+    	float:right;
+    	border:none;
+    	border:1px solid #94877f;
+    	padding:8px;
+    	color:#94877f;
+    	background-color:#fff;
+    	margin-top: 13px;
+    	border-radius: 3px;
+    }
+}

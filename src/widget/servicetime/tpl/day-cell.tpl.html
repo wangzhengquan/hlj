@@ -1,0 +1,8 @@
+{{#each this}}
+<li class="{{#if select}}select{{/if}}">
+	<a class="button-day {{#if active}}active{{/if}}" href="javascript:;" data-key="{{key}}" data-value="{{value}}">
+		<div class="week">{{week}}</div>
+		<div class="day">{{day}}</div>
+	</a>
+</li>
+{{/each}}

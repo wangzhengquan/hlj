@@ -1,0 +1,37 @@
+
+
+<div class="main shop-display">
+{{#if !isApp}}
+	<header class="bar-love header bar">
+		<button class="button button-clear button-back">
+			<i class="icon iconfont icon-back"></i></button>
+		<h1 class="title">门店展示</h1>
+		<div class="buttons buttons-right">	
+		</div>
+	</header>
+{{/if}}
+	<div id="content" class="content {{#if !isApp}}has-header{{/if}}">
+		<div class="shop-page">
+			<div id="imgArr" style="height: 250px;width:100%;background:#ffffff"></div>
+			<div class="shop-intro">
+				<h3 class="shop-title">{{name}}</h3>
+				<span class="intro-tip">简介</span>
+				<p class="intro-cont">{{info}}</p>
+				<span class="view-more">查看更多<i class="icon iconfont icon-expand"></i></span>
+			</div>
+			<div class="shop-intro">
+				<div class="detail detail-location">
+					<div class="detail-icon"><i class="icon iconfont icon-location"></i></div>
+					<p class="detail-text">{{address}}</p>
+				</div>
+				<!--
+				<div class="detail detail-phone">
+					<div class="detail-icon"><i class="icon iconfont">&#xe61e;</i></div>
+					<a class="detail-text" href="tel:{{phone}}">{{phone}}</a> 
+					<div class="detail-icon"><i class="icon iconfont">&#xe60e;</i></div>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+</div>

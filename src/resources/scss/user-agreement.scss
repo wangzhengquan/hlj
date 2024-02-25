@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+@import 
+	"global",
+	"share";
+	
+body, div, li, p, b, span, em, font, a, input {
+   color: #7c7e7d;
+   font-size: 14px;
+   line-height: 18px;
+   text-align: justify;
+}
+p{
+	 -text-indent:2em;
+	 margin: 20px 0;
+}
+.content-wrapper{
+	padding: 5px 15px;
+}
+
+section{
+	&:first-of-type{
+		padding-top: 20px;
+		border-top: 1px dashed #e6e6e6;
+	}
+	& > h2{
+		font-size: 14px;
+		font-weight: bold;
+		color: #333333;
+		margin: 20px 0;
+	}
+	& > ul, & > p{
+		padding-left: 15px;
+	}
+}
+ul li{
+	margin: 20px 0;
+}
+ul.list-none > li{
+	list-style-type:none;
+}
+ul.list-decimal > li{
+	list-style-type:decimal;
+}
+ul.list-upper-latin > li{
+	list-style-type:upper-latin;
+}

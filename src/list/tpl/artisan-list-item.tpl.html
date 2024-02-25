@@ -1,0 +1,20 @@
+{{#each this}}
+<a href="javascript:;" class="item item-avatar item-artisan" data-id="{{artisan_id}}">                                                         
+     <img src="../resources/images/default_user.png" data-ks-lazyload="{{getImgAbsolutePath avatar}}">
+     <div class="info">
+     	 <span class="flex row-no-padding row-center title">
+			<h3> {{name}}</h3>
+			{{#if showDistance}}<span class="distance">{{getDistance distance}}m</span>{{/if}}
+		</span>
+	     <h2>
+	     	{{#if artisan_level>0}}<img src="../resources/images/star/{{artisan_level*0.5}}.gif" style="width:{{calStarWidth artisan_level}}px; margin-top: -4px;"> {{/if}}
+	     	{{#if artisan_glory}}<img src="../resources/images/star/glory.jpg" style="width:17px; margin-left:-6px;"> {{/if}}
+          {{artisan_level_value}}
+	     </h2>
+	     <span class="flex row-no-padding row-center detail">
+	        <h4 class="time" >接单{{service_count}}次</h4>
+	     	<h4 class="price">均价：￥{{formatPrice avg_price}}</h4>
+	     </span>
+     </div>
+</a>
+{{/each}}

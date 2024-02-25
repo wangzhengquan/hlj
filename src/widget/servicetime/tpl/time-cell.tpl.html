@@ -1,0 +1,4 @@
+<!-- state： 0锁定； 1未锁定可预约 ；2已预约； -->
+{{#each times}}
+	<a {{^if state==='1'}}disabled{{/if}} data-value="{{../date}} {{time}}" class="time-cell {{#if select}}select{{/if}}">{{time}}</a>
+{{/each}}

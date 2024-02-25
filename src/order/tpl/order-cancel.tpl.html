@@ -1,0 +1,43 @@
+<!--
+		<section class="section section-amount">
+			<div class="flex-item hairline-remove"><span>退款金额</span> <span style="color:#f97fa4;">￥58</span></div>
+			<div class="flex-item color-light hairline-remove"><span>实付金额</span> <span>￥78</span></div>
+		</section>
+-->		
+<section class="section hairline-top hairline-bottom">
+	<a action="check_rule"  href="javascript:;" class="item item-icon-right hairline-remove">
+		<span>退款规则</span>
+		<i class="icon iconfont icon-forward" style="color:#d6dadd; font-size: 14px;"></i>
+	</a>
+</section>
+
+<section class="section section-reason">
+	<h3 class="item title">取消原因</h3>
+	<div>
+			{{#each reasons}}
+			<div class="item item-checkbox item-checkbox-right" data-index="{{xindex}}">
+				 {{this}}
+				 <label class="checkbox checkbox-love">
+				   <input type="radio" name="reason" value="{{xindex}}">
+				 </label>
+			</div>
+			{{/each}}
+			 
+	</div>
+</section>
+
+<section class="section section-reason-input" style="display:none;">
+	<!-- <h3 class="title" >
+		告诉小河狸我们会做的更好
+	</h3> -->
+	<div class="textarea-wrapper clearfix">
+		<textarea name="other_reason" class="textarea-reason" maxlength="200"  placeholder="请填写取消原因，以帮助我们改进服务。"></textarea>
+		<span class="max-input-tip">您还可以输入<i class="hightlight">200</i>字</span>
+	</div>
+
+</section>
+
+<div style="padding:15px;">
+		<button class="button button-full button-commit" style="margin:0;" disabled>确认提交</button>
+</div>
+	 

@@ -1,0 +1,30 @@
+<ul class="list-product clear-float">
+	{{#each this}}
+	<li class="item-product">
+		<a class="card-item" href="{{getProductHref product_id}}" data-id="{{product_id}}">
+      {{#if promotion_pic}}
+       	 <label class="corner-label">
+  				<img src="{{getImgAbsolutePath promotion_pic}}" width="100%">
+         </label>
+      {{/if}}
+			{{#if service_mode}}
+           <label class="one2many-label"><img src="{{getImgAbsolutePath product_ext_info_multiple.apply_status_icon}}" style="width:100%;"></label>
+			{{/if}}
+			<img src="../resources/images/default_product.png" data-ks-lazyload="{{getImgAbsolutePath image}}" width="100%"> 
+			<span class="item-info"> 
+				<span class="desc">{{name}}</span> 
+				<span class="flex row-center detail">
+					<font class="price">￥{{formatPrice price}}</font> 
+					<span class="times">
+					{{#if service_mode}}
+					已报 <i style="color:f784a7;">{{product_ext_info_multiple.apply_nums}}</i>人
+					{{else}}
+					{{sold_amount}}人做过
+					{{/if}}
+					</span>
+				</span>
+			</span>
+		</a>
+	</li>
+	{{/each}}
+</ul>

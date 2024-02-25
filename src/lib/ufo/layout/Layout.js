@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a){function b(a){this.initLayout()}return UFO.augment(b,{alias:"layout",initLayout:function(){this.el=[]},doLayout:function(b){var c=this;if(this.clearItems(),!a.isEmptyObject(b))for(var d,e=0,f=b.length;f>e;e++)d=b[e],void 0!=d&&null!=d&&(c.el.push(d.getEl?d.getEl():d),d.fire&&d.fire("afterrender",d))},clearItems:function(){this.el=[]},calculate:function(){},toEl:function(){return this.el}}),b});

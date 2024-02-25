@@ -1,0 +1,35 @@
+{{#each products}}
+	{{#if xindex%2===0}}
+	  {{#if xindex>0}} 
+	  </ul>
+	  {{/if}}
+	  <ul class="product-row clearfix">
+	{{/if}}
+		<li class="product-item">
+			<a class="card-item" href="javascript:;" data-id="{{product_id}}">
+				 {{#if promotion_pic}}
+				  	<label class="corner-label"><img src="{{getImgAbsolutePath promotion_pic}}" width="100%"> </label>
+				 {{/if}}
+		  		{{#if service_mode}}
+			     <label class="one2many-label"><img src="{{getImgAbsolutePath product_ext_info_multiple.apply_status_icon}}" style="width:100%;"></label>
+				{{/if}}
+				<img src="../resources/images/default_product.png" class="product-img" data-ks-lazyload="{{getImgAbsolutePath image}}" width="{{../p_img_width}}px" height="{{../p_img_height}}px">
+				<span class="item-info">
+					<span class="desc">{{name}}</span> 
+					<span class="flex row-center detail">
+						<font class="price">￥{{price}}</font>
+						<span class="times">
+							{{#if service_mode}}
+							已报 <i style="color:f784a7;">{{product_ext_info_multiple.apply_nums}}</i>人
+							{{else}}
+							{{sold_amount}}人做过
+							{{/if}}
+						</span>
+					</span>
+				</span>
+			</a>
+		</li>
+	{{#if xindex===xcount-1}}
+	  </ul>
+	{{/if}}
+{{/each}}

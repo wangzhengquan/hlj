@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(){return'<div name="home-tab" class="view-container tab-content" nav-view="active">\n	<div class="pane has-header has-tabs" style="overflow: auto;">\n		<div class="scroll-content" style="min-height:375px;">\n			 \n		</div>\n	</div>\n</div>'});

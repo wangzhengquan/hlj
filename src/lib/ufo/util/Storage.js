@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a,b){return{setItem:function(a,b,c){var d=typeof c;"string"===d||"number"===d||"boolean"===d?a.setItem(b,c):a.setItem(b,JSON.stringify(c))},getItem:function(a,b){var c=a.getItem(b);try{return JSON.parse(c)}catch(d){return c}},setLocalItem:function(a,b){this.setItem(localStorage,a,b)},getLocalItem:function(a){return this.getItem(localStorage,a)},setSessionItem:function(a,b){this.setItem(sessionStorage,a,b)},getSessionItem:function(a){return this.getItem(sessionStorage,a)}}},{requires:["node"]});

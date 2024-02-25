@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a,b){function c(a){this.values=a,c.superclass.constructor.apply(this,arguments)}var d=Object.hasOwnPrototype;return a.extend(c,b),UFO.augment(c,{alias:"model",isDefined:function(a){return d.call(this.values,a)},set:function(a,b){var c=this.values[a];c!=b&&(this.values[a]=b,this.fire("propertychange",a,b,c,this))},get:function(a){return this.values[a]},getValues:function(){return this.values},setValues:function(a){for(var b in a)this.set(b,a[b])}}),c},{requires:["../EventSupport"]});

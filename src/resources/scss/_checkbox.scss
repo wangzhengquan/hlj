@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@import  "../../lib/ufo/resources/scss/checkbox";
+.checkbox-love  {
+  @include checkbox-style(#e7e7e7, $love, $love);
+}
+
+.checkbox input:before, .checkbox-icon:before{
+	border-width:2px;
+}

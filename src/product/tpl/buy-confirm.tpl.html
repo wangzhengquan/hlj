@@ -1,0 +1,74 @@
+<div class="main buy-confirm  background has-fix-footer-button">
+	<header class="bar-love header bar">
+		<button class="button button-clear button-back">
+			<i class="icon iconfont icon-back"></i></button>
+		<h1 class="title">项目</h1>
+		<div class="buttons buttons-right">	
+		</div>
+	</header>
+	<div class="content has-header scroll-content" style="height: calc(100% - 83px);">	
+		<section class="section-confirm section-confirm-product" style="padding-left:15px;">
+			<div class="item no-padding-left">手艺人：{{artisan.name}}</div>
+			<div class="item item-avatar item-product" href="javascript:;">
+			  <img src="{{getProductPic pics}}">
+			  <h2>{{product_name}}</h2>
+			  <p name="price">￥{{#if artisan_visit}}{{formatPrice price}}{{else}}{{formatPrice customer_visit_price}}{{/if}}</p>
+			</div>
+		</section>
+		
+		{{#if artisan_visit&&customer_visit}}
+		<div class="item item-divider">选择服务方式</div>
+		<section class="section-confirm">
+			<ul class="row item-service-type">
+				<li class="col">
+					<a class="artisan-come service-type select" href="javascript:;" data-service_type="artisan_visit">
+						<div class="img-wrapper"></div>
+						<div>手艺人上门</div>
+					</a>
+				</li>
+				<li class="col">
+				  <a class="customer-go service-type" data-service_type="customer_visit">
+				  	<div class="img-wrapper" href="javascript:;"></div>
+						<div>顾客到店</div>
+					</a>
+				</li>
+			</ul>
+		</section>
+		{{/if}}
+		
+		<div class="item item-divider">选择时间、地点</div>
+		 
+		<section class="section-confirm section-time-addr" style="padding-left:15px;">
+			
+			<a href="javascript:;" name="service_time" class="flex-item no-padding-left item-icon-right" action="showServiceTimeModal2" >
+			  <div class="item-icon-label">
+			  	<i class="iconfont icon-datetime">	</i> 	
+			  	服务时间
+			  </div>
+				<div  class="item-content">请选择服务时间</div>
+				<i class="icon iconfont icon-forward"></i>
+			</a>
+		 
+		 {{#if artisan_visit}}
+			<a href="javascript:;" class="flex-item no-padding-left item-icon-right item-addr" name="address" action="selectAddress">
+			  <div class="item-icon-label">
+			  	<i class="iconfont icon-location">	</i> 	顾客地址
+			  </div>
+				<div name="value" class="item-content">请选择地址</div>
+				<i class="icon iconfont icon-forward"></i>
+			</a>
+			{{/if}}
+			{{#if customer_visit}}
+			<a href="javascript:;" class="flex-item no-padding-left item-icon-right item-addr"  name="shop-address" style="{{#if artisan_visit}}display:none;{{/if}}" action="selectAddress">
+			  <div class="item-icon-label"><i class="iconfont icon-location">	</i> 	店铺地址</div>
+				<div name="value" class="item-content">请选择地址</div>
+				<i class="icon iconfont icon-forward"></i>
+			</a>
+			{{/if}}
+		</section>
+	</div>
+	
+	<section class="section-foot">
+		<button class="button button-full button-love" action="buy">确认</button>
+	</section>
+</div>

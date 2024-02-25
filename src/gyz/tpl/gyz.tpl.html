@@ -1,0 +1,14 @@
+<div class="main">
+ {{^if isApp}}
+	<header class="bar-love header bar">
+		<a href="javascript:history.go(-1);" class="button button-clear button-back">
+			<i class="icon iconfont icon-back"></i></a>
+		<h1 class="title">河狸家·高颜值</h1>
+		<div class="buttons buttons-right">	
+			<button name="button_search" class="button button-clear icon iconfont icon-search"> </button>
+		</div>
+	</header>
+ {{/if}}
+	<div class="content  {{^if isApp}}has-header{{/if}}">
+	</div>
+</div>

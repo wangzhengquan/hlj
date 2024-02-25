@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a){var b=function(a){var b=0,c=0,d=0,e=0;return a>0&&(b=Math.floor(a/86400),c=Math.floor(a/3600)-24*b,d=Math.floor(a/60)-24*b*60-60*c,e=Math.floor(a)-24*b*60*60-60*c*60-60*d),9>=d&&(d="0"+d),9>=e&&(e="0"+e),[b,c,d,e]},c=function(a,c){var d=new Date,e=parseInt((a.getTime()-d.getTime())/1e3),f=setInterval(function(){var a=b(e);e--,c&&c(a),0>=e&&clearInterval(f)},1e3)};return{calcTime:b,countdown:c}});

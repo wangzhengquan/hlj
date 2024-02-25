@@ -1,0 +1,2 @@
+/*! 2016-02-15 */
+KISSY.add(function(a,b,c,d){function e(b){b=a.mix(b||{},{cls:"photo-browser",slideCls:"photo-browser-slide",activeCls:"active"},!1),e.superclass.constructor.call(this,b)}return a.extend(e,d),UFO.augment(e,{alias:"photobrowser",initComponent:function(){for(var a=[],b=0;b<this.data.length;b++){var c=this.data[b];a.push('<a href="'+(c.href?c.href:"javascript:;")+'" class="photo-browser-zoom-container"><img src="'+c.url+'"></a>')}this.items=a,e.superclass.initComponent.apply(this,arguments)}}),e},{requires:["node","xtemplate","./Slider"]});
