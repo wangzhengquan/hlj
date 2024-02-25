@@ -168,7 +168,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 						{
 							container: me.el.one('.list-content'),
 							autoDestroy: false,
-							placeholder: "/resources/images/default_product.png"
+							placeholder: "../resources/images/default_product.png"
 						}
 					);
 
@@ -215,13 +215,13 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 	return ProductList;
 }, {
 	requires: ["node", "event", "xtemplate",
-		"../../../action/Action",
+		"../../action/Action",
 		"UFO/Component",
 		"mui/datalazyload/index",
 		"UFO/mask/Mask",
-		"../../../util/XTemplateUtil",
-		"../../tpl/spinner-loading-small-tpl",
-		"../../tpl/product-list-tpl",
-		"../../tpl/product-list-item-tpl"
+		"../../util/XTemplateUtil",
+		"../tpl/spinner-loading-small-tpl",
+		"../tpl/product-list-tpl",
+		"../tpl/product-list-item-tpl"
 	]
 });

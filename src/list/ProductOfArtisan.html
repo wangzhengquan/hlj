@@ -8,6 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
   <title>全部项目</title>
+  <link rel="shortcut icon" href="../resources/images/logo.png" type="image/x-icon" />
   <link href="../resources/style/showList.css" rel="stylesheet">
   <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&amp;ak=KsGMXCk1t4D3nljli0WY23j6"></script>
 </head>
@@ -18,7 +19,7 @@
 </html>
 <script>
   window.onAfterLoad = function () {
-    KISSY.use('app/list/mods/showList/ProductListWithHeaderAndPosFooter, app/data/router', function (S, SearchListProduct) {
+    KISSY.use('app/list/mods/ProductListWithHeaderAndPosFooter, app/data/router', function (S, SearchListProduct) {
 
       var searchListProduct = new SearchListProduct();
       searchListProduct.setQueryUrl("/v2/products?");

@@ -181,20 +181,20 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				}
 				location.href = "../artisan/artisanDetail.html?" + S.param(params) + (location.search ? "&" + location.search.slice(1) : "");
 			});
-			//../../business/view/shopView.html?artisan={{artisan_id}}
+			//../business/view/shopView.html?artisan={{artisan_id}}
 		}
 
 	});
 	return ArtisanList;
 }, {
 	requires: ["node", "io", "event", "dom", "xtemplate",
-		"../../../action/Action",
+		"../../action/Action",
 		"UFO/Component",
 		"mui/datalazyload/index",
 		"UFO/mask/Mask",
-		"../../../util/XTemplateUtil",
-		"../../../tpl/spinner-loading-small-tpl",
-		"../../tpl/artisan-list-tpl",
-		"../../tpl/artisan-list-item-tpl"
+		"../../util/XTemplateUtil",
+		"../../tpl/spinner-loading-small-tpl",
+		"../tpl/artisan-list-tpl",
+		"../tpl/artisan-list-item-tpl"
 	]
 });

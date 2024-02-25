@@ -59,12 +59,11 @@ module.exports = function (grunt) {
                             'util/ParamUtil.js',
 
 
-                            'list/mods/showList/index.js',
-                            'list/mods/showList/ProductListWithHeaderAndPosFooter.js',
-                            'list/mods/showList/ArtisanListWithHeaderAndPosFooter.js',
-                            'list/mods/showList/ArtisanListWithHeader.js',
-                            'list/mods/showList/ShowList.js',
-                            'list/mods/showdetails/index.js',
+                            'list/mods/index.js',
+                            'list/mods/ProductListWithHeaderAndPosFooter.js',
+                            'list/mods/ArtisanListWithHeaderAndPosFooter.js',
+                            'list/mods/ArtisanListWithHeader.js',
+                            'list/mods/ShowList.js',
 
                             'order/mods/OrderDetail.js',
                             'order/mods/OrderCancel.js',

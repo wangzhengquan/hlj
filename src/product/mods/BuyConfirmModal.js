@@ -40,7 +40,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 		initAddress: function(){
 			var me = this;
 			var user = app.getSessionUser();
-		console.log("user" , user);
+		// console.log("user" , user);
 			if(user){
 				var addressList = user.user_address;
 				if(addressList && addressList.length){
@@ -302,8 +302,8 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 				if(order.service_addr.city){
 					_param.city = app.getCity(order.service_addr.city).name;
 				}
-				location.href= app.config.zmwHost + "/hlj_wx/hlj/createOrder?"+encodeURI(encodeURI(decodeURIComponent(S.param(_param))));
-				// location.href = '/'
+				location.href=  "../order/orderConfirm.html?"+S.param(_param);
+				// location.href=  "../order/orderConfirm.html?"+encodeURI(decodeURIComponent(S.param(_param)));
 				return false;
 			});
 		 

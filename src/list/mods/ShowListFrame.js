@@ -211,9 +211,9 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 },{
 	requires: [ "node", "event", "xtemplate", 
 	            "UFO/container/Container",
-	            "../../../util/MapUtil",
-	            "../../../action/Action",
-	            "../../../app",
-	            "../../tpl/showlist-frame-tpl"
+	            "../../util/MapUtil",
+	            "../../action/Action",
+	            "../../app",
+	            "../tpl/showlist-frame-tpl"
 	          ]
 });

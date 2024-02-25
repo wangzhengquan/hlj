@@ -40,5 +40,5 @@ KISSY.add(function (S, Cookie, ShowList, HomeAction, app) {
 	};
 
 }, {
-	requires: ['cookie', './ShowList', "../../../action/HomeAction", "../../../app"]
+	requires: ['cookie', './ShowList', "../../action/HomeAction", "../../app"]
 });

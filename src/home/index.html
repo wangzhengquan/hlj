@@ -15,25 +15,10 @@
 	<link rel="shortcut icon" href="../resources/images/logo.png" type="image/x-icon" />
 	<link href="../resources/style/home.css" rel="stylesheet">
 	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&amp;ak=KsGMXCk1t4D3nljli0WY23j6"></script>
-
 </head>
 
 <body>
 	<script>
-		function onafterrender() {
-			/*访问统计*/
-			//  KISSY.use('node, ua',function(S, Node, UA) {
-			// 	var params = S.unparam(decodeURIComponent(location.search.slice(1))),
-			// 		imgParams = {
-			// 			event:'artisanIndex',
-			// 			artisanIndex: params.version,
-			// 			sysVersion: UA.os ,//手机系统版本
-			// 			deviceId: UA.mobile, //设备号
-			// 			artisanId: params.artisan
-			// 	  };
-			// });
-		}
-
 		window.onAfterLoad = function () {
 			var me = this;
 			KISSY.use('app/home/mods/index, app/data/router', function (S, HomeTabPanel) {
@@ -56,6 +41,20 @@
 				homeTabPanel.render(S.one(document.body));
 
 			});
+		}
+
+		function onafterrender() {
+			/*访问统计*/
+			//  KISSY.use('node, ua',function(S, Node, UA) {
+			// 	var params = S.unparam(decodeURIComponent(location.search.slice(1))),
+			// 		imgParams = {
+			// 			event:'artisanIndex',
+			// 			artisanIndex: params.version,
+			// 			sysVersion: UA.os ,//手机系统版本
+			// 			deviceId: UA.mobile, //设备号
+			// 			artisanId: params.artisan
+			// 	  };
+			// });
 		}
 
 

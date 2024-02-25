@@ -99,7 +99,7 @@ KISSY.add(function(S, Node, XTemplate, ShowListFrame, ArtisanList, HomeAction, a
 	return ArtisanListWithHeaderAndPosfooter;
 }, {
 	requires: ['node', "xtemplate",  "./ShowListFrame" , "./ArtisanList", 
-	           "../../../action/HomeAction",
-	           "../../../app",
-	           "../../../util/MapUtil"]
+	           "../../action/HomeAction",
+	           "../../app",
+	           "../../util/MapUtil"]
 });

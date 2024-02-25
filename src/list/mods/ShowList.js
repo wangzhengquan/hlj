@@ -460,7 +460,7 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 }, {
 	requires: [
 		"node", "event", "dom", "xtemplate",
-		"../../../action/Action",
+		"../../action/Action",
 		"./ShowListFrame",
 		"./ProductList",
 		"./ArtisanList"

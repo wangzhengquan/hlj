@@ -8,6 +8,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 	<title>手艺人列表</title>
+	<link rel="shortcut icon" href="../resources/images/logo.png" type="image/x-icon" />
 	<link href="../resources/style/showList.css" rel="stylesheet">
 	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&amp;ak=KsGMXCk1t4D3nljli0WY23j6"></script>
 </head>
@@ -18,7 +19,7 @@
 </html>
 <script>
 	window.onAfterLoad = function () {
-		KISSY.use('app/list/mods/showList/ArtisanListWithHeaderAndPosFooter, app/data/router', function (S, ArtisanListWithHeaderAndPosFooter) {
+		KISSY.use('app/list/mods/ArtisanListWithHeaderAndPosFooter, app/data/router', function (S, ArtisanListWithHeaderAndPosFooter) {
 			//http://app.helijia.com/zmw/v2/search?filter_type=4&city=110100&source=banner&type=artisans&offset=0&page_size=20&business_district_ids=175
 			//file:///D:/workspace/helijia/web/mobile/src/app/customer/view/ArtisanList4Active.html?filter_type=4&city=110100&type=artisans
 

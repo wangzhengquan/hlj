@@ -8,6 +8,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 	<title>活动作品</title>
+	<link rel="shortcut icon" href="../resources/images/logo.png" type="image/x-icon" />
 	<link href="../resources/style/showList.css" rel="stylesheet">
 	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&amp;ak=KsGMXCk1t4D3nljli0WY23j6"></script>
 </head>
@@ -17,7 +18,7 @@
 
 <script>
 	window.onAfterLoad = function () {
-		KISSY.use('app/list/mods/showList/ProductListWithHeaderAndPosFooter, app/data/router', function (S, SearchListProduct) {
+		KISSY.use('app/list/mods/ProductListWithHeaderAndPosFooter, app/data/router', function (S, SearchListProduct) {
 			//http://app.helijia.com/zmw/v2/search?type=products&filter_category=tag_mei_jia&filter_active=61&city=110100
 			//D:/workspace/helijia/web/mobile/src/app/list/ProductList4Active.html?type=products&filter_category=tag_mei_jia&filter_active=61&city=110100
 

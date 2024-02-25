@@ -47,23 +47,7 @@ KISSY.add(function(S){
                 "img_url": "../resources/images/type/icon_bespeak_mode.png",
                 "background_normal": 16242031,
                 "background_highlighted": 16242031,
-              },
-              // {
-              //   "name": "美发",
-              //   "value": "tag_mei_fa",
-              //   "img_type": "tag_mei_jia",
-              //   "img_url": "../resources/images/type/icon_bespeak_hair.png",
-              //   "background_normal": 16749474,
-              //   "background_highlighted": 16749474,
-              // },
-              // {
-              //   "name": "健身",
-              //   "value": "tag_jian_shen",
-              //   "img_type": "tag_mei_jia",
-              //   "img_url": "../resources/images/type/icon_bespeak_jianshen2.png",
-              //   "background_normal": 16240495,
-              //   "background_highlighted": 16240495,
-              // }
+              }
                
             ],
             "search_conditions1": [],
@@ -144,14 +128,31 @@ KISSY.add(function(S){
             "background_normal": 16751490,
             "background_highlighted": 16751490,
             "length": 0,
+            
             "search_types1": [
               {
-                "name": "高颜值",
-                "value": "tag_gao_yan_zhi",
-                "img_type": "",
-                "img_url": "",
+                "name": "口语交流",
+                "value": "tag_kou_yu",
+                "img_type": "tag_kou_yu",
+                "img_url": "../resources/images/type/icon_bespeak_kouyu.png",
+                "background_normal": 12052381,
+                "background_highlighted": 12052381,
+              },
+              {
+                "name": "绘画摄影",
+                "value": "tag_mei_shu",
+                "img_type": "tag_mei_shu",
+                "img_url": "../resources/images/type/icon_bespeak_meishu.png",
                 "background_normal": 10788084,
                 "background_highlighted": 10788084,
+              },
+              {
+                "name": "声乐器乐",
+                "value": "tag_yin_yue",
+                "img_type": "tag_yin_yue",
+                "img_url": "../resources/images/type/icon_bespeak_yinyue.png",
+                "background_normal": 16753353,
+                "background_highlighted": 16753353,
               }
             ],
             "search_conditions1": [],
