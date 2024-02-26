@@ -66,24 +66,24 @@ KISSY.add(function (S, Node, XTemplate,
 			};
 
 			var pay_way_list = [
-				{
-					value: "balance",
-					title:"我的钱包",
-					remark: "",
-					logoCls: "mywallet-logo"
-				}, {
+				// {
+				// 	value: "balance",
+				// 	title:"我的钱包",
+				// 	remark: "",
+				// 	logoCls: "mywallet-logo"
+				// }, {
 			  
-					value: "",
-					title: "百度钱包",
-					remark: "",
-					logoCls: "baidupay-logo"
-				},  {
+				// 	value: "",
+				// 	title: "百度钱包",
+				// 	remark: "",
+				// 	logoCls: "baidupay-logo"
+				// },  {
 			 
-					value: "",
-					title: "银联",
-					remark: "",
-					logoCls: "unionpay-logo"
-				}, 
+				// 	value: "",
+				// 	title: "银联",
+				// 	remark: "",
+				// 	logoCls: "unionpay-logo"
+				// }, 
 				{
 					value: "alipay_wap",
 					title:"支付宝",
@@ -140,76 +140,10 @@ KISSY.add(function (S, Node, XTemplate,
 		 * @param order_no
 		 * @returns
 		 */
-		goPay2: function (pay_way, suc, error) {
-			var me = this;
-			var order_no = me.order.order_no,
-				stage = 1,
-				price = me.order.should_pay_price;
-
-			if (me.order.extra_fee_price) {
-				stage = 2;
-				price = me.order.extra_fee_price;
-			}
-			console.log('=== goPay===')
-			if (pay_way == 'balance') {
-				//我的钱包支付
-				Action.update('/v2/balance_pay', {
-					order_type: 1,
-					order_number: order_no,
-					device_type: 'wap',
-					stage: stage
-				}, function (json) {
-					console.log("balance_pay", json);
-					if (json.ret) {
-						location.href = app.config.baseUrl + '/red/share.html?order_seq=' + order_no + '&user_id=' + user.user_id;
-						suc && suc();
-					} else {
-						error && error();
-						alert(json.msg || JSON.stringify(json));
-					}
-				});
-			} else {
-				var return_url = app.config.baseUrl + '/red/share.html?order_seq=' + order_no + '&user_id=' + user.user_id;
-
-				var initServiceParam = {
-					order_number: order_no,
-					order_type: "1",
-					return_url: return_url,
-					pay_type: pay_way,
-					req_time: DateUtil.format(new Date(), "yyyy-MM-dd hh:mm:ss"),
-					stage: stage,
-					mobile: user.mobile
-				};
-
-				if (param.openid) {
-					initServiceParam.openid = param.openid;
-				}
-				alert("before initService" + JSON.stringify(initServiceParam));
-
-				Action.query("/v2/initService", initServiceParam, function (json) {
-					alert("after initService:" + JSON.stringify(json));
-					console.log("initService", json);
-					if (json.result == "ok") {
-						if (pay_way == 'wechat_h5') {
-							weichat_pay(json.params, function () {
-								alert("支付成功");
-								//location.href = return_url;
-							});
-						} else if (pay_way == "alipay_wap") {
-							location.href = json.params.url;
-						}
-						suc && suc();
-					} else {
-						error && error();
-					}
-
-
-				});
-			}
-		},
-
 		goPay: function (pay_way, suc, error) {
-			location.href = '../red/redShare.html?order_seq=2347872384&user_id=234737483773';
+			console.log('支付完成')
+			// location.href = '../red/redShare.html?order_seq=2347872384&user_id=234737483773';
+			location.href = '../order_list/index.html'
 		},
 
 		/**
@@ -231,7 +165,7 @@ KISSY.add(function (S, Node, XTemplate,
 				is_reserve: true,
 				device_type: 'wap'
 			};
-			console.log("submitOrder data", data);
+			
 			if (user.order.service_addr.address_id) {
 				data.service_address_id = user.order.service_addr.address_id;
 			}
@@ -239,22 +173,8 @@ KISSY.add(function (S, Node, XTemplate,
 			if (me.el.one('[name=insurance_handle]').attr('checked')) {
 				S.mix(data, FormUtil.getRecord(me.el.one('[name=form_insurance]')));
 			}
-			me.order.order_no = 2348374;
-			app.setSessionUser(user);
+			console.log("submitOrder data", data);
 			me.goPay(pay_way, suc, error);
-			//console.log("pay_way", pay_way);
-			// Action.post('/v2/submit_order', data, function(json){
-			// 	console.log('submit_order', json);
-			// 	if(json && json.ret){
-			// 		me.order.order_no = json.data;
-			// 		app.setSessionUser(user);
-			// 		me.goPay(pay_way, suc, error);
-			// 	}else{
-			// 		error && error();
-			// 		alert(json.msg || JSON.stringify(json));
-			// 		return false;
-			// 	}
-			// });
 		},
 
 		addCmpEvents: function () {

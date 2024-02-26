@@ -39,7 +39,7 @@ module.exports = function (grunt) {
                     ignorePackageNameInUri: true
                 }, {
                     name: 'mui',
-                    path: "<%= src%>/lib/kissy/mui",
+                    path: "<%= src%>/lib/mui",
                     charset: 'utf-8',
                     ignorePackageNameInUri: true
                 }]
@@ -49,15 +49,15 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= src%>',
-                        // src里添加的是主文件，被引用的文件会被合并到主文件里
+                        // src里添加的是主文件，被引用的文件会被自动合并到主文件里
                         src: [
-                           
                             'app.js',
                             'data/router.js',
                             'action/HomeConfig.js',
 
                             'util/ParamUtil.js',
 
+                            'viewport/mods/index.js',
 
                             'list/mods/index.js',
                             'list/mods/ProductListWithHeaderAndPosFooter.js',
@@ -70,13 +70,12 @@ module.exports = function (grunt) {
                             'order/mods/OrderConfirm.js',
                             'order/mods/OrderCancelSuc.js',
 
+                            'order_list/mods/OrderListTabs.js',
+
                             'comment/mods/Viewport.js',
                             'comment/mods/AddComment.js',
-
-
-                            'home/mods/Home.js',
+                             
                             'home/mods/index.js',
-                            'home/mods/OrderTab.js',
 
                             'product/mods/Product.js',
                             'product/mods/BuyConfirmModal.js',

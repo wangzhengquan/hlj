@@ -121,7 +121,7 @@ KISSY.add(function(S, Node, XTemplate, ShowListFrame, ProductList, HomeAction, a
 	return ProductListWithHeaderAndPosFooter;
 }, {
 	requires: ['node', "xtemplate",  "./ShowListFrame" , "./ProductList",
-	           "../../../action/HomeAction",
-	           "../../../app",
-	           "../../../util/MapUtil"]
+	           "app/action/HomeAction",
+	           "app/app",
+	           "app/util/MapUtil"]
 });

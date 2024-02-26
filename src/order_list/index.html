@@ -14,13 +14,28 @@
 <body>
   
 	<script>
-		window.onAfterLoad  = function() {
-			KISSY.use('app/orders/mods/OrderListTabs, app/data/router', function (S, OrderListTabs) {
-        // console.log('tabs', tabs)
-				var tabs = new OrderListTabs()
-				tabs.render(S.one(document.body));
+		// window.onAfterLoad  = function() {
+		// 	KISSY.use('app/orders/mods/OrderListTabs, app/data/router', function (S, OrderListTabs) {
+    //     // console.log('tabs', tabs)
+		// 		var tabs = new OrderListTabs()
+		// 		tabs.render(S.one(document.body));
+		// 	});
+		// }
+
+	window.onAfterLoad  =  function(){
+	 	KISSY.use('app/viewport/mods/index, app/order_list/mods/OrderListTabs, app/data/router', function(S, Viewport, OrderListTabs){
+			//document.body.scrollTop = 100;
+			var viewport = new Viewport({
+				title:'订单列表',
+				leftButtons:[{
+					iconCls: "icon-back",
+					cls:"button-back"
+				}]
 			});
-		}
+			viewport.getBodyContainer().append(new OrderListTabs().toEl())
+			viewport.render(S.one(document.body));
+		});
+	}
 	</script>
 	<script src="../startup.js" type="text/javascript"></script>
 

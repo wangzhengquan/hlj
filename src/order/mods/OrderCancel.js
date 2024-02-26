@@ -222,7 +222,7 @@ KISSY.add(function(S, Node, XTemplate, Viewport, MessageBox, Action,
 	
 	return OrderCancel;
 }, {
-	requires: ['node', "xtemplate",  "../../main/mods/Viewport",  "UFO/popup/MessageBox",
+	requires: ['node', "xtemplate",  "../../viewport/mods/index",  "UFO/popup/MessageBox",
 	           "../../action/Action" ,
 	           "./OrderCancelRuleModal",
 	           "../../app",

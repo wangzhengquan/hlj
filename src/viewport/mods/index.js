@@ -32,5 +32,5 @@ KISSY.add(function(S, Node, XTemplate, Container, tpl){
 	
 	return Viewport;
 }, {
-	requires: ['node', "xtemplate",  "UFO/container/Container" , "../tpl/main-tpl"]
+	requires: ['node', "xtemplate",  "UFO/container/Container" , "../tpl/index-tpl"]
 });

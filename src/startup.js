@@ -18,7 +18,7 @@
 
 				},
 				mui: {
-					path: "../lib/kissy/mui",
+					path: "../lib/mui",
 					charset: "utf-8",
 					combine: false,
 					//tag:KISSY.now(),

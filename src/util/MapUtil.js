@@ -1,5 +1,5 @@
 KISSY.add(function(S){
-	var geolocation = new BMap.Geolocation();
+	// var geolocation = new BMap.Geolocation();
 	//var map = new BMap.Map();  
 	
 	return {
@@ -39,26 +39,26 @@ KISSY.add(function(S){
 			return defer.promise;
 		},
 
-		getCurrentPosition2: function(suc, error){
-			var defer = S.Defer();  
-			geolocation.getCurrentPosition(function(position){
-				if(this.getStatus() == BMAP_STATUS_SUCCESS){
-					suc && suc(position);
-					defer.resolve(position);
-				}
-				else {
-					position = {
-						address:{
-							city:'北京市'
-						},
-						city:'北京市'
-					};
-					suc && suc(position);
-					defer.resolve(position);
+	// 	getCurrentPosition2: function(suc, error){
+	// 		var defer = S.Defer();  
+	// 		geolocation.getCurrentPosition(function(position){
+	// 			if(this.getStatus() == BMAP_STATUS_SUCCESS){
+	// 				suc && suc(position);
+	// 				defer.resolve(position);
+	// 			}
+	// 			else {
+	// 				position = {
+	// 					address:{
+	// 						city:'北京市'
+	// 					},
+	// 					city:'北京市'
+	// 				};
+	// 				suc && suc(position);
+	// 				defer.resolve(position);
 					 
-				}        
-			},{enableHighAccuracy: true});
-			return defer.promise;
-		}
+	// 			}        
+	// 		},{enableHighAccuracy: true});
+	// 		return defer.promise;
+	// 	}
 	}
 });
