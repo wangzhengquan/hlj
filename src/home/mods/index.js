@@ -1,4 +1,5 @@
-KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
+KISSY.add(function (S, Node, Event, XTemplate, 
+	TabPanel, HomeTab,  OrderListTabs, LoginModal, app) {
 	function HomeTabs(config) {
 		HomeTabs.superclass.constructor.call(this, config);
 	}
@@ -24,7 +25,7 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 					navBar: { title: '订单', barCls: 'bar-love' },
 					type: "orderListTabs",
 					//有path参数可以实现按需加载
-					path: "APP/orders/mods/OrderListTabs"
+					// path: "APP/orders/mods/OrderListTabs"
 				}
 			];
 			HomeTabs.superclass.initComponent.apply(this, arguments);
@@ -37,22 +38,19 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 
 				if (tab.attr('name') == 'order' && !app.isLogined()) {
 					if (!me.loginModal) {
-						S.use("APP/login/mods/LoginModal", function (S, LoginModal) {
-							me.loginModal = new LoginModal({
-								animation: 'slide-in-up'
-							});
-							me.loginModal.one('loginsuc', function () {
-								me.loginModal.hide();
-								me.setActiveTab(index);
-							});
-							me.loginModal.show();
-							tab.removeAttr('disabled');
+						me.loginModal = new LoginModal({
+							animation: 'slide-in-up'
 						});
+						me.loginModal.one('loginsuc', function () {
+							me.loginModal.hide();
+							me.setActiveTab(index);
+						});
+						me.loginModal.show();
+						tab.removeAttr('disabled');
 					} else {
 						me.loginModal.show();
 						tab.removeAttr('disabled');
 					}
-					//if(app.getSession().get('user'))
 					return false;
 				}
 			});
@@ -66,6 +64,8 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 		"node", "event", "xtemplate",
 		"UFO/tab/TabPanel",
 		"./Home",
+		"APP/orders/mods/OrderListTabs",
+		"APP/login/mods/LoginModal",
 		"../../app"
 	]
 });

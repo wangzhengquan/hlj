@@ -1,4 +1,5 @@
-KISSY.add(function (S, Node, Event, XTemplate, Component, ImageSlider,
+KISSY.add(function (S, Node, Event, XTemplate, Component, 
+	ImageSlider, ServiceCityModal,
 	HomeAction, app, MapUtil, XTemplateUtil, tpl, homeCardItemTpl) {
 
 	function Home(config) {
@@ -22,7 +23,9 @@ KISSY.add(function (S, Node, Event, XTemplate, Component, ImageSlider,
 				cls: 'button-clear',
 				iconCls: 'ion-arrow-down icon-popup-city',
 				handler: function () {
-					me.showServiceCityModal();
+					console.log('---show---')
+					me.serviceCityModal.show();
+					// return false
 				}
 			});
 
@@ -42,28 +45,6 @@ KISSY.add(function (S, Node, Event, XTemplate, Component, ImageSlider,
 			};
 			Home.superclass.initComponent.apply(this, arguments);
 			this.init();
-		},
-
-		/**
-		 * 显示城市选择组件
-		 */
-		showServiceCityModal: function () {
-			var me = this;
-			if (!me.serviceCityModal) {
-				S.use("APP/widget/servicecity/ServiceCityModal", function (S, ServiceCityModal) {
-					me.serviceCityModal = new ServiceCityModal({
-						animation: 'slide-in-up'
-					});
-
-					me.serviceCityModal.setCurCity(me.city.code);
-					me.serviceCityModal.on('cityselected', function (city) {
-						me.changeCity(city);
-					});
-					me.serviceCityModal.show();
-				});
-			} else {
-				me.serviceCityModal.show();
-			}
 		},
 
 		initSlider: function (city_code) {
@@ -163,13 +144,15 @@ KISSY.add(function (S, Node, Event, XTemplate, Component, ImageSlider,
 
 		init: function () {
 			var me = this;
-			var city = {name: '北京市', code: '110100'}
-			me.setCity(city);
-			// MapUtil.getCurrentPosition(function (position) {
-			// 	console.log(position);
-			// 	var city = app.getCityByName(position.address.city);
-			// 	me.setCity(city);
-			// });
+			me.setCity(app.getCityList()[0]);
+			me.serviceCityModal = new ServiceCityModal({
+				animation: 'slide-in-up'
+			});
+
+			me.serviceCityModal.setCurCity(me.city.code);
+			me.serviceCityModal.on('cityselected', function (city) {
+				me.changeCity(city);
+			});
 		},
 
 		addCmpEvents: function () {
@@ -194,8 +177,10 @@ KISSY.add(function (S, Node, Event, XTemplate, Component, ImageSlider,
 	return Home;
 }, {
 	requires: [
-		"node", "event", "xtemplate", "UFO/Component", "UFO/slider/ImageSlider",
-		"../../action/HomeAction", "../../app", "../../util/MapUtil", "../../util/XTemplateUtil",
+		"node", "event", "xtemplate", "UFO/Component", 
+		"UFO/slider/ImageSlider", "APP/widget/servicecity/ServiceCityModal",
+		"../../action/HomeAction", "../../app", 
+		"../../util/MapUtil", "../../util/XTemplateUtil",
 		"../tpl/home-tpl", "../tpl/home-card-item-tpl"
 	]
 });

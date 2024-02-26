@@ -116,11 +116,9 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 
 		loadMore: function (suc) {
 			var me = this;
-			this.artisanParams.offset = this.artisanParams.offset + page_size;
+			this.artisanParams.offset += page_size;
 
-			this.query(this.artisanParams, function () {
-				suc && suc();
-			});
+			this.query(this.artisanParams, suc);
 		},
 
 		query: function (artisanParams, suc, error) {
@@ -133,6 +131,7 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 					error && error(json);
 					return;
 				}
+				suc && suc(json);
 				var artisans = json.data;
 				artisans.showDistance = me.showDistance;
 				//console.log('artisans', artisans);
@@ -140,19 +139,20 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				if (artisans.length < page_size) {
 					me.loadFinished = true;
 				}
-				if (!me.artisanDataLazyload) {
-					me.artisanDataLazyload = new DataLazyload({
+				if (!me.dataLazyload) {
+					me.dataLazyload = new DataLazyload({
 						container: me.el.one('.artisan-list-content'),
-						autoDestroy: false
+						autoDestroy: false,
+						placeholder: "../resources/images/default_user.png"
 					});
+				} 
+				me.dataLazyload.addElements(me.dataLazyload.get('container'));
+				// me.dataLazyload.refresh();
+				me.dataLazyload._loadFn();
+				
+				
 
-				} else {
-					var dataLazyload = me.artisanDataLazyload;
-					dataLazyload.addElements(dataLazyload.get('container'));
-					dataLazyload._loadFn();
-				}
-
-				suc && suc(json);
+				
 			}, function (msg) {
 				console.log('msg', msg);
 				error && error(msg);

@@ -135,9 +135,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 
 			this.productParams.offset = this.productParams.offset + page_size;
 
-			this.query(this.productParams, function () {
-				suc && suc();
-			});
+			this.query(this.productParams, suc);
 		},
 
 		/**
@@ -152,6 +150,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 
 			productParams = this.productParams = (productParams || this.productParams);
 			Action.query("/v2/products.json", productParams, function (json) {
+				suc && suc(json);
 				var products = json.data;
 				me.productListContent.append(listItemTpl.render({
 					products: products,
@@ -163,22 +162,19 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 					me.loadFinished = true;
 				}
 
-				if (!me.productDataLazyload) {
-					me.productDataLazyload = new DataLazyload(
+				if (!me.dataLazyload) {
+					me.dataLazyload = new DataLazyload(
 						{
 							container: me.el.one('.list-content'),
 							autoDestroy: false,
 							placeholder: "../resources/images/default_product.png"
 						}
 					);
+				} 
+				me.dataLazyload.addElements(me.dataLazyload.get('container'));
+				me.dataLazyload.refresh();
 
-				} else {
-					var dataLazyload = me.productDataLazyload;
-					dataLazyload.addElements(dataLazyload.get('container'));
-					dataLazyload.refresh();
-				}
-
-				suc && suc(json);
+				
 
 			}, function (msg) {
 				console.error('Action.list error=', msg);
