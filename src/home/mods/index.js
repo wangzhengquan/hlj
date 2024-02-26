@@ -1,14 +1,12 @@
 KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
-
-
-	function HomeTabPanel(config) {
-		HomeTabPanel.superclass.constructor.call(this, config);
+	function HomeTabs(config) {
+		HomeTabs.superclass.constructor.call(this, config);
 	}
 
-	S.extend(HomeTabPanel, TabPanel);
+	S.extend(HomeTabs, TabPanel);
 
-	UFO.augment(HomeTabPanel, {
-		alias: 'hometabpanel',
+	UFO.augment(HomeTabs, {
+		alias: 'hometabs',
 
 		initComponent: function () {
 			this.items = [
@@ -17,7 +15,7 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 					iconCls: 'icon-home',
 					iconInCls: 'icon-home-in',
 					name: 'home',
-					type: "hometab"
+					type: "home"
 				}, {
 					title: '订单',
 					iconCls: 'icon-order',
@@ -29,12 +27,12 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 					path: "app/order_list/mods/OrderListTabs"
 				}
 			];
-			HomeTabPanel.superclass.initComponent.apply(this, arguments);
+			HomeTabs.superclass.initComponent.apply(this, arguments);
 		},
 
 		addCmpEvents: function () {
 			var me = this;
-			HomeTabPanel.superclass.addCmpEvents.apply(this, arguments);
+			HomeTabs.superclass.addCmpEvents.apply(this, arguments);
 			this.on('tabclick', function (index, tab) {
 
 				if (tab.attr('name') == 'order' && !app.isLogined()) {
@@ -62,12 +60,12 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 		}
 	});
 
-	return HomeTabPanel;
+	return HomeTabs;
 }, {
 	requires: [
 		"node", "event", "xtemplate",
 		"UFO/tab/TabPanel",
-		"./HomeTab",
+		"./Home",
 		"../../app"
 	]
 });

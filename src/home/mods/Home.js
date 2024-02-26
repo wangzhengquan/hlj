@@ -1,167 +1,201 @@
-KISSY.add(function (S, Node, XTemplate, HomeAction,
-	ImageSlider,
-	homeCardItemTpl, MapUtil, XTemplateUtil, app) {
+KISSY.add(function (S, Node, Event, XTemplate, Component, ImageSlider,
+	HomeAction, app, MapUtil, XTemplateUtil, tpl, homeCardItemTpl) {
 
-	var city;
-	var sliderContainer = S.one('#slider_container'),
-		cardContainer = S.one('#card_container');
+	function Home(config) {
 
-	var initCardItems = function (city_code) {
-		HomeAction.getHomeConfigOfCity(city_code, function (data) {
+		Home.superclass.constructor.call(this, config);
+	}
 
-			var homeConfigOfCiy = [];
-			for (var i = 1, len = data.block.length; i < len; i++) {
-				var card_item = data.block[i];
-				//置灰
-				if (card_item.jump_type == "") {
-					card_item.background_normal = 14606046;
-					card_item.background_highlighted = 14606046;
+	S.extend(Home, Component);
+
+	UFO.augment(Home, {
+		alias: 'home',
+
+		initComponent: function () {
+			var me = this;
+			
+			this.el = S.one(tpl);
+			this.sliderContainer = this.el.one('#slider_container');
+			this.cardContainer = this.el.one('#card_container');
+			var cityButton = this.cityButton = UFO.create('button', {
+				text: '',
+				cls: 'button-clear',
+				iconCls: 'ion-arrow-down icon-popup-city',
+				handler: function () {
+					me.showServiceCityModal();
 				}
-
-				if (i === 1) {
-					card_item.rowspan = 2;
-				} else {
-					card_item.rowspan = 1;
-				}
-				homeConfigOfCiy.push(card_item);
-
-			}
-
-			cardContainer.html(new XTemplate(homeCardItemTpl, {
-				commands: {
-					'toHex': function (scopes, option) {
-						return option.params[0].toString(16);
-					},
-
-					'underLine': function (scopes, option) {
-						var description = option.params[0];
-						return (description && description.length) ? 'has-line' : '';
-					},
-					'getHref': function (scopes, option) {
-						var jump_type = option.params[0],
-							name = option.params[1];
-
-						var param = {
-							name: name,
-							city: city.code
-						};
-
-						return '../list/index.html?' + S.param(param);
-
-					}
-
-				}
-			}).render(homeConfigOfCiy));
-		});
-	};
-
-	var initSlider = function (city_code) {
-
-		HomeAction.getBannerConfigOfCity(city_code).then(function (data) {
-			var images = [],
-				item,
-				param;
-
-			for (var i = 0, len = data.length; i < len; i++) {
-				item = data[i];
-				param = {
-					name: item.name,
-					city: city.code
-				};
-				images.push({
-					url:  item.img_url,
-					href: '../list/index.html?' + S.param(param)
-				});
-			}
-			var slider = new ImageSlider({
-				data: images,
-				autoSlide: true,
-				loop: true,
-				lazyLoad: true,
-				sliderContainer: sliderContainer
-
 			});
-			sliderContainer.html('');
-			slider.render(sliderContainer);
-		});
 
-	};
+			this.navBar = {
+				title: '河狸家',
+				barCls: 'bar-love',
+				leftButtons: [cityButton],
+				rightButtons: [{
+					style: { 'font-size': '23px' },
+					cls: 'button-clear',
+					iconCls: 'icon-call',
+					iconStyle: { color: '#fff' },
+					handler: function () {
+						location.href = "tel:4000088311";
+					}
+				}]
+			};
+			Home.superclass.initComponent.apply(this, arguments);
+			this.init();
+		},
 
-	/**
-	 * @param _city {
-	 * 	code,
-	 *  name
-	 * }
-	 */
-	var setCity = function (_city) {
-		city = _city;
-		initSlider(city.code);
-		initCardItems(city.code);
-
-		S.one("#city_name").html(city.name);
-		app.setPosition({
-			city: city.name,
-			city_code: city.code
-		});
-
-	};
-
-	var changeCity = function (city) {
-		setCity(city);
-	};
-
-
-
-	var addCmpEvents = function () {
-		var me = this;
-		S.one(document).delegate('tap click', '[action=show-citys-modal]:not([disabled])', function (event) {
-			var target = S.one(event.currentTarget);
-			target.attr('disabled', 'disabled');
+		/**
+		 * 显示城市选择组件
+		 */
+		showServiceCityModal: function () {
+			var me = this;
 			if (!me.serviceCityModal) {
 				S.use("app/widget/servicecity/ServiceCityModal", function (S, ServiceCityModal) {
 					me.serviceCityModal = new ServiceCityModal({
 						animation: 'slide-in-up'
 					});
-					me.serviceCityModal.on('hide', function () {
-						target.removeAttr('disabled');
-					});
-					me.serviceCityModal.setCurCity(city.code);
-					me.serviceCityModal.on('cityselected', function (city) {
-						changeCity(city);
-					});
 
+					me.serviceCityModal.setCurCity(me.city.code);
+					me.serviceCityModal.on('cityselected', function (city) {
+						me.changeCity(city);
+					});
 					me.serviceCityModal.show();
 				});
 			} else {
 				me.serviceCityModal.show();
 			}
+		},
 
-			return false;
-		});
+		initSlider: function (city_code) {
+			var me = this;
+			HomeAction.getBannerConfigOfCity(city_code).then(function (data) {
+				var images = [],
+					item,
+					param;
 
-		/*S.one(document).delegate('touchstart', 'a.card-item:not([disabled])', function(event){
-			var target = S.one(event.currentTarget);
-			//target.addClass('enter-active');
-		});
-		S.one(document).delegate('touchend', 'a.card-item:not([disabled])', function(event){
-			var target = S.one(event.currentTarget);
-			//target.removeClass('enter-active');
-		});*/
-	}
+				for (var i = 0, len = data.length; i < len; i++) {
+					item = data[i];
+					param = {
+						name: item.name,
+						city: me.city.code
+					};
+					images.push({
+						url: item.img_url,
+						href: '../list/index.html?' + S.param(param)
+					});
+				}
+				var slider = new ImageSlider({
+					data: images,
+					autoSlide: true,
+					loop: true,
+					lazyLoad: true,
+					sliderContainer: me.sliderContainer
 
-	return {
+				});
+				me.sliderContainer.html('');
+				slider.render(me.sliderContainer);
+			});
+
+		},
+
+		initCardItems: function (city_code) {
+			var me = this;
+			HomeAction.getHomeConfigOfCity(city_code, function (data) {
+				var homeConfigOfCiy = [];
+				//homeConfigOfCiy[0].background_normal = 14540253;
+				console.log('data', data);
+				for (var i = 1, len = data.block.length; i < len; i++) {
+
+					if (i === 1) {
+						data.block[i].rowspan = 2;
+					} else {
+						data.block[i].rowspan = 1;
+					}
+					homeConfigOfCiy.push(data.block[i]);
+
+				}
+				//console.log('homeConfigOfCiy', S.one("#card_item_template").html());
+
+				me.cardContainer.html(new XTemplate(homeCardItemTpl, {
+					commands: {
+						'toHex': function (scopes, option) {
+							return option.params[0].toString(16);
+						},
+
+						'underLine': function (scopes, option) {
+							var description = option.params[0];
+							return (description && description.length) ? 'has-line' : '';
+						},
+
+						'getHref': function (scopes, option) {
+							var jump_type = option.params[0],
+								name = option.params[1];
+
+							var param = {
+								name: name,
+								city: me.city.code
+							};
+
+							return '../list/index.html?' + S.param(param);
+						}
+
+					}
+				}).render(homeConfigOfCiy));
+			});
+		},
+
+		setCity: function (_city) {
+			this.city = _city;
+			this.initSlider(_city.code);
+			this.initCardItems(_city.code);
+			this.cityButton.setText(_city.name);
+			app.setPosition({
+				city: _city.name,
+				city_code: _city.code
+			});
+
+		},
+
+		changeCity: function (city) {
+			// console.log('city==', city);
+			this.setCity(city);
+		},
 
 		init: function () {
-			MapUtil.getCurrentPosition(function (position) {
-				var city = app.getCityByName(position.address.city);
-				setCity(city);
-			});
-			addCmpEvents();
+			var me = this;
+			var city = {name: '北京市', code: '110100'}
+			me.setCity(city);
+			// MapUtil.getCurrentPosition(function (position) {
+			// 	console.log(position);
+			// 	var city = app.getCityByName(position.address.city);
+			// 	me.setCity(city);
+			// });
+		},
+
+		addCmpEvents: function () {
+			Home.superclass.addCmpEvents.apply(this, arguments);
+			/*this.el.delegate('tap', '[action=show-citys-modal]', function(event){
+				if(!me.serviceCityModal){
+					me.serviceCityModal = new ServiceCityModal({
+						animation: 'slide-in-up'
+					});
+					me.serviceCityModal.setCurCity(city.code);
+					me.serviceCityModal.on('cityselected', function(city){
+						me.changeCity(city);
+					});
+					
+				}
+				me.serviceCityModal.show();
+			});*/
 		}
-	}
+
+	});
+
+	return Home;
 }, {
-	requires: ['node', "xtemplate", "../../action/HomeAction",
-		"UFO/slider/ImageSlider",
-		"../tpl/home-card-item-tpl",
-		"../../util/MapUtil", "../../util/XTemplateUtil", "../../app"]
+	requires: [
+		"node", "event", "xtemplate", "UFO/Component", "UFO/slider/ImageSlider",
+		"../../action/HomeAction", "../../app", "../../util/MapUtil", "../../util/XTemplateUtil",
+		"../tpl/home-tpl", "../tpl/home-card-item-tpl"
+	]
 });
