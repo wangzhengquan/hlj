@@ -1,5 +1,6 @@
 KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
-	DataLazyload, Mask, XTemplateUtil, spinnerLoadingSmallTpl, tpl, item_tpl) {
+	DataLazyload, Mask, XTemplateUtil, 
+	spinnerLoadingSmallTpl, tpl, item_tpl) {
 	var page_size = 20;
 
 	var loadingTip = S.one(spinnerLoadingSmallTpl);
@@ -82,7 +83,7 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				mask = new Mask({ text: '正在加载...' });
 			artisanParams = this.artisanParams = (artisanParams || this.artisanParams);
 			this.fire('beforeload');
-			mask.show();
+			var timeout = S.later(mask.show, 600);
 			this.loadFinished = false;
 			this.artisanListContent.html('');
 			this.artisanParams.offset = 0;
@@ -102,6 +103,7 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 						mask.hide();
 					}, 2000);
 				} else {
+					timeout.cancel()
 					mask.hide();
 				}
 
@@ -145,23 +147,22 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 						autoDestroy: false,
 						placeholder: "../resources/images/default_user.png"
 					});
-				} 
-				me.dataLazyload.addElements(me.dataLazyload.get('container'));
-				// me.dataLazyload.refresh();
-				me.dataLazyload._loadFn();
-				
-				
-
+				} else {
+					me.dataLazyload.addElements(me.dataLazyload.get('container'));
+					me.dataLazyload.refresh();
+					// me.dataLazyload._loadFn();
+				}
+			
 				
 			}, function (msg) {
 				console.log('msg', msg);
 				error && error(msg);
 			});
 		},
-		maskLoadingMore: function () {
+		appendLoadingMoreSpinner: function () {
 			this.artisanListContent.append(loadingTip);
 		},
-		removeLoadingMoreMask: function () {
+		removeLoadingMoreSpinner: function () {
 			loadingTip.remove();
 		},
 		addCmpEvents: function () {
@@ -181,7 +182,6 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				}
 				location.href = "../artisan/artisanDetail.html?" + S.param(params) + (location.search ? "&" + location.search.slice(1) : "");
 			});
-			//../business/view/shopView.html?artisan={{artisan_id}}
 		}
 
 	});

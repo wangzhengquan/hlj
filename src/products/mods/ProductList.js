@@ -98,7 +98,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 			var me = this,
 				mask = new Mask({ text: '正在加载...' });
 			me.fire('beforeload');
-			mask.show();
+			var timeout = S.later(mask.show, 500);
 			this.loadFinished = false;
 			this.productListContent.html('');
 			this.productParams.offset = 0;
@@ -119,6 +119,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 						mask.hide();
 					}, 2000);
 				} else {
+					timeout.cancel()
 					mask.hide();
 				}
 
@@ -170,23 +171,21 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 							placeholder: "../resources/images/default_product.png"
 						}
 					);
-				} 
-				me.dataLazyload.addElements(me.dataLazyload.get('container'));
-				me.dataLazyload.refresh();
-
-				
-
+				} else {
+					me.dataLazyload.addElements(me.dataLazyload.get('container'));
+					me.dataLazyload.refresh();
+				}
 			}, function (msg) {
 				console.error('Action.list error=', msg);
 				error && error(msg);
 			});
 		},
 
-		maskLoadingMore: function () {
+		appendLoadingMoreSpinner: function () {
 			this.productListContent.append(loadingTip);
 		},
 
-		removeLoadingMoreMask: function () {
+		removeLoadingMoreSpinner: function () {
 			loadingTip.remove();
 		},
 

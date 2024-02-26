@@ -69,10 +69,10 @@ KISSY.add(function(S, Node, XTemplate, ShowListFrame, ProductList, HomeAction, a
 				if(me.scrollView.scrollTop + me.scrollView.clientHeight + (47+60) >= me.scrollView.scrollHeight){
 					me.removeScrollListener();
 					if(!me.productList.loadFinished){
-						me.productList.maskLoadingMore();
+						me.productList.appendLoadingMoreSpinner();
 						me.scrollView.scrollTop =  me.scrollView.scrollTop + (24+10);
 						me.productList.loadMore(function(){
-							me.productList.removeLoadingMoreMask();
+							me.productList.removeLoadingMoreSpinner();
 							me.addScrollListener();
 						});
 					}

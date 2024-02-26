@@ -51,11 +51,11 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,
 		query: function(param, cb){
 			var me = this;
 			
-			me.showLoadingMoreMask();
-			me.scrollView.scrollTop =  me.scrollView.scrollTop + (24+10);
+			me.appendLoadingMoreSpinner();
+			
 			Action.query("/user/artisan_common_list.json", param , function(json){
 				console.log('comment', json);
-				me.removeLoadingMoreMask();
+				me.removeLoadingMoreSpinner();
 				if(json.result == 'ok'){
 					me.getBodyContainer().append(itemTpl.render(json));
 					cb && cb(json.comments.length < param.size);
@@ -64,16 +64,16 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,
 				
 				 
 			}, function(msg){
-				me.removeLoadingMoreMask();
+				me.removeLoadingMoreSpinner();
 				//me.addScrollListener();
 			});
 		},
 		
-		showLoadingMoreMask: function(){
+		appendLoadingMoreSpinner: function(){
 			this.getBodyContainer().append(loadingMoreMask);
 		},
 		
-		removeLoadingMoreMask: function(){
+		removeLoadingMoreSpinner: function(){
 			loadingMoreMask.remove();
 		},
 		
@@ -82,18 +82,17 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,
 			/**
 			 * 滚动条事件
 			 */
-			var scrollHandler = (function(e){
-				return S.buffer(function(){
-					if(me.scrollView.scrollTop + me.scrollView.clientHeight + win.innerHeight >=  me.scrollView.scrollHeight){
-						me.removeScrollListener();
-						me.loadMore(function(loadFinished){
-							if(!loadFinished){
-								me.addScrollListener();
-							}
-						});
-					}
-				}, 1000);
-			})();
+			var scrollHandler = function(e) {
+				if(me.scrollView.scrollTop + me.scrollView.clientHeight + win.innerHeight + (47+60) >=  me.scrollView.scrollHeight){
+					me.removeScrollListener();
+					me.scrollView.scrollTop =  me.scrollView.scrollTop + (24+10);
+					me.loadMore(function(loadFinished){
+						if(!loadFinished){
+							me.addScrollListener();
+						}
+					});
+				}
+			}
 			
 			this.addScrollListener = function(){
 				Event.on(me.scrollView, 'scroll', scrollHandler);

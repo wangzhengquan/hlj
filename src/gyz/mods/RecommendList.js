@@ -61,11 +61,11 @@ KISSY.add(function(S, Node, DOM, Event, XTemplate, Component, Action, Lazyload,
 			});
 		},
 		
-		showLoadingMoreMask: function(){
+		appendLoadingMoreSpinner: function(){
 			this.recommendList.append(loadingMoreMask);
 		},
 		
-		removeLoadingMoreMask: function(){
+		removeLoadingMoreSpinner: function(){
 			loadingMoreMask.remove();
 		},
 		
@@ -97,17 +97,13 @@ KISSY.add(function(S, Node, DOM, Event, XTemplate, Component, Action, Lazyload,
 		
 		query: function(params, suc, error){
 			var me = this;
-			
-			me.showLoadingMoreMask();
-			
-			me.scrollViewDom.scrollTop =  me.scrollViewDom.scrollTop + 28;
-			
+			me.appendLoadingMoreSpinner();
 			params = this.params = (params || this.params);
 			// http://apppub.helijia.com/zmw /v2/beautiful_recommend 
 			Action.query('/v2/beautiful_recommend', params, function(json){
 				console.log('query', json);
 				 
-				me.removeLoadingMoreMask();
+				me.removeLoadingMoreSpinner();
 				if(json.ret){
 					me.recommendList.append(new XTemplate(
 							recommend_item_tpl,
@@ -137,7 +133,7 @@ KISSY.add(function(S, Node, DOM, Event, XTemplate, Component, Action, Lazyload,
 					console.error('error', json);
 				}
 			}, function(msg){
-				me.removeLoadingMoreMask();
+				me.removeLoadingMoreSpinner();
 				error && error();
 				console.log('msg', msg);
 			});
@@ -192,16 +188,15 @@ KISSY.add(function(S, Node, DOM, Event, XTemplate, Component, Action, Lazyload,
 			 * 滚动条事件
 			 */
 			var scrollHandler = (function(e){
-				return S.buffer(function(){
-					if((me.scrollViewDom.scrollTop + me.scrollViewDom.clientHeight + win.innerHeight>=  me.scrollViewDom.scrollHeight)){
-						me.removeScrollListener();
-						me.loadMore(function(loadFinished){
-							if(!loadFinished){
-								me.addScrollListener();
-							}
-						});
-					}
-				}, 1000);
+				if((me.scrollViewDom.scrollTop + me.scrollViewDom.clientHeight + win.innerHeight>=  me.scrollViewDom.scrollHeight)){
+					me.removeScrollListener();
+					me.scrollViewDom.scrollTop =  me.scrollViewDom.scrollTop + 28;
+					me.loadMore(function(loadFinished){
+						if(!loadFinished){
+							me.addScrollListener();
+						}
+					});
+				}
 				
 			})();
 			

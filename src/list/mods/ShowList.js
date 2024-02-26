@@ -300,20 +300,24 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 					if (me.headerTabIndex == 0) {
 						if (!me.productList.loadFinished) {
 							me.removeScrollListener();
-							me.productList.maskLoadingMore();
+							// me.productList.appendLoadingMoreSpinner();
+							var timeout = S.later(me.artisanList.appendLoadingMoreSpinner, 600)
 							me.scrollView.scrollTop = me.scrollView.scrollTop + (24 + 10);
 							me.productList.loadMore(function () {
-								me.productList.removeLoadingMoreMask();
+								timeout.cancel()
+								me.productList.removeLoadingMoreSpinner();
 								me.addScrollListener();
 							});
 						}
 					} else if (me.headerTabIndex == 1) {
 						if (!me.artisanList.loadFinished) {
 							me.removeScrollListener();
-							me.artisanList.maskLoadingMore();
+							// me.artisanList.appendLoadingMoreSpinner();
+							var timeout = S.later(me.artisanList.appendLoadingMoreSpinner, 600)
 							me.scrollView.scrollTop = me.scrollView.scrollTop + (24 + 10);
 							me.artisanList.loadMore(function () {
-								me.artisanList.removeLoadingMoreMask();
+								timeout.cancel()
+								me.artisanList.removeLoadingMoreSpinner();
 								me.addScrollListener();
 							});
 						}

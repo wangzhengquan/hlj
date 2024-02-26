@@ -66,10 +66,12 @@ KISSY.add(function (S, Node, XTemplate, ShowListFrame, ArtisanList, HomeAction, 
 				if (me.scrollView.scrollTop + me.scrollView.clientHeight + (47 + 60) >= me.scrollView.scrollHeight) {
 					me.removeScrollListener();
 					if (!me.artisanList.loadFinished) {
-						me.artisanList.maskLoadingMore();
+						// me.artisanList.appendLoadingMoreSpinner();
+						var timeout = S.later(me.artisanList.appendLoadingMoreSpinner, 600);
 						me.scrollView.scrollTop = me.scrollView.scrollTop + (24 + 10);
 						me.artisanList.loadMore(function () {
-							me.artisanList.removeLoadingMoreMask();
+							timeout.cancel()
+							me.artisanList.removeLoadingMoreSpinner();
 							me.addScrollListener();
 						});
 					}

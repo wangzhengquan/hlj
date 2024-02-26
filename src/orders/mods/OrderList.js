@@ -32,11 +32,11 @@ KISSY.add(function (S, Node, Event, XTemplate, Component,
 			this.load();
 		},
 
-		showLoadingMoreMask: function () {
+		appendLoadingMoreSpinner: function () {
 			this.orderlistEl.append(loadingMoreMask);
 		},
 
-		removeLoadingMoreMask: function () {
+		removeLoadingMoreSpinner: function () {
 			loadingMoreMask.remove();
 		},
 
@@ -73,7 +73,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Component,
 		query: function (params, suc, error) {
 			var me = this;
 
-			me.showLoadingMoreMask();
+			me.appendLoadingMoreSpinner();
 
 			me.scrollViewDom.scrollTop = me.scrollViewDom.scrollTop + 28;
 
@@ -81,7 +81,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Component,
 			// http://apppub.helijia.com/zmw /v2/beautiful_recommend 
 			Action.query('/v2/orders.json', params, function (json) {
 				console.log("orders", json);
-				me.removeLoadingMoreMask();
+				me.removeLoadingMoreSpinner();
 				if (json.ret) {
 					json.ORDER_STATUS = ORDER_STATUS;
 					//json.data.status = String(parseInt(json.data.status));
@@ -94,7 +94,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Component,
 				}
 
 			}, function (msg) {
-				me.removeLoadingMoreMask();
+				me.removeLoadingMoreSpinner();
 				error && error();
 				console.log('msg', msg);
 			});
@@ -104,17 +104,14 @@ KISSY.add(function (S, Node, Event, XTemplate, Component,
 			var me = this;
 
 			var scrollHandler = function (e) {
-				return S.buffer(function () {
-					if ((me.scrollViewDom.scrollTop + me.scrollViewDom.clientHeight + win.innerHeight >= me.scrollViewDom.scrollHeight)) {
-						me.removeScrollListener();
-						me.loadMore(function (loadFinished) {
-							if (!loadFinished) {
-								me.addScrollListener();
-							}
-						});
-					}
-				}, 500);
-
+				if ((me.scrollViewDom.scrollTop + me.scrollViewDom.clientHeight + win.innerHeight >= me.scrollViewDom.scrollHeight)) {
+					me.removeScrollListener();
+					me.loadMore(function (loadFinished) {
+						if (!loadFinished) {
+							me.addScrollListener();
+						}
+					});
+				}
 			};
 
 			this.addScrollListener = function () {
