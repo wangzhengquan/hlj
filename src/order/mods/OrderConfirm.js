@@ -143,7 +143,7 @@ KISSY.add(function (S, Node, XTemplate,
 		goPay: function (pay_way, suc, error) {
 			console.log('支付完成')
 			// location.href = '../red/redShare.html?order_seq=2347872384&user_id=234737483773';
-			location.href = '../order_list/index.html'
+			location.href = '../orders/index.html'
 		},
 
 		/**

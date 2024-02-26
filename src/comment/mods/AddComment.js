@@ -164,7 +164,7 @@ KISSY.add(function(S, Node, XTemplate,FormUtil, MainViewport, XTemplateUtil, Act
 }, {
 	requires: ['node', "xtemplate",  
 	           "UFO/util/Form",
-	           "../../main/mods/Viewport", 
+	           "../../viewport/mods/index", 
 	           "../../util/XTemplateUtil", 
 	           "../../action/Action",
 	           "../tpl/add-comment-tpl",

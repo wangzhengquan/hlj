@@ -46,7 +46,7 @@ KISSY.add(function(S, Node, Xtemplate, Action, app, coupon_list_tpl, MapUtil) {
 								} else if(type) {
 									return "http://www.helijia.com/mobile/build/APP/home/index.html?channel=new_weixin";
 								}else{									
-									return "../list/ProductList4Active.html?"+S.param(_param) ;
+									return "../products/products_of_active.html?"+S.param(_param) ;
 								}
 
 							}

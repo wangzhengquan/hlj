@@ -114,10 +114,10 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,
        "xtemplate", 
        "UFO/Component", 
        "UFO/popup/MessageBox", 
-       "../../action/Action",
-       '../../util/XTemplateUtil',
+       "APP/action/Action",
+       'APP/util/XTemplateUtil',
        "../tpl/comment-list-tpl",
        "../tpl/comment-item-tpl",
-       "../../tpl/spinner-loading-small-tpl"
+       "APP/widget/tpl/spinner-loading-small-tpl"
        ]
 });

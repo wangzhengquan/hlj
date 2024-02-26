@@ -89,7 +89,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 					//http://www.helijia.com/#/artisanProduct/artisan_id=
 					return 'http://www.helijia.com/#/artisanProduct/artisan_id=' + artisanId;
 				} else {
-					return "../list/ProductOfArtisan.html?" + S.param(_param);
+					return "../products/products_of_artisan.html?" + S.param(_param);
 				}
 			}
 		}

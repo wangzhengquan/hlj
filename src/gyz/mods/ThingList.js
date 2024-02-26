@@ -73,7 +73,7 @@ KISSY.add(function(S, Node,Event, XTemplate, Component, MessageBox, app,
 				if(app.isApp()){
 					location.href =  app.config.baseUrl+"/v2/search"+search; 
 				}else{
-					location.href = "../list/ProductList4Active.html"+search;
+					location.href = "../products/products_of_active.html"+search;
 				}
 				return false;
 			});

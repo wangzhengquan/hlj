@@ -31,5 +31,5 @@ KISSY.add(function(S, Node, XTemplate, MainViewport, CommentListTabSlider){
 	
 	return Viewport;
 }, {
-	requires: ['node', "xtemplate",  "../../main/mods/Viewport" , "./CommentListTabSlider"]
+	requires: ['node', "xtemplate",  "../../viewport/mods/index" , "./CommentListTabSlider"]
 });

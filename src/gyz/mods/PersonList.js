@@ -61,7 +61,7 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,MessageBox,app, Action, t
 				}));
 			}
 			
-			var url = "../../customer/view/searchListArtisan.html?".concat(S.param(urlParams));
+			var url = "../../customer/view/artisan_products_of_search.html?".concat(S.param(urlParams));
 			if(location.search){
 				url = url.concat("&"+location.search.slice(1));
 			}

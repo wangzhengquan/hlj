@@ -19,7 +19,7 @@
 </html>
 <script>
   window.onAfterLoad = function () {
-    KISSY.use('APP/list/mods/ProductListWithHeaderAndPosFooter, APP/data/router', function (S, SearchListProduct) {
+    KISSY.use('APP/products/mods/ProductListWithHeaderAndPosFooter, APP/data/router', function (S, SearchListProduct) {
 
       var searchListProduct = new SearchListProduct();
       searchListProduct.setQueryUrl("/v2/products?");

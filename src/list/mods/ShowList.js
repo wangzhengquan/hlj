@@ -462,7 +462,7 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 		"node", "event", "dom", "xtemplate",
 		"APP/action/Action",
 		"./ShowListFrame",
-		"APP/product_list/mods/ProductList",
-		"APP/artisan_list/mods/ArtisanList"
+		"APP/products/mods/ProductList",
+		"APP/artisans/mods/ArtisanList"
 	]
 });

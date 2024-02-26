@@ -46,7 +46,7 @@ KISSY.add(function(S, Node, DOM, XTemplate, Modal, Action, tpl, product_label_tp
 					point: me.position.point
 				}));
 			}*/
-			win.location.href = "../list/searchListArtisan.html?".concat(S.param(queryParams));
+			win.location.href = "../artisans/artisans_of_search.html?".concat(S.param(queryParams));
 		},
 		
 		doSearchProduct: function(filter_label, filter_label_name){

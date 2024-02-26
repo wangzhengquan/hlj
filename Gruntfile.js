@@ -60,17 +60,18 @@ module.exports = function (grunt) {
                             'viewport/mods/index.js',
 
                             'list/mods/index.js',
-                            'list/mods/ProductListWithHeaderAndPosFooter.js',
-                            'list/mods/ArtisanListWithHeaderAndPosFooter.js',
-                            'list/mods/ArtisanListWithHeader.js',
                             'list/mods/ShowList.js',
+                            'products/mods/ProductListWithHeaderAndPosFooter.js',
+                            'artisans/mods/ArtisanListWithHeaderAndPosFooter.js',
+                            'artisans/mods/ArtisanListWithHeader.js',
+                            
 
                             'order/mods/OrderDetail.js',
                             'order/mods/OrderCancel.js',
                             'order/mods/OrderConfirm.js',
                             'order/mods/OrderCancelSuc.js',
 
-                            'order_list/mods/OrderListTabs.js',
+                            'orders/mods/OrderListTabs.js',
 
                             'comment/mods/Viewport.js',
                             'comment/mods/AddComment.js',

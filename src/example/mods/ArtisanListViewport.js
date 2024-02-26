@@ -48,5 +48,5 @@ KISSY.add(function(S, Node, Viewport, List){
 	
 	return ListViewport;
 }, {
-	requires: ['node', "../../main/mods/Viewport", "./ArtisanList"]
+	requires: ['node', "../../viewport/mods/index", "./ArtisanList"]
 });

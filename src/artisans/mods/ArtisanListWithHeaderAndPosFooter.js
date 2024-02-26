@@ -11,7 +11,7 @@ KISSY.add(function(S, Node, XTemplate, ShowListFrame, ArtisanList, HomeAction, a
 	S.extend(ArtisanListWithHeaderAndPosfooter, ShowListFrame);
 	
 	UFO.augment(ArtisanListWithHeaderAndPosfooter, {
-		alias: 'searchListArtisan',
+		alias: 'artisanListWithHeaderAndPosfooter',
 		initComponent: function(){
 			var me = this;
 			//this.el = S.all(tpl);
@@ -98,7 +98,7 @@ KISSY.add(function(S, Node, XTemplate, ShowListFrame, ArtisanList, HomeAction, a
 	
 	return ArtisanListWithHeaderAndPosfooter;
 }, {
-	requires: ['node', "xtemplate",  "./ShowListFrame" , "./ArtisanList", 
+	requires: ['node', "xtemplate",  "APP/list/mods/ShowListFrame" , "./ArtisanList", 
 	           "../../action/HomeAction",
 	           "../../app",
 	           "../../util/MapUtil"]
