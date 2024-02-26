@@ -215,12 +215,12 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 	return ProductList;
 }, {
 	requires: ["node", "event", "xtemplate",
-		"../../action/Action",
+		"APP/action/Action",
 		"UFO/Component",
-		"mui/datalazyload/index",
+		"MUI/datalazyload/index",
 		"UFO/mask/Mask",
-		"../../util/XTemplateUtil",
-		"../tpl/spinner-loading-small-tpl",
+		"APP/util/XTemplateUtil",
+		"APP/widget/tpl/spinner-loading-small-tpl",
 		"../tpl/product-list-tpl",
 		"../tpl/product-list-item-tpl"
 	]

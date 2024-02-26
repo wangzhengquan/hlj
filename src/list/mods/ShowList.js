@@ -378,7 +378,7 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 				var target = S.one(event.currentTarget);
 				target.attr('disabled', 'disabled');
 				if (!me.searchModal) {
-					S.use("app/widget/search/SearchModal", function (S, SearchModal) {
+					S.use("APP/widget/search/SearchModal", function (S, SearchModal) {
 						me.searchModal = new SearchModal({
 							animation: 'slide-in-up'
 						});
@@ -460,9 +460,9 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 }, {
 	requires: [
 		"node", "event", "dom", "xtemplate",
-		"../../action/Action",
+		"APP/action/Action",
 		"./ShowListFrame",
-		"./ProductList",
-		"./ArtisanList"
+		"APP/product_list/mods/ProductList",
+		"APP/artisan_list/mods/ArtisanList"
 	]
 });

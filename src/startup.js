@@ -17,7 +17,7 @@
 					debug: true
 
 				},
-				mui: {
+				MUI: {
 					path: "../lib/mui",
 					charset: "utf-8",
 					combine: false,
@@ -26,7 +26,7 @@
 					ignorePackageNameInUri: true,
 					debug: true
 				},
-				app: {
+				APP: {
 					path: "../",
 					charset: "utf-8",
 					combine: false,

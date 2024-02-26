@@ -21,7 +21,7 @@
 <body>
 	<script>
 		window.onAfterLoad = function () {
-			KISSY.use('app/list/mods/ArtisanListWithHeaderAndPosFooter, app/data/router', function (S, SearchListArtisan) {
+			KISSY.use('APP/list/mods/ArtisanListWithHeaderAndPosFooter, APP/data/router', function (S, SearchListArtisan) {
 				var searchListArtisan = new SearchListArtisan();
 				searchListArtisan.render(S.one(document.body));
 				searchListArtisan.init();

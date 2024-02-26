@@ -17,7 +17,7 @@
 </body>
 <script>
 	window.onAfterLoad = function () {
-		KISSY.use('app/comment/mods/Viewport, app/data/router', function (S, Viewport) {
+		KISSY.use('APP/comment/mods/Viewport, APP/data/router', function (S, Viewport) {
 			var viewport = new Viewport();
 			viewport.render(S.one(document.body));
 		});

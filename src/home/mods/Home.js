@@ -50,7 +50,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Component, ImageSlider,
 		showServiceCityModal: function () {
 			var me = this;
 			if (!me.serviceCityModal) {
-				S.use("app/widget/servicecity/ServiceCityModal", function (S, ServiceCityModal) {
+				S.use("APP/widget/servicecity/ServiceCityModal", function (S, ServiceCityModal) {
 					me.serviceCityModal = new ServiceCityModal({
 						animation: 'slide-in-up'
 					});

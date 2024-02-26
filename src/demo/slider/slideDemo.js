@@ -39,5 +39,5 @@ KISSY.add(function(S, Slide){
 		}
 	}
 },{
-	requires: ["mui/slider/2.0.2/index"]
+	requires: ["MUI/slider/2.0.2/index"]
 });

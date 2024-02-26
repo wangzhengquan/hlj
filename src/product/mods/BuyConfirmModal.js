@@ -111,7 +111,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 				 target.attr('disabled', 'disabled');
 				 
 				 if(!me.serviceAddrModal){
-					S.use('app/widget/serviceaddr/ServiceAddrModal', function(S, ServiceAddrModal){
+					S.use('APP/widget/serviceaddr/ServiceAddrModal', function(S, ServiceAddrModal){
 						me.serviceAddrModal = new ServiceAddrModal({allowBlank: false});
 						me.serviceAddrModal.on('ok', function(addr){
 							 console.log('addr' , addr);
@@ -153,7 +153,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 				 }
 				 var target = S.one(e.currentTarget);
 				 if(!me.shopAddrModal){
-					S.use('app/product/mods/ShopAddrModal', function(S, ShopAddrModal){
+					S.use('APP/product/mods/ShopAddrModal', function(S, ShopAddrModal){
 						me.shopAddrModal = new ShopAddrModal({
 							param: {
 								product_id: me.data.product_id,
@@ -213,7 +213,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 				target.attr('disabled', 'disabled');
 				
 				if(!me.serviceTimeModal){
-					KISSY.use("app/widget/servicetime/ServiceTimeModal", function(S, ServiceTimeModal){
+					KISSY.use("APP/widget/servicetime/ServiceTimeModal", function(S, ServiceTimeModal){
 						 me.serviceTimeModal = new ServiceTimeModal({
 							 param: {
 								 product_id: me.data.product_id,

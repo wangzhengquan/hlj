@@ -187,7 +187,7 @@ KISSY.add(function (S, Node, XTemplate,
 				var target = S.one(event.currentTarget);
 				target.attr('disabled', 'disabled');
 				if (!me.couponModal) {
-					S.use('app/coupon/mods/CouponModal,  css/coupon.css', function (S, CouponModal, coupon_css) {
+					S.use('APP/coupon/mods/CouponModal,  css/coupon.css', function (S, CouponModal, coupon_css) {
 						me.couponModal = new CouponModal();
 						me.couponModal.on('select', function (coupon) {
 							me.setCoupon(coupon);

@@ -57,7 +57,7 @@ KISSY.add(function(S, Node, XTemplate, Component, app, GyzTabSlider, app, MapUti
 			 */
 			me.el.delegate('click', 'button[name=button_search]:not([disabled])', function(event){
 				 if(!me.searchModal){
-					 S.use('app/widget/search/SearchModal', function(S, SearchModal){
+					 S.use('APP/widget/search/SearchModal', function(S, SearchModal){
 						 me.searchModal = new SearchModal({
 							 animation: 'slide-in-up'
 						 });

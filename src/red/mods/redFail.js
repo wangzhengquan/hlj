@@ -26,7 +26,7 @@ KISSY.add(function(S, Node, Xtemplate, Action, app) {
 			wx.ready(function() {
 				wx.onMenuShareTimeline({
 					title: '你的好友送来河狸家300元优惠券，快打开链接领取吧。', // 分享标题
-					link: 'http://www.helijia.com/mobile/build/app/red/redShare.html?sui='+self._result['rui'], // 分享链接
+					link: 'http://www.helijia.com/mobile/build/APP/red/redShare.html?sui='+self._result['rui'], // 分享链接
 					imgUrl: 'http://www.helijia.com/mobile/build/resources/images/Red/bg2.jpg', // 分享图标
 					success: function() {
 						//self.callback && self.callback();
@@ -36,7 +36,7 @@ KISSY.add(function(S, Node, Xtemplate, Action, app) {
 				wx.onMenuShareAppMessage({
 					title: '你的好友送来河狸家300元优惠券，快打开链接领取吧。', // 分享标题
 					desc: '下载河狸家遇见美丽，一键预约上门美容美甲服务，还有美发美妆健身高颜值丰富体验。', // 分享描述
-					link: 'http://www.helijia.com/mobile/build/app/red/redShare.html?sui='+self._result['rui'], // 分享链接
+					link: 'http://www.helijia.com/mobile/build/APP/red/redShare.html?sui='+self._result['rui'], // 分享链接
 					imgUrl: 'http://www.helijia.com/mobile/build/resources/images/Red/bg2.jpg', // 分享图标
 					type: '', // 分享类型,music、video或link，不填默认为link
 					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -96,7 +96,7 @@ KISSY.add(function(S, Node, Xtemplate, Action, app) {
 				self.setMag('亲，右上角可以分享哦');
 			});
 			S.one("#gotoOrder").on("click", function(event) {
-				window.location.href = 'http://www.helijia.com/mobile/build/app/home/index.html?channel=new_weixin';
+				window.location.href = 'http://www.helijia.com/mobile/build/APP/home/index.html?channel=new_weixin';
 			});
 		},
 		init: function() {

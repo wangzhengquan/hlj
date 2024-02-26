@@ -16,7 +16,7 @@
 </body>
 <script>
 	window.onAfterLoad = function () {
-		KISSY.use('app/comment/mods/AddComment', function (S, AddComment) {
+		KISSY.use('APP/comment/mods/AddComment', function (S, AddComment) {
 			var addComment = new AddComment();
 			addComment.render(S.one(document.body));
 		});

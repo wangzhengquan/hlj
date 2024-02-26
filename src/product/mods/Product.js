@@ -233,7 +233,7 @@ KISSY.add(function (S,
 				var target = S.one(event.currentTarget);
 				target.attr('disabled', 'disabled');
 				if (!me.serviceTimeModal) {
-					KISSY.use("app/widget/servicetime/ServiceTimeModal", function (S, ServiceTimeModal) {
+					KISSY.use("APP/widget/servicetime/ServiceTimeModal", function (S, ServiceTimeModal) {
 						me.serviceTimeModal = new ServiceTimeModal({
 							param: {
 								product_id: me.data.product_id,
@@ -263,7 +263,7 @@ KISSY.add(function (S,
 
 				var showBuyConfrimModal = function (onhide) {
 					if (!me.buyConfirmModal) {
-						S.use("app/product/mods/BuyConfirmModal", function (S, BuyConfirmModal) {
+						S.use("APP/product/mods/BuyConfirmModal", function (S, BuyConfirmModal) {
 							me.buyConfirmModal = new BuyConfirmModal({ data: me.data });
 							me.buyConfirmModal.show();
 							me.buyConfirmModal.setServiceTime(me.data.service_time);
@@ -278,7 +278,7 @@ KISSY.add(function (S,
 				if (!needLogin || app.isLogined()) {
 					showBuyConfrimModal(enableButton);
 				} else {
-					KISSY.use("app/login/mods/LoginModal, css/login.css", function (S, LoginModal, loginCss) {
+					KISSY.use("APP/login/mods/LoginModal, css/login.css", function (S, LoginModal, loginCss) {
 						if (!me.loginModal) {
 							me.loginModal = new LoginModal();
 							me.loginModal.on('hide', enableButton);
@@ -365,7 +365,7 @@ KISSY.add(function (S,
 				if (!needLogin || app.isLogined()) {
 					afterLogined(enableButton);
 				} else {
-					KISSY.use("app/login/mods/LoginModal, css/login.css", function (S, LoginModal, loginCss) {
+					KISSY.use("APP/login/mods/LoginModal, css/login.css", function (S, LoginModal, loginCss) {
 						if (!me.loginModal) {
 							me.loginModal = new LoginModal();
 							me.loginModal.on('hide', enableButton);
@@ -388,8 +388,8 @@ KISSY.add(function (S,
 		'dom',
 		'node',
 		"xtemplate",
-		"mui/datalazyload/index",
-		"mui/slider/index",
+		"MUI/datalazyload/index",
+		"MUI/slider/index",
 		"UFO/mask/LoadingMask",
 		"../../action/Action",
 		"../../util/XTemplateUtil",

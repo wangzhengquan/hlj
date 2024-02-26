@@ -1,5 +1,5 @@
 /**
- * http://172.16.116.219:8081/src/app/comment/addComment.html?artisan_id=9e7199db91984a63b510a872c3a632f0&order_id=2263641&order_number=151125171439698&comment_id=744a9350d634435aa34e8849f4974e18
+ * http://172.16.116.219:8081/src/APP/comment/addComment.html?artisan_id=9e7199db91984a63b510a872c3a632f0&order_id=2263641&order_number=151125171439698&comment_id=744a9350d634435aa34e8849f4974e18
  */
 KISSY.add(function(S, Node, XTemplate,FormUtil, MainViewport, XTemplateUtil, Action, tpl, app){
 	var param = app.getParam(),

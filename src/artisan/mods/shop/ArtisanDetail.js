@@ -1,5 +1,5 @@
 /*
-		 http://www.helijia.com/mobile/build/app/artisan/artisanDetail.html?
+		 http://www.helijia.com/mobile/build/APP/artisan/artisanDetail.html?
 	artisan=5cafd5966eb74a5e8b5352e5ec6a46b3&from_type=app&device_type=ios&version=0.0.1&sign=5143382d30892c5828f5dfb0b83c5efc&channel=artisan&user_id=123
 	参数说明：
 	 **
@@ -586,7 +586,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 	return Artisan;
 }, {
 	requires: ["node", "event", "xtemplate",
-		"mui/datalazyload/index",
+		"MUI/datalazyload/index",
 		"UFO/container/Container",
 		'UFO/modal/PhotoBrowserModal',
 		'UFO/popup/MessageBox',

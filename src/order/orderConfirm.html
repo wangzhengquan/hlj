@@ -22,10 +22,10 @@
 <script>
 	window.onAfterLoad = function () {
 		var me = this;
-		KISSY.use('app/order/mods/OrderConfirm, app/app, app/data/router', function (S, OrderConfirm, app) {
+		KISSY.use('APP/order/mods/OrderConfirm, APP/app, APP/data/router', function (S, OrderConfirm, app) {
 			if (!app.isLogined()) {
 
-				S.use('app/login/mods/LoginModal, css/login.css', function (S, LoginModal, login_css) {
+				S.use('APP/login/mods/LoginModal, css/login.css', function (S, LoginModal, login_css) {
 					var loginModal = new LoginModal();
 					loginModal.on('loginsuc', function (e) {
 						var orderConfirm = new OrderConfirm();

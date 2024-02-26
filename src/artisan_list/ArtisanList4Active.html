@@ -19,9 +19,9 @@
 </html>
 <script>
 	window.onAfterLoad = function () {
-		KISSY.use('app/list/mods/ArtisanListWithHeaderAndPosFooter, app/data/router', function (S, ArtisanListWithHeaderAndPosFooter) {
+		KISSY.use('APP/list/mods/ArtisanListWithHeaderAndPosFooter, APP/data/router', function (S, ArtisanListWithHeaderAndPosFooter) {
 			//http://app.helijia.com/zmw/v2/search?filter_type=4&city=110100&source=banner&type=artisans&offset=0&page_size=20&business_district_ids=175
-			//file:///D:/workspace/helijia/web/mobile/src/app/customer/view/ArtisanList4Active.html?filter_type=4&city=110100&type=artisans
+			//file:///D:/workspace/helijia/web/mobile/src/APP/customer/view/ArtisanList4Active.html?filter_type=4&city=110100&type=artisans
 
 			var artisanListWithHeaderAndPosFooter = new ArtisanListWithHeaderAndPosFooter();
 			artisanListWithHeaderAndPosFooter.get('artisanList').setQueryUrl("/v2/search?");

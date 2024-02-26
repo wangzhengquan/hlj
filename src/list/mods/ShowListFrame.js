@@ -160,7 +160,7 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 				 target.attr("disabled", "disabled");
 				//me.css('top', (-body.scrollTop)+"px");
 				if(!me.serviceAddrModal){
-					S.use("app/widget/serviceaddr/ServiceAddrModal",  function(S, ServiceAddrModal){
+					S.use("APP/widget/serviceaddr/ServiceAddrModal",  function(S, ServiceAddrModal){
 						me.serviceAddrModal = new ServiceAddrModal({allowBlank: false});
 						me.serviceAddrModal.on('hide', function(){
 							me.addScrollListener && me.addScrollListener();
@@ -211,9 +211,9 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 },{
 	requires: [ "node", "event", "xtemplate", 
 	            "UFO/container/Container",
-	            "../../util/MapUtil",
-	            "../../action/Action",
-	            "../../app",
+	            "APP/util/MapUtil",
+	            "APP/action/Action",
+	            "APP/app",
 	            "../tpl/showlist-frame-tpl"
 	          ]
 });

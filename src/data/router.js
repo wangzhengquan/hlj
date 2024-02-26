@@ -1,4 +1,4 @@
-KISSY.add("app/data/router",
+KISSY.add("APP/data/router",
   ["../util/ParamUtil", "./home_config", "./verify_mobile",
   "./banner_config", "./exchange", "./products_list", "./comments_list",
    "./products_tags", "./product", "./artisan", "./artisan_available_time", 

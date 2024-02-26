@@ -112,6 +112,6 @@ KISSY.add(function(S, Node, XTemplate , Modal, ScrollView, Action, DataLazyload)
 	           'UFO/modal/Modal', 
 	           'UFO/scroll/ScrollView', 
 	           '../../../action/Action',
-	           "mui/datalazyload/index"
+	           "MUI/datalazyload/index"
 	          ]
 });

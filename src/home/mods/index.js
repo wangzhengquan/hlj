@@ -24,7 +24,7 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 					navBar: { title: '订单', barCls: 'bar-love' },
 					type: "orderListTabs",
 					//有path参数可以实现按需加载
-					path: "app/order_list/mods/OrderListTabs"
+					path: "APP/order_list/mods/OrderListTabs"
 				}
 			];
 			HomeTabs.superclass.initComponent.apply(this, arguments);
@@ -37,7 +37,7 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 
 				if (tab.attr('name') == 'order' && !app.isLogined()) {
 					if (!me.loginModal) {
-						S.use("app/login/mods/LoginModal", function (S, LoginModal) {
+						S.use("APP/login/mods/LoginModal", function (S, LoginModal) {
 							me.loginModal = new LoginModal({
 								animation: 'slide-in-up'
 							});

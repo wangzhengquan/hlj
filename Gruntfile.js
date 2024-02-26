@@ -28,7 +28,7 @@ module.exports = function (grunt) {
                  */
                 copyAssets: true,
                 packages: [{
-                    name: 'app',
+                    name: 'APP',
                     path: '<%= src%>',
                     charset: 'utf-8',
                     ignorePackageNameInUri: true
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                     charset: 'utf-8',
                     ignorePackageNameInUri: true
                 }, {
-                    name: 'mui',
+                    name: 'MUI',
                     path: "<%= src%>/lib/mui",
                     charset: 'utf-8',
                     ignorePackageNameInUri: true

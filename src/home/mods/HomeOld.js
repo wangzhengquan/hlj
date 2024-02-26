@@ -118,7 +118,7 @@ KISSY.add(function (S, Node, XTemplate, HomeAction,
 			var target = S.one(event.currentTarget);
 			target.attr('disabled', 'disabled');
 			if (!me.serviceCityModal) {
-				S.use("app/widget/servicecity/ServiceCityModal", function (S, ServiceCityModal) {
+				S.use("APP/widget/servicecity/ServiceCityModal", function (S, ServiceCityModal) {
 					me.serviceCityModal = new ServiceCityModal({
 						animation: 'slide-in-up'
 					});

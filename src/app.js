@@ -218,7 +218,7 @@ KISSY.add(function (S, Storage, ParamUtil) {
 		notifyApp: function (ios_url, android_url) {
 			var u = navigator.userAgent;
 			if (u.toLowerCase().match(/MicroMessenger/i) == "micromessenger") {
-				window.location = "http://www.helijia.com/app/down.html";
+				window.location = "http://www.helijia.com/APP/down.html";
 				return;
 			} else if (u.match(/(iPhone|iPod|iPad);?/i)) {
 				window.location = ios_url;
@@ -231,7 +231,7 @@ KISSY.add(function (S, Storage, ParamUtil) {
 			setTimeout(function () {
 				!window.document.webkitHidden && setTimeout(function () {
 					if (+new Date - clickedAt < 2000) {
-						window.location = "http://www.helijia.com/app/down.html";
+						window.location = "http://www.helijia.com/APP/down.html";
 					}
 				}, 500);
 			}, 500);

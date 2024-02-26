@@ -44,7 +44,7 @@ KISSY.add(function(S, Node, Xtemplate, Action, app, coupon_list_tpl, MapUtil) {
 								if (app.isApp()) {
 									return app.config.baseUrl + "/v2/search?"+S.param(_param) ;
 								} else if(type) {
-									return "http://www.helijia.com/mobile/build/app/home/index.html?channel=new_weixin";
+									return "http://www.helijia.com/mobile/build/APP/home/index.html?channel=new_weixin";
 								}else{									
 									return "../list/ProductList4Active.html?"+S.param(_param) ;
 								}

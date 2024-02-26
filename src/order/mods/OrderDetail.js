@@ -1,5 +1,5 @@
 /*
-	http://www.helijia.com/mobile/build/app/customer/view/orderDetail.html?
+	http://www.helijia.com/mobile/build/APP/customer/view/orderDetail.html?
 		order_id=1493170&user_id=4f7f2c8710e244d1a9ead71bbc4beed3&token=kZ6JJVOyapTNdww8wfPF&from_type=app
 	参数说明：
 	 **

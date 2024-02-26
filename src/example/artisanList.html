@@ -23,7 +23,7 @@
 <script>
 	/*库文件，配置文件加载完成后执行*/
 	window.onAfterLoad = function () {
-		KISSY.use('app/example/mods/ArtisanList', function (S, ArtisanList) {
+		KISSY.use('APP/example/mods/ArtisanList', function (S, ArtisanList) {
 			var artisanList = new ArtisanList();
 			artisanList.render(S.one(document.body))
 		});

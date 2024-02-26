@@ -1,5 +1,5 @@
 /**
- * http://www.stg.helijia.com/mobile/build/app/gyz/view/index.html?city=110100&from_type=app
+ * http://www.stg.helijia.com/mobile/build/APP/gyz/view/index.html?city=110100&from_type=app
  * city
  * from_type
  * version

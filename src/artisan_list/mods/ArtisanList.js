@@ -188,12 +188,12 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 	return ArtisanList;
 }, {
 	requires: ["node", "io", "event", "dom", "xtemplate",
-		"../../action/Action",
+		"APP/action/Action",
 		"UFO/Component",
-		"mui/datalazyload/index",
+		"MUI/datalazyload/index",
 		"UFO/mask/Mask",
-		"../../util/XTemplateUtil",
-		"../../tpl/spinner-loading-small-tpl",
+		"APP/util/XTemplateUtil",
+		"APP/widget/tpl/spinner-loading-small-tpl",
 		"../tpl/artisan-list-tpl",
 		"../tpl/artisan-list-item-tpl"
 	]

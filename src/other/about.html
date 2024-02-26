@@ -34,7 +34,7 @@
 <script>
  window.APP = {
 		 onstartup : function(){
-			 KISSY.use('node,app/app', function(S, Node,app){
+			 KISSY.use('node,APP/app', function(S, Node,app){
 				 S.one('#version').html(app.getAppVersion() || app.config.version);
 				 
 			 });
