@@ -14,7 +14,7 @@
 <body>
 	<script>
 		window.onAfterLoad  = function() {
-			KISSY.use('app/login/mods/LoginPanel', function (S, LoginPanel) {
+			KISSY.use('app/login/mods/LoginPanel, app/data/router', function (S, LoginPanel) {
 				var loginPanel = new LoginPanel();
 				loginPanel.on("loginsuc", function (event) {
 					history.go(-1);

@@ -24,9 +24,9 @@ KISSY.add(function (S, Node, Event, XTemplate, TabPanel, HomeTab, app) {
 					iconInCls: 'icon-order-in',
 					name: 'order',
 					navBar: { title: '订单', barCls: 'bar-love' },
-					type: "ordertab",
+					type: "orderListTabs",
 					//有path参数可以实现按需加载
-					path: "app/home/mods/OrderTab"
+					path: "app/order_list/mods/OrderListTabs"
 				}
 			];
 			HomeTabPanel.superclass.initComponent.apply(this, arguments);

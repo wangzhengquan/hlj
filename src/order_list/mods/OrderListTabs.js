@@ -10,15 +10,15 @@ KISSY.add(function (S, Node, Event, XTemplate, TabSlider, XTemplateUtil) {
 		PARAMS = S.unparam(decodeURIComponent(location.search.slice(1)));
 
 
-	function OrderListTabSlider(config) {
+	function OrderListTabs(config) {
 
-		OrderListTabSlider.superclass.constructor.call(this, config);
+		OrderListTabs.superclass.constructor.call(this, config);
 	}
 
-	S.extend(OrderListTabSlider, TabSlider);
+	S.extend(OrderListTabs, TabSlider);
 
-	UFO.augment(OrderListTabSlider, {
-		alias: 'orderListTabSlider',
+	UFO.augment(OrderListTabs, {
+		alias: 'orderListTabs',
 
 		initComponent: function () {
 			this.autoSlide = false;
@@ -30,7 +30,7 @@ KISSY.add(function (S, Node, Event, XTemplate, TabSlider, XTemplateUtil) {
 				{ title: '进行中', type: "orderlist", params: { type: 'doing' } },
 				{ title: '待评价', type: "orderlist", params: { type: 'un_comment' } }
 			];
-			OrderListTabSlider.superclass.initComponent.apply(this, arguments);
+			OrderListTabs.superclass.initComponent.apply(this, arguments);
 		},
 
 		load: function (slide, realIndex, item) {
@@ -40,12 +40,12 @@ KISSY.add(function (S, Node, Event, XTemplate, TabSlider, XTemplateUtil) {
 		},
 
 		addCmpEvents: function () {
-			OrderListTabSlider.superclass.addCmpEvents.apply(this, arguments);
+			OrderListTabs.superclass.addCmpEvents.apply(this, arguments);
 		}
 
 	});
 
-	return OrderListTabSlider;
+	return OrderListTabs;
 }, {
 	requires: ["node", "event", "xtemplate",
 		"UFO/slider/TabSlider",

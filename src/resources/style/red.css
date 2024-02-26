@@ -597,7 +597,7 @@ body {
   overflow: auto; }
 
 .bg {
-  background: url(../resources/images/Red/lit.png) repeat;
+  background: url(../images/Red/lit.png) repeat;
   background-size: 100% 100%; }
 
 .box {
@@ -638,7 +638,7 @@ body {
   width: 100%; }
 
 .content {
-  background: url(../resources/images/Red/lit.png) repeat;
+  background: url(../images/Red/lit.png) repeat;
   background-size: 100% 100%; }
 
 .mod {
@@ -651,7 +651,7 @@ body {
   width: 80%;
   margin: auto;
   margin-top: 6%;
-  background: url(../resources/images/Red/s-btn.png) repeat;
+  background: url(../images/Red/s-btn.png) repeat;
   font-size: 18px;
   text-align: center;
   color: #fff;
@@ -660,7 +660,7 @@ body {
   border-radius: 5px; }
 
 .sh-cum {
-  background: url(../resources/images/Red/hui_bg.jpg) no-repeat;
+  background: url(../images/Red/hui_bg.jpg) no-repeat;
   background-size: 100% 100%;
   width: 80%;
   margin: auto;
@@ -760,7 +760,7 @@ body {
   -webkit-box-align: center; }
 
 .couponlist .bo1 .cl1 {
-  background: url(../resources/images/Red/li_bg1.png);
+  background: url(../images/Red/li_bg1.png);
   background-size: 100%;
   text-align: center;
   font-size: 12px;
@@ -771,7 +771,7 @@ body {
   font-size: 12px; }
 
 .couponlist .bo1 .cl2 {
-  background: url(../resources/images/Red/li_bg3.png) no-repeat right;
+  background: url(../images/Red/li_bg3.png) no-repeat right;
   padding: 0% 3%;
   color: #ff3c67;
   font-size: 12px;
@@ -789,7 +789,7 @@ body {
   color: #ff3c67; }
 
 .couponlist .bo2 .cl1 {
-  background: url(../resources/images/Red/li_bg2.png);
+  background: url(../images/Red/li_bg2.png);
   background-size: 100%;
   text-align: center;
   font-size: 12px;
@@ -797,7 +797,7 @@ body {
   padding: 11px 9px; }
 
 .couponlist .bo2 .cl2 {
-  background: url(../resources/images/Red/li_bg4.png) no-repeat right;
+  background: url(../images/Red/li_bg4.png) no-repeat right;
   padding: 0 3%;
   color: #32c8ff;
   font-size: 12px;
@@ -851,7 +851,7 @@ body {
   text-align: center;
   color: #fff;
   padding: 7px 0;
-  background: url(../resources/images/Red/qd-btn.png) no-repeat;
+  background: url(../images/Red/qd-btn.png) no-repeat;
   border: none;
   background-size: 100% 100%;
   display: block;
@@ -859,7 +859,7 @@ body {
   margin: auto; }
 
 .sh-btm {
-  background: url(../resources/images/Red/bao.png) no-repeat;
+  background: url(../images/Red/bao.png) no-repeat;
   background-size: 100% 100%;
   position: fixed;
   bottom: 0;

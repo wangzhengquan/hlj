@@ -26,7 +26,7 @@ def download2(url):
     f.close() 
 
 barse_url = 'http://p0.static.helijia.cn/zmw/'
-def download_rec(dist, data):
+def download_from_data(dist, data):
     if type(data) is str:
         # print(data)
         if data.find('upload/') >= 0:
@@ -37,23 +37,25 @@ def download_rec(dist, data):
     elif type(data) is list:
         count = 0
         for v in data:
-            count += download_rec(dist, v)
+            count += download_from_data(dist, v)
         return count
     elif type(data) is dict:
         count = 0
         for k in data:
-            count += download_rec(dist, data[k])
+            count += download_from_data(dist, data[k])
         return count
     else:
         return 0
 
+def download_from_file(file = 'data.json'):
+    data_str = open(file, 'r').read().strip()
+    data_str = data_str.replace('true', 'True').replace('false', 'False')
+    data = eval(data_str)
+    total = download_from_data('../src', data)
+    print("download:", total)
 
-data_str = open('data.json', 'r').read().strip()
-data_str = data_str.replace('true', 'True').replace('false', 'False')
-data = eval(data_str)
-total = download_rec('../src', data)
-print("download:", total)
 
+download('../src', 'http://p0.static.helijia.cn/zmw//upload/20151024/a7fd047e60e146d18d79dd27bd799a72.png')
 # if os.path.exists(path):
 #     return open('shakespeare.txt', encoding='ascii').read().split()
 # else:

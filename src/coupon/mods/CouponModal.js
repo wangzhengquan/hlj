@@ -16,30 +16,33 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 		initComponent: function(){
 			var me = this;
 			CouponModal.superclass.initComponent.apply(this, arguments);
-			 
 			this.init();
-			 
 		},
 		 
 		init: function(){
 			var me = this;
-			/*me.param = {
-				user_id:'25aa15ef06a44695ab4880bfeb511db7',
-				token: 'SqBBEc7Yqeo15Rkhi0ga', 
-				product_id: '163e9d6fe75349a39f607577d96e0bca'
-			};*/
-			if(this.data){
-				me.getBodyContainer().html(new XTemplate(tpl).render(json));
-			}else{
-				Action.query('/user/search_coupon_use', me.param, function(json){
-					console.log('json', json);
-					me.data = json;
-					me.getBodyContainer().html(new XTemplate(tpl).render(json));
-				}, function(msg){
-					console.log('msg', msg);
-				});
+			me.data = {
+				coupons:[
+					{
+						coupon_name: '慢100减50',
+						coupon_price: 50,
+						use_over_date: new Date().getTime()
+					},
+					{
+						coupon_name: '十.一大促',
+						coupon_price: 100,
+						use_over_date: new Date().getTime()
+					},
+					{
+						coupon_name: '新人优惠',
+						coupon_price: 150,
+						use_over_date: new Date().getTime()
+					},
+	
+				]
 			}
 			
+			me.getBodyContainer().html(new XTemplate(tpl).render(me.data));
 		},
 		
 		addCmpEvents: function(){

@@ -195,7 +195,7 @@ KISSY.add(function (S, Node, Event, XTemplate, Component,
 		'../../util/XTemplateUtil',
 		"../tpl/order-list-tpl",
 		"../tpl/order-list-item-tpl",
-		"./ORDER_STATUS",
+		"../../order/mods/ORDER_STATUS",
 		"../../tpl/spinner-loading-small-tpl"
 
 	]

@@ -29,10 +29,8 @@ KISSY.add(function(S, Action, Storage, app){
 						   user.user_address[i].city = app.getCity(user.user_address[i].city);
 					   }
 				   }
-				//   console.log('after', user);
 				   user.mobile = params.mobile;
 				   app.setSessionUser(user);
-				   //app.getSession().set('user', json.data);
 				   success && success(user);
 			   }else{
 				   alert('登录失败');
