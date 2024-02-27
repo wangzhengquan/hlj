@@ -50,19 +50,15 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,
 		 
 		query: function(param, cb){
 			var me = this;
-			
-			me.appendLoadingMoreSpinner();
-			
+			var timeout = S.later(me.appendLoadingMoreSpinner, 600)
 			Action.query("/user/artisan_common_list.json", param , function(json){
 				console.log('comment', json);
+				timeout.cancel()
 				me.removeLoadingMoreSpinner();
 				if(json.result == 'ok'){
 					me.getBodyContainer().append(itemTpl.render(json));
 					cb && cb(json.comments.length < param.size);
-					 
 				} 
-				
-				 
 			}, function(msg){
 				me.removeLoadingMoreSpinner();
 				//me.addScrollListener();
