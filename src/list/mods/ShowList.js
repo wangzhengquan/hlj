@@ -301,7 +301,7 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 						if (!me.productList.loadFinished) {
 							me.removeScrollListener();
 							// me.productList.appendLoadingMoreSpinner();
-							var timeout = S.later(me.artisanList.appendLoadingMoreSpinner, 600)
+							var timeout = S.later(me.productList.appendLoadingMoreSpinner,  500, false, me.productList)
 							me.scrollView.scrollTop = me.scrollView.scrollTop + (24 + 10);
 							me.productList.loadMore(function () {
 								timeout.cancel()
@@ -313,7 +313,7 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 						if (!me.artisanList.loadFinished) {
 							me.removeScrollListener();
 							// me.artisanList.appendLoadingMoreSpinner();
-							var timeout = S.later(me.artisanList.appendLoadingMoreSpinner, 600)
+							var timeout = S.later(me.artisanList.appendLoadingMoreSpinner,  500, false, me.artisanList)
 							me.scrollView.scrollTop = me.scrollView.scrollTop + (24 + 10);
 							me.artisanList.loadMore(function () {
 								timeout.cancel()

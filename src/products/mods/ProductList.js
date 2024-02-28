@@ -98,7 +98,8 @@ KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
 			var me = this,
 				mask = new Mask({ text: '正在加载...' });
 			me.fire('beforeload');
-			var timeout = S.later(mask.show, 500);
+			var timeout = S.later(mask.show, 500, false, mask);
+			// await new Promise(r => setTimeout(r, 2000));
 			this.loadFinished = false;
 			this.productListContent.html('');
 			this.productParams.offset = 0;

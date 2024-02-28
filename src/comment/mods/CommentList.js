@@ -50,7 +50,7 @@ KISSY.add(function(S, Node,Event, XTemplate, Component,
 		 
 		query: function(param, cb){
 			var me = this;
-			var timeout = S.later(me.appendLoadingMoreSpinner, 600)
+			var timeout = S.later(me.appendLoadingMoreSpinner, 500, false, me)
 			Action.query("/user/artisan_common_list.json", param , function(json){
 				console.log('comment', json);
 				timeout.cancel()

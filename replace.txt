@@ -1,3 +1,0 @@
-grep -rl 'showLoadingMoreMask' ./ --exclude-dir=".git"  --exclude-dir="build" --exclude-dir="lib" | xargs sed -i ''  's,showLoadingMoreMask,appendLoadingMoreSpinner,g'
-
-# https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep

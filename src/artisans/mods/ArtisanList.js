@@ -83,7 +83,7 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				mask = new Mask({ text: '正在加载...' });
 			artisanParams = this.artisanParams = (artisanParams || this.artisanParams);
 			this.fire('beforeload');
-			var timeout = S.later(mask.show, 600);
+			var timeout = S.later(mask.show,  500, false, mask);
 			this.loadFinished = false;
 			this.artisanListContent.html('');
 			this.artisanParams.offset = 0;

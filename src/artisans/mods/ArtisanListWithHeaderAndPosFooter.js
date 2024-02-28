@@ -67,7 +67,7 @@ KISSY.add(function (S, Node, XTemplate, ShowListFrame, ArtisanList, HomeAction, 
 					me.removeScrollListener();
 					if (!me.artisanList.loadFinished) {
 						// me.artisanList.appendLoadingMoreSpinner();
-						var timeout = S.later(me.artisanList.appendLoadingMoreSpinner, 600);
+						var timeout = S.later(me.artisanList.appendLoadingMoreSpinner,  500, false, me.artisanList);
 						me.scrollView.scrollTop = me.scrollView.scrollTop + (24 + 10);
 						me.artisanList.loadMore(function () {
 							timeout.cancel()

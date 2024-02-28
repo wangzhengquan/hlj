@@ -90,7 +90,7 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container, ArtisanList){
 				if(me.scrollView.scrollTop + me.scrollView.clientHeight + (47) >= me.scrollView.scrollHeight){
 					me.removeScrollListener();
 					if(!me.artisanList.loadFinished){
-						var timeout = S.later(me.artisanList.appendLoadingMoreSpinner, 600);
+						var timeout = S.later(me.artisanList.appendLoadingMoreSpinner,  500, false, me.artisanList);
 						// me.artisanList.appendLoadingMoreSpinner();
 						me.scrollView.scrollTop =  me.scrollView.scrollTop + (24+10);
 						me.artisanList.loadMore(function() {

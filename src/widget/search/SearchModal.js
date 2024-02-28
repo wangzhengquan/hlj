@@ -64,7 +64,7 @@ KISSY.add(function(S, Node, DOM, XTemplate, Modal, Action, tpl, product_label_tp
 				title: filter_label_name
 			};*/
 			 
-			win.location.href = "../list/searchListProduct.html?".concat(S.param(queryParams));
+			win.location.href = "../products/products_of_search.html?".concat(S.param(queryParams));
 		},
 		
 		setParams: function(params){
