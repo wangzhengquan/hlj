@@ -24,7 +24,7 @@
 </html>
 <script>
   window.onAfterLoad = function () {
-    KISSY.use('APP/products/mods/ProductListWithHeaderAndPosFooter, APP/data/router', function (S, SearchListProduct) {
+    KISSY.use('APP/products/mods/ProductListWithHeaderAndPosFooter', function (S, SearchListProduct) {
       var searchListProduct = new SearchListProduct();
       searchListProduct.render(S.one(document.body))
       searchListProduct.init();

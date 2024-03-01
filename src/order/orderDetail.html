@@ -23,7 +23,7 @@
 <script>
 	window.onAfterLoad = function () {
 		var me = this;
-		KISSY.use('APP/order/mods/OrderDetail, APP/data/router', function (S, OrderDetail) {
+		KISSY.use('APP/order/mods/OrderDetail', function (S, OrderDetail) {
 			var orderDetail = new OrderDetail();
 			orderDetail.render(S.one(document.body))
 		});

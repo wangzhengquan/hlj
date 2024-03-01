@@ -21,7 +21,7 @@
 <body>
 	<script>
 		window.onAfterLoad = function () {
-		KISSY.use('APP/artisans/mods/ArtisanListWithHeader, APP/data/router', function (S, ArtisanListWithHeader) {
+		KISSY.use('APP/artisans/mods/ArtisanListWithHeader', function (S, ArtisanListWithHeader) {
 			//file:///D:/workspace/helijia/web/mobile/src/APP/customer/view/ArtisanListAppoint.html?longitude=116339928&latitude=40084456&user_id=25aa15ef06a44695ab4880bfeb511db7&token=hwBV0RzK3ZgK1FBpWzpY&filter_category=tag_mei_rong&city=110100&page_size=20
 			var params = S.unparam(decodeURIComponent(location.search.slice(1)));
 			params.page_size = 20;

@@ -22,7 +22,7 @@
 </html>
 <script>
 	window.onAfterLoad = function () {
-		KISSY.use('APP/order/mods/OrderCancelSuc, APP/data/router', function (S, OrderCancelSuc) {
+		KISSY.use('APP/order/mods/OrderCancelSuc', function (S, OrderCancelSuc) {
 			OrderCancelSuc.init();
 		});
 	}

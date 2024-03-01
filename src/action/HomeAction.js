@@ -40,7 +40,7 @@ KISSY.add(function (S, Action, Promise, Storage) {
 				}
 			}
 
-			return defer.promise;;
+			return defer.promise;
 		},
 
 		/*

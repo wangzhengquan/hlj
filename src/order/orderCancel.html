@@ -18,7 +18,7 @@
 <body class="order-cancel background">
 	<script>
 		window.onAfterLoad = function () {
-			KISSY.use('APP/order/mods/OrderCancel, APP/data/router', function (S, OrderCancel) {
+			KISSY.use('APP/order/mods/OrderCancel', function (S, OrderCancel) {
 				var orderCancel = new OrderCancel();
 				orderCancel.render(S.one(document.body))
 			});
