@@ -1,6 +1,111 @@
-KISSY.add(function(S, IO, app){
+KISSY.add("APP/action/Action", [], function(S, require, exports, module){
 	var $ = S;
 	return {
+
+    query: function(url, params, success, error){
+      console.log('query == ', url)
+			var defer = S.Defer();
+      if (url.indexOf('/home_config.json') >= 0) {
+        KISSY.use('APP/data/home_config', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/banner_config.json') >= 0) {
+        KISSY.use('APP/data/banner_config', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/exchange.json') >= 0) {
+        KISSY.use('APP/data/exchange', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/products.json') >= 0 || url.indexOf('/get_artisan_products_six.json') >= 0 ) {
+        KISSY.use('APP/data/products_list', function (S, products) {
+          var json = products(url, params)
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/get_product_tags.json') >= 0) {
+        KISSY.use('APP/data/products_tags', function (S, products_tag) {
+          var json = products_tag(params)
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/product_detail.json') >= 0) {
+        KISSY.use('APP/data/product', function (S, product) {
+          var json = product(params)
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/artisan_customer_date_list.json') >= 0) {
+        KISSY.use('APP/data/artisan_available_time', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/artisan_common_list.json') >= 0) {
+        KISSY.use('APP/data/comments_list', function (S, comments_list) {
+          var json = comments_list(params)
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/artisans.json') >= 0) {
+        KISSY.use('APP/data/artisans_list', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/get_product_label_list.json') >= 0) {
+        KISSY.use('APP/data/products_label_list', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/verify_mobile.json') >= 0) {
+        KISSY.use('APP/data/verify_mobile', function (S, verify) {
+          var json = verify(params)
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/orders.json') >= 0) {
+        KISSY.use('APP/data/orders_list', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/order_detail.json') >= 0) {
+        KISSY.use('APP/data/order', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/cancel_reason.json') >= 0) {
+        KISSY.use('APP/data/order_cancel_reason', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else if (url.indexOf('/artisan_detail.json') >= 0) {
+        KISSY.use('APP/data/artisan', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      }
+      else {
+        console.error("XMLHttpRequest error: ", url)
+      }
+
+      return defer.promise;;
+		},
 		 
 		ajax2: function(config){
 		    S.mix(config, {
@@ -31,37 +136,8 @@ KISSY.add(function(S, IO, app){
 			
 			return this.ajax2(config);
 		},
-		query: function(url, params, success, error){
-			 
-			return this.ajax({
-			  // async:false,
-			   type: "GET",
-			   url: url ,
-			   data: params,
-			   success: success,
-			   error: function(msg){
-				  error && error(msg);
-				  alert('网络错误');
-				  console.error(msg);
-			   }
-			});
-		},
-
-		query2: function(url, params, success, error){
-			 
-			return this.ajax2({
-			  // async:false,
-			   type: "GET",
-			   url: url ,
-			   data: params,
-			   success: success,
-			   error: function(msg){
-				  error && error(msg);
-				  alert('网络错误');
-				  console.error(msg);
-			   }
-			});
-		},
+		
+ 
 		
 		post: function(url, data, suc, error){
 			return this.ajax({
@@ -166,6 +242,4 @@ KISSY.add(function(S, IO, app){
 			return $.io(config);
 		}
 	};
-},{
-	requires: ['io', '../app']
 });

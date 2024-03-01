@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                         // src里添加的是主文件，被引用的文件会被自动合并到主文件里
                         src: [
                             'app.js',
-                            'data/router.js',
+                            'data/*.js',
                             'action/HomeConfig.js',
 
                             'util/ParamUtil.js',

@@ -134,7 +134,7 @@
 		data_config = "{combine:false}";
 	}
 
-	var count = 3,
+	var count = 2,
 		start = function () {
 			console.log('--Program begin to start--');
 			configKissy();
@@ -147,7 +147,7 @@
 		};
 
 	var pre_load_js = [
-		'../lib/mock.min.js', 
+		// '../lib/mock.min.js', 
 		'../lib/ufo/UFO.js?t=' + tag,
 	  {url: seedUrl, config: {attrs: { 'data-config': data_config }}}
 	];
