@@ -61,9 +61,13 @@ module.exports = function (grunt) {
 
                             'list/mods/index.js',
                             'list/mods/ShowList.js',
+
                             'products/mods/ProductListWithHeaderAndPosFooter.js',
+
                             'artisans/mods/ArtisanListWithHeaderAndPosFooter.js',
                             'artisans/mods/ArtisanListWithHeader.js',
+
+                            'artisan/mods/index.js',
                             
 
                             'order/mods/OrderDetail.js',
@@ -88,9 +92,7 @@ module.exports = function (grunt) {
 
                             'gyz/mods/Gyz.js',
 
-                            'artisan/mods/shop/ArtisanDetail.js',
-                            'artisan/mods/shop/ShopDisplay.js',
-                            'artisan/mods/shop/ShopDecoratePanel.js',
+                           
 
                             'widget/serviceaddr/SearchAddrModal.js',
                             'widget/serviceaddr/ServiceAddrModal.js',
