@@ -187,7 +187,15 @@ KISSY.add(function(S, Node, DOM, Event, XTemplate, Component, Action, Lazyload,
 			/**
 			 * 滚动条事件
 			 */
-			var scrollHandler = (function(e){
+			this.addScrollListener = function(){
+				Event.on(me.scrollViewDom, 'scroll', scrollHandler);
+			};
+			
+			this.removeScrollListener = function(){
+				Event.detach(me.scrollViewDom, 'scroll', scrollHandler);
+			};
+
+			var scrollHandler = function(e){
 				if((me.scrollViewDom.scrollTop + me.scrollViewDom.clientHeight + win.innerHeight>=  me.scrollViewDom.scrollHeight)){
 					me.removeScrollListener();
 					me.scrollViewDom.scrollTop =  me.scrollViewDom.scrollTop + 28;
@@ -198,15 +206,9 @@ KISSY.add(function(S, Node, DOM, Event, XTemplate, Component, Action, Lazyload,
 					});
 				}
 				
-			})();
-			
-			this.addScrollListener = function(){
-				Event.on(me.scrollViewDom, 'scroll', scrollHandler);
 			};
 			
-			this.removeScrollListener = function(){
-				Event.detach(me.scrollViewDom, 'scroll', scrollHandler);
-			};
+			
 			
 			this.el.delegate('click', 'a.card', function(event){
 				var product_id = S.one(event.currentTarget).attr('data-product_id');
