@@ -32,14 +32,11 @@
 </body>
 </html>
 <script>
- window.APP = {
-		 onstartup : function(){
-			 KISSY.use('node,APP/app', function(S, Node,app){
-				 S.one('#version').html(app.getAppVersion() || app.config.version);
-				 
-			 });
-		 }
- };
+	window.onAfterLoad = function(){
+		KISSY.use('node,APP/app', function(S, Node,app){
+			S.one('#version').html(app.getAppVersion() || app.config.version);
+		});
+	}
 
 </script>
  <script src="../startup.js" type="text/javascript"></script>

@@ -11,7 +11,7 @@
 	 * token 验证登录状态
 	 */
 KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
-	PhotoBrowserModal, MessageBox,
+	PhotoBrowserModal, MessageBox, LoadingMask,
 	Action,
 	StarIntroModal,
 	XTemplateUtil,
@@ -23,7 +23,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 	product_list_tpl,
 	artisanintro_tpl) {
 	var win = window;
-
+	var mask = new LoadingMask();
 
 	var params = app.getParam(),
 		preview = params.preview,
@@ -167,6 +167,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 
 		init: function () {
 			var me = this;
+			mask.show();
 			Action.query('/v2/artisan_detail.json', params, function (json) {
 
 				var artisanData = me.artisanData = json.data;
@@ -265,30 +266,8 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 					}
 				}
 
-				if (isCustomerApp) {
-					Action.query("/v2/favorite_status", {
-						artisan_id: artisanId,
-						token: params.token,
-						user_id: params.user_id
-					}, function (json) {
-						var a_collect = S.one('a[action=collect]');
-						//console.log('favoriteArtisan', json);
-						if (a_collect) {
-							if (json.ret && json.data.is_favorite) {
-								a_collect.addClass('collected');
-								a_collect.one('span').text('已收藏');
-							} else {
-								a_collect.removeClass('collected');
-								a_collect.one('span').text('收藏手艺人');
-							}
-						}
-
-					}, function (msg) {
-						console.error('msg', msg);
-					});
-				}
-
 				me.initExpandableElem(me.content.one('.item-district .detail'), 36);
+				mask.hide();
 				//console.log('height',)
 			}, function (msg) {
 				console.error(msg);
@@ -568,6 +547,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 		"UFO/container/Container",
 		'UFO/modal/PhotoBrowserModal',
 		'UFO/popup/MessageBox',
+		"UFO/mask/LoadingMask",
 		"APP/action/Action",
 		'./StarIntroModal',
 		"APP/util/XTemplateUtil",
