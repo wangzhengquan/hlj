@@ -448,7 +448,7 @@ KISSY.add(function(S, Node, DOM, XTemplate,InputFileButton, Container, ActionShe
 			this.el.delegate('click', 'button[action=preview]:not([disabled])', function(e){
 				console.log('me.store.getOriginalData()', me.store.getOriginalData());
 				me.storeInLocal();
-				location.href="./artisanDetail.html" + location.search +"&preview=1";
+				location.href="./index.html" + location.search +"&preview=1";
 				return false;
 			});
 			 

@@ -1,5 +1,5 @@
 /*
-		 http://www.helijia.com/mobile/build/APP/artisan/artisanDetail.html?
+		 http://www.helijia.com/mobile/build/APP/artisan/index.html?
 	artisan=5cafd5966eb74a5e8b5352e5ec6a46b3&from_type=app&device_type=ios&version=0.0.1&sign=5143382d30892c5828f5dfb0b83c5efc&channel=artisan&user_id=123
 	参数说明：
 	 **

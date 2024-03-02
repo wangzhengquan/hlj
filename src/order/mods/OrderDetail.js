@@ -79,7 +79,7 @@ KISSY.add(function (S, node, XTemplate,
 			                'getArtisanHref': function (scopes, option) {
 								var artisan_id = option.params[0];
 									
-								return "../artisan/artisanDetail.html"+location.search+"&channel=helijia&artisan="+artisan_id;
+								return "../artisan/index.html"+location.search+"&channel=helijia&artisan="+artisan_id;
 			                },
 			                
 			                'shouldShowContactArtisan': function (scopes, option) {
