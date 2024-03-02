@@ -331,11 +331,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 
 		queryProducts: function (artisanId, suc, error) {
 			var me = this;
-			var loadingTip = S.one('<div style="text-align: center; padding: 10px;" class="loading">正在加载...</div>');
-			this.productListTabContent.append(loadingTip);
-			// "/v2/get_artisan_products_six"
 			Action.query("/v2/get_artisan_products_six.json", params, function (json) {
-				loadingTip.remove();
 				var products = json.data;
 				me.productListTabContent.append(productListTpl.render(products));
 				DataLazyload(me.screen2.one('.list-product'));
