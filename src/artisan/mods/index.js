@@ -159,11 +159,11 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			} else if (isApp && device_type != "android") {
 				S.one(document.body).addClass('app');
 			}
-			this.init();
+			
 
 			Artisan.superclass.initComponent.apply(this, arguments);
+			this.init();
 		},
-
 
 		init: function () {
 			var me = this;
@@ -268,7 +268,6 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 
 				me.initExpandableElem(me.content.one('.item-district .detail'), 36);
 				mask.hide();
-				//console.log('height',)
 			}, function (msg) {
 				console.error(msg);
 			}, params.need_refresh);
@@ -308,6 +307,8 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 					}
 				}
 			}
+
+			
 		},
 
 		createProductListContent: function () {

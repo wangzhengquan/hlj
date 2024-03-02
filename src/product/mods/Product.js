@@ -264,7 +264,10 @@ KISSY.add(function (S,
 
 				var showBuyConfrimModal = function (onhide) {
 					if (!me.buyConfirmModal) {
-						me.buyConfirmModal = new BuyConfirmModal({ data: me.data });
+						me.buyConfirmModal = new BuyConfirmModal({ 
+							animation: 'slide-in-up',
+							data: me.data 
+						});
 						me.buyConfirmModal.show();
 						me.buyConfirmModal.setServiceTime(me.data.service_time);
 						me.buyConfirmModal.on('hide', onhide);
@@ -314,7 +317,6 @@ KISSY.add(function (S,
 		"APP/widget/servicetime/ServiceTimeModal",
 		"APP/product/mods/BuyConfirmModal",
 		"APP/login/mods/LoginModal"
-		// "css/login.css"
 
 	]
 });

@@ -28,15 +28,10 @@
 <script>
 	window.onAfterLoad = function() {
 		var me = this;
-		KISSY.use('APP/artisan/mods/index', function (S, ShopView) {
-			var shopView = new ShopView();
-			S.one(document.body).html('');
-
-			//页面渲染完成之后触发
-			shopView.on('afterrender', function () {
-				//  me.onafterrender();
-			});
-			shopView.render(S.one(document.body));
+		KISSY.use('APP/artisan/mods/index', function (S, Artisan) {
+			var artisan = new Artisan();
+			S.one(document.body).append(artisan.toEl())
+			// artisan.render(S.one(document.body));
 		});
 	};
 
