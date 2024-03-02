@@ -48,7 +48,6 @@ KISSY.add(function(S, IO, app){
 		},
 
 		query2: function(url, params, success, error){
-			 
 			return this.ajax2({
 			  // async:false,
 			   type: "GET",

@@ -177,10 +177,15 @@ KISSY.add(function (S, Node, Event, XTemplate, Component,
 	return Home;
 }, {
 	requires: [
-		"node", "event", "xtemplate", "UFO/Component", 
-		"UFO/slider/ImageSlider", "APP/widget/servicecity/ServiceCityModal",
-		"../../action/HomeAction", "../../app", 
-		"../../util/MapUtil", "../../util/XTemplateUtil",
-		"../tpl/home-tpl", "../tpl/home-card-item-tpl"
+		"node", "event", "xtemplate", 
+		"UFO/Component", 
+		"UFO/slider/ImageSlider", 
+		"APP/widget/servicecity/ServiceCityModal",
+		"APP/action/HomeAction", 
+		"APP/app", 
+		"APP/util/MapUtil",
+		"APP/util/XTemplateUtil",
+		"../tpl/home-tpl", 
+		"../tpl/home-card-item-tpl"
 	]
 });

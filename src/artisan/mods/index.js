@@ -168,6 +168,11 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 		init: function () {
 			var me = this;
 			mask.show();
+			// 触发一次
+			me.one("artisan_products_loaded", function(){
+				// S.later(mask.hide, 500, 0, mask)
+				S.buffer(mask.hide, 200, mask)()
+			})
 			Action.query('/v2/artisan_detail.json', params, function (json) {
 
 				var artisanData = me.artisanData = json.data;
@@ -228,9 +233,6 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 										'from_type': params['from_type'],
 										channel: params.channel
 									};
-									//productParam['from_type'] = params['from_type'];
-									//productParam.channel = params.channel;
-
 									return '../product/index.html?' + S.param(productParam);
 								}
 
@@ -267,7 +269,6 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 				}
 
 				me.initExpandableElem(me.content.one('.item-district .detail'), 36);
-				mask.hide();
 			}, function (msg) {
 				console.error(msg);
 			}, params.need_refresh);
@@ -336,11 +337,9 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			Action.query("/v2/get_artisan_products_six.json", params, function (json) {
 				loadingTip.remove();
 				var products = json.data;
-				// promotion_pic
 				me.productListTabContent.append(productListTpl.render(products));
-
 				DataLazyload(me.screen2.one('.list-product'));
-				me.fire('loaded');
+				me.fire('artisan_products_loaded');
 				suc && suc();
 
 			}, function (msg) {
