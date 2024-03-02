@@ -1,5 +1,6 @@
-KISSY.add("APP/action/Action", [], function(S, require, exports, module){
+KISSY.add("APP/action/Action", ["APP/app"], function(S, require, exports, module){
 	var $ = S;
+	var app = require("APP/app")
 	return {
 
     query: function(url, params, success, error){
@@ -99,9 +100,16 @@ KISSY.add("APP/action/Action", [], function(S, require, exports, module){
           success(json)
           defer.resolve(json);
         })
-      }
+      } 
+			else if (url.indexOf('/v2/store_detail') >= 0) {
+        KISSY.use('APP/data/shop', function (S, json) {
+          success(json)
+          defer.resolve(json);
+        })
+      } 
+			
       else {
-        console.error("XMLHttpRequest error: ", url)
+        console.error("XMLHttpRequest error: ", app.config.baseUrl+url+"?"+S.param(params))
       }
 
       return defer.promise;;

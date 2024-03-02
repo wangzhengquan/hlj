@@ -14,7 +14,8 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 		MapUtil, 
 		Action, 
 		app,
-		tpl){
+		tpl,
+		ServiceAddrModal){
 	 
 	function ShowListFrame(){
 		ShowListFrame.superclass.constructor.apply(this, arguments);
@@ -160,33 +161,30 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 				 target.attr("disabled", "disabled");
 				//me.css('top', (-body.scrollTop)+"px");
 				if(!me.serviceAddrModal){
-					S.use("APP/widget/serviceaddr/ServiceAddrModal",  function(S, ServiceAddrModal){
-						me.serviceAddrModal = new ServiceAddrModal({allowBlank: false});
-						me.serviceAddrModal.on('hide', function(){
-							me.addScrollListener && me.addScrollListener();
-							target.removeAttr("disabled");
-						});
-						me.serviceAddrModal.on('beforeshow', function(){
-							me.removeScrollListener && me.removeScrollListener();
-						});
-						
-						me.serviceAddrModal.on('ok', function(addr){
-							//console.log('addr==', addr);
-							me.getBusinessDistrict(addr).done(function(district_ids){
-								me.fire('changeDistrict', district_ids);
-							});
-						});
-						
-						if( me.position){
-							me.serviceAddrModal.setPosition(me.position);
-						}else{
-							//alert(me.city.name);
-							me.serviceAddrModal.set('city', me.city.name);
-						}
-						me.serviceAddrModal.show();
+					me.serviceAddrModal = new ServiceAddrModal({allowBlank: false});
+					me.serviceAddrModal.on('hide', function(){
+						me.addScrollListener && me.addScrollListener();
+						target.removeAttr("disabled");
+					});
+					me.serviceAddrModal.on('beforeshow', function(){
+						me.removeScrollListener && me.removeScrollListener();
 					});
 					
-				}else{
+					me.serviceAddrModal.on('ok', function(addr){
+						//console.log('addr==', addr);
+						me.getBusinessDistrict(addr).done(function(district_ids){
+							me.fire('changeDistrict', district_ids);
+						});
+					});
+					
+					if( me.position){
+						me.serviceAddrModal.setPosition(me.position);
+					}else{
+						//alert(me.city.name);
+						me.serviceAddrModal.set('city', me.city.name);
+					}
+					me.serviceAddrModal.show();
+				} else {
 					me.serviceAddrModal.show();
 				}
 				
@@ -214,6 +212,7 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 	            "APP/util/MapUtil",
 	            "APP/action/Action",
 	            "APP/app",
-	            "../tpl/showlist-frame-tpl"
+	            "../tpl/showlist-frame-tpl",
+							"APP/widget/serviceaddr/ServiceAddrModal"
 	          ]
 });

@@ -8,7 +8,10 @@ KISSY.add(function (S,
 	Action,
 	XTemplateUtil,
 	app,
-	tpl) {
+	tpl,
+	ServiceTimeModal,
+	BuyConfirmModal,
+	LoginModal) {
 	var needLogin = true;
 
 	var doc = document;
@@ -233,7 +236,6 @@ KISSY.add(function (S,
 				var target = S.one(event.currentTarget);
 				target.attr('disabled', 'disabled');
 				if (!me.serviceTimeModal) {
-					KISSY.use("APP/widget/servicetime/ServiceTimeModal", function (S, ServiceTimeModal) {
 						me.serviceTimeModal = new ServiceTimeModal({
 							param: {
 								product_id: me.data.product_id,
@@ -247,7 +249,6 @@ KISSY.add(function (S,
 						me.serviceTimeModal.on('ok', function (datetime) {
 							me.setServiceTime(datetime);
 						});
-					});
 				} else {
 					me.serviceTimeModal.show();
 				}
@@ -263,12 +264,10 @@ KISSY.add(function (S,
 
 				var showBuyConfrimModal = function (onhide) {
 					if (!me.buyConfirmModal) {
-						S.use("APP/product/mods/BuyConfirmModal", function (S, BuyConfirmModal) {
-							me.buyConfirmModal = new BuyConfirmModal({ data: me.data });
-							me.buyConfirmModal.show();
-							me.buyConfirmModal.setServiceTime(me.data.service_time);
-							me.buyConfirmModal.on('hide', onhide);
-						});
+						me.buyConfirmModal = new BuyConfirmModal({ data: me.data });
+						me.buyConfirmModal.show();
+						me.buyConfirmModal.setServiceTime(me.data.service_time);
+						me.buyConfirmModal.on('hide', onhide);
 					} else {
 						me.buyConfirmModal.show();
 						me.buyConfirmModal.setServiceTime(me.data.service_time);
@@ -278,9 +277,11 @@ KISSY.add(function (S,
 				if (!needLogin || app.isLogined()) {
 					showBuyConfrimModal(enableButton);
 				} else {
-					KISSY.use("APP/login/mods/LoginModal, css/login.css", function (S, LoginModal, loginCss) {
+					S.use("css/login.css", function (S, loginCss) {
 						if (!me.loginModal) {
-							me.loginModal = new LoginModal();
+							me.loginModal = new LoginModal({
+								animation: 'slide-in-up'
+							});
 							me.loginModal.on('hide', enableButton);
 							me.loginModal.on("loginsuc", function () {
 								me.loginModal.off('hide', enableButton);
@@ -289,7 +290,6 @@ KISSY.add(function (S,
 							});
 						}
 						me.loginModal.show();
-
 					});
 				}
 				return false;
@@ -365,9 +365,11 @@ KISSY.add(function (S,
 				if (!needLogin || app.isLogined()) {
 					afterLogined(enableButton);
 				} else {
-					KISSY.use("APP/login/mods/LoginModal, css/login.css", function (S, LoginModal, loginCss) {
+					S.use("css/login.css", function (S, loginCss) {
 						if (!me.loginModal) {
-							me.loginModal = new LoginModal();
+							me.loginModal = new LoginModal({
+								animation: 'slide-in-up'
+							});
 							me.loginModal.on('hide', enableButton);
 							me.loginModal.on("loginsuc", function () {
 								me.loginModal.off('hide', enableButton);
@@ -394,7 +396,11 @@ KISSY.add(function (S,
 		"../../action/Action",
 		"../../util/XTemplateUtil",
 		"../../app",
-		"../tpl/product-tpl"
+		"../tpl/product-tpl",
+		"APP/widget/servicetime/ServiceTimeModal",
+		"APP/product/mods/BuyConfirmModal",
+		"APP/login/mods/LoginModal"
+		// "css/login.css"
 
 	]
 });

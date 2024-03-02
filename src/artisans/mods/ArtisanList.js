@@ -180,7 +180,7 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				if (me.productHref) {
 					params.productHref = encodeURIComponent(me.productHref);
 				}
-				location.href = "../artisan/artisanDetail.html?" + S.param(params) + (location.search ? "&" + location.search.slice(1) : "");
+				location.href = "../artisan/index.html?" + S.param(params) + (location.search ? "&" + location.search.slice(1) : "");
 			});
 		}
 

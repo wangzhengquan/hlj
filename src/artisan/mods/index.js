@@ -479,35 +479,13 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 				var target = S.one(event.currentTarget),
 					isCollected = target.hasClass('collected');
 
-				if (!params.user_id) {
-					MessageBox.alert('提示', '您还未登录，请先登录！');
-					return;
-				}
-				Action.update("/v2/set_favorite", {
-					artisan_id: artisanId,
-					token: params.token,
-					user_id: params.user_id,
-					is_favorite: !isCollected
-				}, function (json) {
-
-					if (json.ret) {
-						if (isCollected) {
-							target.removeClass('collected');
-							target.one('span').text('收藏手艺人');
-						} else {
-							target.addClass('collected');
-							target.one('span').text('已收藏');
-						}
+					if (isCollected) {
+						target.removeClass('collected');
+						target.one('span').text('收藏手艺人');
 					} else {
-						console.error('setfavoriteArtisan', json);
-						MessageBox.alert('错误', json.msg);
-
+						target.addClass('collected');
+						target.one('span').text('已收藏');
 					}
-
-
-				}, function (msg) {
-					console.error('msg', msg);
-				});
 
 			});
 			/**
@@ -590,15 +568,15 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 		"UFO/container/Container",
 		'UFO/modal/PhotoBrowserModal',
 		'UFO/popup/MessageBox',
-		"../../../action/Action",
+		"APP/action/Action",
 		'./StarIntroModal',
-		"../../../util/XTemplateUtil",
-		"../../../util/ParamUtil",
-		"../../../app",
-		"../../tpl/artisan-tpl",
-		"../../tpl/artisan-screen1-tpl",
-		"../../tpl/artisan-screen2-tpl",
-		"../../tpl/artisan-product-list-tpl",
-		"../../tpl/artisan-artisanintro-tpl"
+		"APP/util/XTemplateUtil",
+		"APP/util/ParamUtil",
+		"APP/app",
+		"../tpl/artisan-tpl",
+		"../tpl/artisan-screen1-tpl",
+		"../tpl/artisan-screen2-tpl",
+		"../tpl/artisan-product-list-tpl",
+		"../tpl/artisan-artisanintro-tpl"
 	]
 });

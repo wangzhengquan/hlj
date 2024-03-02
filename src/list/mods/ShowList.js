@@ -1,6 +1,6 @@
 KISSY.add(function (S, Node, Event, DOM, XTemplate,
 	Action, ShowListFrame,
-	ProductList, ArtisanList) {
+	ProductList, ArtisanList, SearchModal) {
 
 	var productTagItemTpl = new XTemplate([
 		'<li class="tag-item col"> ',
@@ -382,31 +382,29 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 				var target = S.one(event.currentTarget);
 				target.attr('disabled', 'disabled');
 				if (!me.searchModal) {
-					S.use("APP/widget/search/SearchModal", function (S, SearchModal) {
-						me.searchModal = new SearchModal({
-							animation: 'slide-in-up'
-						});
-						me.searchModal.on('hide', function () {
-							me.addScrollListener && me.addScrollListener();
-							target.removeAttr("disabled");
-						});
-						me.searchModal.on('beforeshow', function () {
-							me.removeScrollListener && me.removeScrollListener();
-						});
-
-						// var _params = S.clone(me.params);
-						var _params = {
-							filter_type: me.artisanType || me.block.search_types2[0].value,
-							city: me.city.code
-						};
-
-						me.searchModal.setParams(_params);
-
-						if (me.headerTabIndex === 0 && me.productType.indexOf('tag_mei_jia') > -1) {
-							me.searchModal.showProductLabels();
-						}
-						me.searchModal.show();
+					me.searchModal = new SearchModal({
+						animation: 'slide-in-up'
 					});
+					me.searchModal.on('hide', function () {
+						me.addScrollListener && me.addScrollListener();
+						target.removeAttr("disabled");
+					});
+					me.searchModal.on('beforeshow', function () {
+						me.removeScrollListener && me.removeScrollListener();
+					});
+
+					// var _params = S.clone(me.params);
+					var _params = {
+						filter_type: me.artisanType || me.block.search_types2[0].value,
+						city: me.city.code
+					};
+
+					me.searchModal.setParams(_params);
+
+					if (me.headerTabIndex === 0 && me.productType.indexOf('tag_mei_jia') > -1) {
+						me.searchModal.showProductLabels();
+					}
+					me.searchModal.show();
 				} else {
 					if (me.headerTabIndex === 0 && me.productType.indexOf('tag_mei_jia') > -1) {
 						me.searchModal.showProductLabels();
@@ -467,6 +465,7 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 		"APP/action/Action",
 		"./ShowListFrame",
 		"APP/products/mods/ProductList",
-		"APP/artisans/mods/ArtisanList"
+		"APP/artisans/mods/ArtisanList",
+		"APP/widget/search/SearchModal"
 	]
 });

@@ -90,6 +90,9 @@ KISSY.add(function(S, Node, XTemplate,Action, shopdisplay_tpl,ImageSlider,PhotoB
 	};
 },{
 	requires: [ 
-	   "node", "xtemplate", "../../../action/Action", "../../tpl/shopdisplay-tpl","UFO/slider/ImageSlider",'UFO/modal/PhotoBrowserModal'
+	   "node", "xtemplate",
+		  "../../../action/Action", 
+		 "../../tpl/shopdisplay-tpl","UFO/slider/ImageSlider",
+		 'UFO/modal/PhotoBrowserModal'
 	]
 });

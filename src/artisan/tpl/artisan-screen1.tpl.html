@@ -24,8 +24,15 @@
 			<li class="col">沟通：<i class="i2">{{fixedDigits score_communication}}</i></li>
 			<li class="col">守时：<i class="i3">{{fixedDigits score_punctuality}}</i></li>
 		</ul>
+		<ul class="item flex row-divid-line-col">
+			<a href="javascript:;" action="collect" class="col"> 
+				<i class="icon iconfont icon-star icon-collect" style="font-size:17px;"></i> <i class="icon iconfont icon-star-solid icon-collected" style="font-size:17px;"></i> 
+				<span>收藏手艺人</span>
+			</a>
+			<a href="http://www.helijia.com/v2/#/artisanSendMessage" class="col"> <i class="icon iconfont icon-smile icon-contact" style="font-size:17px;"></i> 联系Ta</a>
+		</ul>
 		{{#if store_serial}}
-		<a class="item  item-icon-right" href="./shopDisplay.html?store_serial={{store_serial}}&isApp={{isApp}}">
+		<a class="item  item-icon-right" href="../shop/shopDisplay.html?store_serial={{store_serial}}&isApp={{isApp}}">
 		  <label class="item-label">来自：</label>
 		  {{store_name}}
 			<i class="icon iconfont icon-forward"></i>
@@ -37,15 +44,7 @@
 			<i class="icon iconfont icon-comment"  ></i> 顾客评价 <i class="color-dark">（{{reviews}}）</i>
 			<i class="icon iconfont icon-forward"></i>
 		</a>            
-		{{#isCustomerApp}}        
-		<ul class="item flex row-divid-line-col">
-			<a href="javascript:;" action="collect" class="col"> 
-				<i class="icon iconfont icon-star icon-collect" style="font-size:17px;"></i> <i class="icon iconfont icon-star-solid icon-collected" style="font-size:17px;"></i> 
-				<span>收藏手艺人</span>
-			</a>
-			<a href="http://www.helijia.com/v2/#/artisanSendMessage" class="col"> <i class="icon iconfont icon-smile icon-contact" style="font-size:17px;"></i> 联系Ta</a>
-		</ul>
-		{{/isCustomerApp}}
+		
 		<div class="item item-district" >
 			<div class="item item-icon-left hairline-remove" style="border-width:0;padding-bottom:5px;">
 				<i class="icon iconfont icon-position" style="top:3px;"></i> 服务商圈
