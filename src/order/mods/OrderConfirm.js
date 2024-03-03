@@ -4,6 +4,7 @@ KISSY.add(function (S, Node, XTemplate,
 	DateUtil,
 	Mask,
 	MessageBox,
+	CouponModal,
 	Action,
 	XTemplateUtil,
 	app,
@@ -187,7 +188,7 @@ KISSY.add(function (S, Node, XTemplate,
 				var target = S.one(event.currentTarget);
 				target.attr('disabled', 'disabled');
 				if (!me.couponModal) {
-					S.use('APP/coupon/mods/CouponModal,  css/coupon.css', function (S, CouponModal, coupon_css) {
+					S.use('css/coupon.css', function (S, coupon_css) {
 						me.couponModal = new CouponModal();
 						me.couponModal.on('select', function (coupon) {
 							me.setCoupon(coupon);
@@ -299,9 +300,10 @@ KISSY.add(function (S, Node, XTemplate,
 		"UFO/core/lang/Date",
 		"UFO/mask/LoadingMask",
 		"UFO/popup/MessageBox",
-		"../../action/Action",
-		"../../util/XTemplateUtil",
-		"../../app",
+		"APP/coupon/mods/CouponModal",
+		"APP/action/Action",
+		"APP/util/XTemplateUtil",
+		"APP/app",
 		"../tpl/order-confirm-tpl",
 		"../tpl/order-confirm-content-tpl"
 	]

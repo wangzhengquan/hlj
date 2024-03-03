@@ -24,7 +24,7 @@ KISSY.add(function(S, Node, XTemplate, Modal,
 			me.data = {
 				coupons:[
 					{
-						coupon_name: '慢100减50',
+						coupon_name: '满100减50',
 						coupon_price: 50,
 						use_over_date: new Date().getTime()
 					},
