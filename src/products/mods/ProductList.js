@@ -1,4 +1,5 @@
-KISSY.add(function (S, Node, Event, XTemplate, Action, Component, DataLazyload,
+KISSY.add(function (S, Node, Event, XTemplate, 
+	Action, Component, DataLazyload,
 	Mask,
 	XTemplateUtil,
 	spinnerLoadingSmallTpl,

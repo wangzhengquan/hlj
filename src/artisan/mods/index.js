@@ -170,8 +170,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			mask.show();
 			// 触发一次
 			me.one("artisan_products_loaded", function(){
-				// S.later(mask.hide, 500, 0, mask)
-				S.buffer(mask.hide, 200, mask)()
+				mask.hide()
 			})
 			Action.query('/v2/artisan_detail.json', params, function (json) {
 
@@ -334,10 +333,15 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			Action.query("/v2/get_artisan_products_six.json", params, function (json) {
 				var products = json.data;
 				me.productListTabContent.append(productListTpl.render(products));
-				DataLazyload(me.screen2.one('.list-product'));
-				me.fire('artisan_products_loaded');
+				new DataLazyload({
+						container: me.screen2.one('.list-product'),
+						autoDestroy: false,
+						placeholder: "../resources/images/default_product.png"
+				});
 				suc && suc();
-
+				S.buffer(function(){
+					me.fire('artisan_products_loaded');
+				}, 200)()
 			}, function (msg) {
 				console.error('list error=', msg);
 				error && error(msg);
