@@ -42,7 +42,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 	 * 计算手艺人头像缩略图的大小
 	 */
 	var calcArtisanPhotoSize = function () {
-		var width = (win.innerWidth - 15 - 3 * 5) / 3;
+		var width = (document.documentElement.offsetWidth - 15 - 3 * 5) / 3;
 		artisan_thumbnail_width = width;
 		artisan_thumbnail_height = width;
 	};

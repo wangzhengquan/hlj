@@ -179,11 +179,12 @@ p {
 
 .list-product {
   padding: 8px 4px;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 
   .item-product {
     width: 50%;
-    float: left;
+    // float: left;
     margin-bottom: 8px;
     padding: 0 4px;
 
@@ -246,6 +247,9 @@ p {
     display: block;
     margin-bottom: 8px;
     color: #444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .price {

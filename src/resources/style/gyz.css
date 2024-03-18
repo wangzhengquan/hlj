@@ -5184,6 +5184,10 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+@media screen and (min-width: 750px) {
+  body, html {
+    width: 750px;
+    margin: 0 auto; } }
 .bar.bar-love {
   background: url(../images/header_bg.jpg) no-repeat;
   background-size: 100%;

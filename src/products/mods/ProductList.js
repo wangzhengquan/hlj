@@ -5,7 +5,7 @@ KISSY.add(function (S, Node, Event, XTemplate,
 	spinnerLoadingSmallTpl,
 	tpl,
 	list_item_tpl) {
-
+// console.log('list_item_tpl====', list_item_tpl)
 	var win = window,
 		page_size = 20;
 
@@ -21,7 +21,7 @@ KISSY.add(function (S, Node, Event, XTemplate,
 	 * @returns {Number}
 	 */
 	var calcProductImgSize = function () {
-		var width = (win.innerWidth - 4 * 6) / 2;
+		var width = (document.documentElement.offsetWidth - 4 * 6) / 2;
 		p_img_width = width,
 			p_img_height = width;
 		return {
@@ -34,10 +34,14 @@ KISSY.add(function (S, Node, Event, XTemplate,
 	 */
 	var setProductImgSize = function () {
 		calcProductImgSize();
-		S.all(".product-item .card-item .product-img").css({
+		S.all(".product-item .card-item .product-img").attr({
 			width: p_img_width,
 			height: p_img_height
 		});
+		// S.all(".product-item .card-item .product-img").css({
+		// 	width: p_img_width,
+		// 	height: p_img_height
+		// });
 	};
 
 	function ProductList() {

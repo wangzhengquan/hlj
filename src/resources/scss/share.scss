@@ -1,11 +1,11 @@
 @charset "UTF-8"; 
 
 @import
- // Variables
+  // Variables
   "../../lib/ufo/resources/scss/mixins",
   "./variables",
   "../../lib/ufo/resources/scss/scaffolding",
-   // Components
+  // Components
   "../../lib/ufo/resources/scss/bar",
   "../../lib/ufo/resources/scss/tabs",
   "../../lib/ufo/resources/scss/loading",
@@ -27,7 +27,11 @@
   // Animations
   "../../lib/ufo/resources/scss/animations",
   "../../lib/ufo/resources/scss/transitions";
-  
+
+@media screen and (min-width:750px) {
+  body,html{width:750px;margin:0 auto;}
+} 
+
 .bar.bar-love {
   background: url(../images/header_bg.jpg) no-repeat;
   background-size: 100%;

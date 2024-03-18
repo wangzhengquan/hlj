@@ -5183,6 +5183,10 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+@media screen and (min-width: 750px) {
+  body, html {
+    width: 750px;
+    margin: 0 auto; } }
 .bar.bar-love {
   background: url(../images/header_bg.jpg) no-repeat;
   background-size: 100%;
@@ -5911,10 +5915,10 @@ p {
 
 .list-product {
   padding: 8px 4px;
-  display: block; }
+  display: flex;
+  flex-wrap: wrap; }
   .list-product .item-product {
     width: 50%;
-    float: left;
     margin-bottom: 8px;
     padding: 0 4px; }
     .list-product .item-product .card-item {
@@ -5961,7 +5965,10 @@ p {
   .item-info .desc {
     display: block;
     margin-bottom: 8px;
-    color: #444; }
+    color: #444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .item-info .price {
     font-weight: bold;
     color: #f97fac;
