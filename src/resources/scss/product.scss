@@ -368,8 +368,14 @@ $tip-color: #e8a962;
 	border-top:1px solid #eeeded;
 	z-index: 999;
   padding: 0px 15px;
-  left: 0;
+  left: auto;
   bottom: 0;
+}
+
+@media screen and (min-width:680px) {
+	.section-foot {
+		width: 680px;
+	}
 }
 
 
@@ -559,12 +565,6 @@ textarea.lazyload{
 	opacity: 0;
 }
  
-
- 
-@media screen and (min-width:750px) {
-	body,html{width:750px;margin:0 auto;}
-}
-
 
  
  

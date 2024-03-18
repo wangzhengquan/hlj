@@ -20,4 +20,5 @@ tmp/
 .settings/
 .idea/
 .hg/
+package-lock.json
  

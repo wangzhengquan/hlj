@@ -5184,9 +5184,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 680px) {
   body, html {
-    width: 750px;
+    width: 680px;
     margin: 0 auto; } }
 .bar.bar-love {
   background: url(../images/header_bg.jpg) no-repeat;
@@ -6002,9 +6002,12 @@ ul.bar-day-inner {
   border-top: 1px solid #eeeded;
   z-index: 999;
   padding: 0px 15px;
-  left: 0;
+  left: auto;
   bottom: 0; }
 
+@media screen and (min-width: 680px) {
+  .section-foot {
+    width: 680px; } }
 /*项目确认*/
 .section-confirm {
   background-color: #fff; }
@@ -6143,10 +6146,5 @@ textarea.data-lazyload, textarea.ks-datalazyload {
 
 textarea.lazyload {
   opacity: 0; }
-
-@media screen and (min-width: 750px) {
-  body, html {
-    width: 750px;
-    margin: 0 auto; } }
 
 /*# sourceMappingURL=product.css.map */
