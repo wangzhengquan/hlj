@@ -1,2 +1,2 @@
-/*! 2016-02-15 */
-Ufo.define(function(){return{calcSize:function(a,b){var c,d,e=/(\d*(\.\d+)?)([^\d]+)$/,f=null!=a&&void 0!=a?a+"":a,g=null!=b&&void 0!=b?b+"":b,h=f?f.match(e):f,i=g?g.match(e):g;return h&&(f=h[1],c=h[3]),i&&(g=i[1],d=i[3]),c=c||"px",d=d||"px",f=f?Number(f):f,g=g?Number(g):g,{width:f,height:g,wunit:c,hunit:d}}}});
+/*! 2024-03-19 */
+Ufo.define(function(){return{calcSize:function(n,t){var u,e,i=/(\d*(\.\d+)?)([^\d]+)$/,n=null!=n?n+"":n,t=null!=t?t+"":t,r=n&&n.match(i),i=t&&t.match(i);return r&&(n=r[1],u=r[3]),i&&(t=i[1],e=i[3]),u=u||"px",e=e||"px",{width:n=n&&Number(n),height:t=t&&Number(t),wunit:u,hunit:e}}}});

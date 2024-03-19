@@ -1,2 +1,2 @@
-/*! 2016-02-15 */
-KISSY.add(function(a){var b=function(a){var b=0,c=0,d=0,e=0;return a>0&&(b=Math.floor(a/86400),c=Math.floor(a/3600)-24*b,d=Math.floor(a/60)-24*b*60-60*c,e=Math.floor(a)-24*b*60*60-60*c*60-60*d),9>=d&&(d="0"+d),9>=e&&(e="0"+e),[b,c,d,e]},c=function(a,c){var d=new Date,e=parseInt((a.getTime()-d.getTime())/1e3),f=setInterval(function(){var a=b(e);e--,c&&c(a),0>=e&&clearInterval(f)},1e3)};return{calcTime:b,countdown:c}});
+/*! 2024-03-19 */
+KISSY.add(function(t){function o(t){var e=0,n=0,r=0,a=0;return 0<t&&(e=Math.floor(t/86400),n=Math.floor(t/3600)-24*e,r=Math.floor(t/60)-24*e*60-60*n,a=Math.floor(t)-24*e*60*60-60*n*60-60*r),[e,n,r=r<=9?"0"+r:r,a=a<=9?"0"+a:a]}return{calcTime:o,countdown:function(t,e){var n=new Date,r=parseInt((t.getTime()-n.getTime())/1e3),a=setInterval(function(){var t=o(r);r--,e&&e(t),r<=0&&clearInterval(a)},1e3)}}});

@@ -1,2 +1,2 @@
-/*! 2016-02-15 */
-KISSY.add(function(){return'<div class="nav-bar-block" nav-bar="active">\n	<div class="{{barCls}} bar bar-header disable-user-behavior">\n		<div class="buttons buttons-left" style="transition-duration: 0ms;">\n			 \n		</div>\n		<div class="title title-center header-item"\n			style="transform: translate3d(0px, 0px, 0px);">{{title}}</div>\n		<div class="buttons buttons-right">\n			 \n		</div>\n	</div>\n</div>'});
+/*! 2024-03-19 */
+KISSY.add(function(){return'<div class="nav-bar-block" nav-bar="active">\n\t<div class="{{barCls}} bar bar-header disable-user-behavior">\n\t\t<div class="buttons buttons-left" style="transition-duration: 0ms;">\n\t\t\t \n\t\t</div>\n\t\t<div class="title title-center header-item"\n\t\t\tstyle="transform: translate3d(0px, 0px, 0px);">{{title}}</div>\n\t\t<div class="buttons buttons-right">\n\t\t\t \n\t\t</div>\n\t</div>\n</div>'});

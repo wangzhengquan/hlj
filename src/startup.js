@@ -148,8 +148,8 @@
 
 	var pre_load_js = [
 		// '../lib/mock.min.js', 
-		'../lib/ufo/UFO.js?t=' + tag,
-	  {url: seedUrl, config: {attrs: { 'data-config': data_config }}}
+	  {url: seedUrl, config: {attrs: { 'data-config': data_config }}},
+	  '../lib/ufo/UFO.js?t=' + tag,
 	];
 
 	// load js files

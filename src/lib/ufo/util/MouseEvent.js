@@ -1,2 +1,2 @@
-/*! 2016-02-15 */
-KISSY.add(function(a,b,c,d){var e=document;return{hideOn:function(a,b,f,g){var h=function(i){c.contains(b,i.target)||b===i.target||(f?f.call(b,i)!==!1&&c.hide(b):c.hide(b),g&&d.undelegate(e,a,h))};return d.delegate(e,a,h),h}}},{requires:["node","dom","event"]});
+/*! 2024-03-19 */
+KISSY.add(function(e,n,u,i){var o=document;return{hideOn:function(n,t,d,r){function a(e){u.contains(t,e.target)||t===e.target||(d&&!1===d.call(t,e)||u.hide(t),r&&i.undelegate(o,n,a))}return i.delegate(o,n,a),a}}},{requires:["node","dom","event"]});
