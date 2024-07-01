@@ -5927,7 +5927,8 @@ p {
       .list-product .item-product .card-item.select {
         border: 1px solid #f34270; }
       .list-product .item-product .card-item img {
-        width: 100%; }
+        width: 100%;
+        aspect-ratio: 1 / 1; }
       .list-product .item-product .card-item .one2many-label {
         width: 62px;
         height: 17px;
