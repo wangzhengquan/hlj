@@ -1,24 +1,24 @@
-KISSY.add("APP/action/Action", ["APP/app"], function(S, require, exports, module){
+KISSY.add("APP/action/Action", function(S, require, exports, module){
 	var $ = S;
-	var app = require("APP/app")
+	var app = require("APP/app");
 	return {
 
     query: function(url, params, success, error){
       console.log('query == ', url)
 			var defer = S.Defer();
-      if (url.indexOf('/home_config.json') >= 0) {
-        KISSY.use('APP/data/home_config', function (S, json) {
-          success(json)
-          defer.resolve(json);
-        })
-      }
-      else if (url.indexOf('/banner_config.json') >= 0) {
-        KISSY.use('APP/data/banner_config', function (S, json) {
-          success(json)
-          defer.resolve(json);
-        })
-      }
-      else if (url.indexOf('/exchange.json') >= 0) {
+      // if (url.indexOf('/home_config.json') >= 0) {
+      // 	var json = require('APP/data/home_config');
+    	//   success(json);
+      //   defer.resolve(json);
+        
+      // }
+      //  if (url.indexOf('/banner_config.json') >= 0) {
+      //   KISSY.use('APP/data/banner_config', function (S, json) {
+      //     success(json)
+      //     defer.resolve(json);
+      //   })
+      // }
+      if (url.indexOf('/exchange.json') >= 0) {
         KISSY.use('APP/data/exchange', function (S, json) {
           success(json)
           defer.resolve(json);

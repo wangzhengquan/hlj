@@ -1,46 +1,14 @@
-KISSY.add(function (S, Action, Promise, Storage) {
-	var HOME_CONFIG_KEY = "hlj_home_config";
-
-	var HOME_CONFIG = undefined,
-		BANNER_CONFIG = undefined,
-		BANNER_CONFIG_OF_CITY = undefined;
-
+KISSY.add(function (S, Action, Promise, Storage, HomeConfig, BannerConfig) {
 
 	return {
 		/*
 		 * 获取home配置
 		 */
 		getHomeConfig: function (cb) {
-			var defer = S.Defer();
-			if (HOME_CONFIG) {
-				cb(HOME_CONFIG);
-				defer.resolve(HOME_CONFIG);
-
-			} else {
-				//HOME_CONFIG = Storage.getLocalItem(HOME_CONFIG_KEY);
-				//LocalStorage 存储30天
-				if (HOME_CONFIG && (new Date().getTime() - HOME_CONFIG.last_modify < 7 * 24 * 60 * 60 * 1000)) {
-
-					cb(HOME_CONFIG);
-					defer.resolve(HOME_CONFIG);
-					console.log('Loade home_config from Storage');
-				} else {
-					Action.query('/v2/home_config.json', {
-						//device_type:'h5',  
-						device_type: 'iOS'
-					}, function (json) {
-						HOME_CONFIG = json;
-						//console.log("HOME_CONFIG=", HOME_CONFIG);
-						HOME_CONFIG.last_modify = new Date().getTime();
-						Storage.setLocalItem(HOME_CONFIG_KEY, HOME_CONFIG);
-						cb(HOME_CONFIG);
-						defer.resolve(HOME_CONFIG);
-						console.log("Loade home_config from server", HOME_CONFIG);
-					});
-				}
-			}
-
-			return defer.promise;
+			 var defer = S.Defer();
+			 cb && cb(HomeConfig);  
+			 defer.resolve(HomeConfig);                            
+			 return defer.promise;
 		},
 
 		/*
@@ -53,20 +21,6 @@ KISSY.add(function (S, Action, Promise, Storage) {
 				var data = json.data;
 				defer.resolve(data[0]);
 				cb && cb(data[0]);
-				// var find = false;
-				// for (var i = 0, len = data.length; i < len; i++) {
-				// 	var item = data[i];
-				// 	if (item.code == city_code) {
-				// 		defer.resolve(item);
-				// 		cb && cb(item);
-				// 		find = true;
-				// 		break;
-				// 	}
-				// }
-				// if (!find) {
-				// 	defer.reject("没有匹配的homeConfig, cityCode:" + city_code);
-				// }
-
 			});
 
 			return defer.promise;
@@ -76,18 +30,10 @@ KISSY.add(function (S, Action, Promise, Storage) {
 		 * 获取指定城市的banner配置
 		 */
 		getBannerConfigOfCity: function (city_code, cb) {
+			// console.log('================', BannerConfig)
 			var defer = S.Defer();
-			Action.query('/v2/banner_config.json', {
-				city: city_code
-			}, function (json) {
-				//console.log("banner_config==", json);
-				//localStorage && (localStorage.setItem('home_config', JSON.stringify(data)));
-				BANNER_CONFIG_OF_CITY = json.data;
-				cb && cb(json.data);
-				defer.resolve(BANNER_CONFIG_OF_CITY);
-			}, function (msg) {
-				defer.reject(msg);
-			});
+			cb && cb(BannerConfig.data);
+			defer.resolve(BannerConfig.data);
 			return defer.promise;
 		},
 
@@ -126,5 +72,5 @@ KISSY.add(function (S, Action, Promise, Storage) {
 
 	};
 }, {
-	requires: ["./Action", "promise", 'UFO/util/Storage']
+	requires: ["./Action", "promise", 'UFO/util/Storage', 'APP/data/home_config', 'APP/data/banner_config']
 });
