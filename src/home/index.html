@@ -14,7 +14,7 @@
 	<title>河狸家·解放天下手艺人</title>
 	<link rel="shortcut icon" href="../resources/images/logo.png" type="image/x-icon" />
 	<link href="../resources/style/home.css" rel="stylesheet">
-	<script src="../startup.js" type="text/javascript"></script>
+	
 	 
 </head>
 
@@ -37,30 +37,15 @@
 
 
 				homeTabPanel.on('afterrender', function () {
-					onafterrender();
+					 
 				});
 				homeTabPanel.render(S.one(document.body));
 
 			});
 		}
 
-		function onafterrender() {
-			/*访问统计*/
-			//  KISSY.use('node, ua',function(S, Node, UA) {
-			// 	var params = S.unparam(decodeURIComponent(location.search.slice(1))),
-			// 		imgParams = {
-			// 			event:'artisanIndex',
-			// 			artisanIndex: params.version,
-			// 			sysVersion: UA.os ,//手机系统版本
-			// 			deviceId: UA.mobile, //设备号
-			// 			artisanId: params.artisan
-			// 	  };
-			// });
-		}
-
-
 	</script>
-	
+	<script src="../startup.js" type="text/javascript"></script>
 
 </body>
 
