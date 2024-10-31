@@ -134,23 +134,25 @@
 		data_config = "{combine:false}";
 	}
 
-	var count = 2,
-		start = function () {
-			console.log('--Program begin to start--');
-			configKissy();
-			global.onAfterLoad();
-		},
-		countToStart = function () {
-			if (--count === 0) {
-				start();
-			}
-		};
+	
 
 	var pre_load_js = [
 		// '../lib/mock.min.js', 
 	  {url: seedUrl, config: {attrs: { 'data-config': data_config }}},
 	  '../lib/ufo/UFO.js?t=' + tag,
 	];
+
+	var count = pre_load_js.length;
+	var	start = function () {
+			console.log('--Program begin to start--');
+			configKissy();
+			global.onAfterLoad();
+		};
+	var	countToStart = function () {
+			if (--count === 0) {
+				start();
+			}
+		};
 
 	// load js files
 	for (var i =0, len = pre_load_js.length; i< len; i++) {
