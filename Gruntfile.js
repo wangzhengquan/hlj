@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { minify } = require('terser');
 
 // Function to recursively read HTML files from a directory, limited to 2 levels
 function readHtmlFiles(dir, depth = 0, fn) {
@@ -56,9 +55,7 @@ function copyFiles(src, dest) {
 
 module.exports =  function (grunt) {
     var task = grunt.task;
-    const jscontent = fs.readFileSync('./src/startup.js', 'utf-8');
-       // console.log(jscontent);
-    const minified =   minify(jscontent);
+     
     // 项目配置
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
