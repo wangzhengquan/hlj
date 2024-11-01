@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { minify } = require('terser');
-const { WritableStream } = require("htmlparser2/lib/WritableStream");
 const { Parser } = require('htmlparser2');
 // const { DomHandler, DomUtils } = require('htmlparser2');
 
@@ -345,7 +344,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    
+
     grunt.registerTask('minifyJavaScriptInHtml', 'minifyJavaScriptInHtml', function (type) {
         const done = this.async(); // Signal Grunt that this task is async
         const startupJsContent = fs.readFileSync('./build/startup.js', 'utf-8');
