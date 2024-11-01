@@ -1,61 +1,117 @@
 const fs = require('fs');
 const path = require('path');
+const { minify } = require('terser');
+const { WritableStream } = require("htmlparser2/lib/WritableStream");
+const { Parser } = require('htmlparser2');
+// const { DomHandler, DomUtils } = require('htmlparser2');
 
 // Function to recursively read HTML files from a directory, limited to 2 levels
-function readHtmlFiles(dir, depth = 0, fn) {
-  if (depth > 2) return; // Stop if depth exceeds 2 levels
+function findHtmlFiles(dir, depth = 0, fn) {
+    if (depth > 2) return; // Stop if depth exceeds 2 levels
 
-  try {
-    const files = fs.readdirSync(dir, { withFileTypes: true });
+    try {
+        const files = fs.readdirSync(dir, { withFileTypes: true });
 
-    files.forEach(file => {
-      const filePath = path.join(dir, file.name);
+        files.forEach(file => {
+            const filePath = path.join(dir, file.name);
 
-      if (file.isDirectory()) {
-        // Recursively read the directory if within depth limit
-        readHtmlFiles(filePath, depth + 1, fn);
-      } else if (file.isFile()) {
-        const ext = path.extname(file.name);
-        const baseName = path.basename(file.name, ext);
+            if (file.isDirectory()) {
+                // Recursively read the directory if within depth limit
+                findHtmlFiles(filePath, depth + 1, fn);
+            } else if (file.isFile()) {
+                const ext = path.extname(file.name);
+                const baseName = path.basename(file.name, ext);
 
-        // Process HTML files excluding '.tpl.html' files
-        if (ext === '.html' && !baseName.endsWith('.tpl')) {
-          // console.log(`Found HTML file: ${filePath}`);
-          fn(filePath);
-        }
-      }
-    });
-  } catch (err) {
-    console.error(`Error reading directory ${dir}:`, err);
-  }
+                // Process HTML files excluding '.tpl.html' files
+                if (ext === '.html' && !baseName.endsWith('.tpl')) {
+                    // console.log(`Found HTML file: ${filePath}`);
+                    fn(filePath);
+                }
+            }
+        });
+    } catch (err) {
+        console.error(`Error reading directory ${dir}:`, err);
+    }
 }
 
 // Function to recursively copy files from source to destination
 function copyFiles(src, dest) {
-  if (!fs.existsSync(dest)) {
-    fs.mkdirSync(dest, { recursive: true });
-  }
-
-  const files = fs.readdirSync(src, { withFileTypes: true });
-
-  files.forEach(file => {
-    const srcPath = path.join(src, file.name);
-    const destPath = path.join(dest, file.name);
-
-    if (file.isDirectory()) {
-      // Recursively copy the directory
-      copyFiles(srcPath, destPath);
-    } else if (file.isFile()) {
-      // Copy the file
-      fs.copyFileSync(srcPath, destPath);
-      // console.log(`Copied file: ${srcPath} -> ${destPath}`);
+    if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest, { recursive: true });
     }
-  });
+
+    const files = fs.readdirSync(src, { withFileTypes: true });
+
+    files.forEach(file => {
+        const srcPath = path.join(src, file.name);
+        const destPath = path.join(dest, file.name);
+
+        if (file.isDirectory()) {
+            // Recursively copy the directory
+            copyFiles(srcPath, destPath);
+        } else if (file.isFile()) {
+            // Copy the file
+            fs.copyFileSync(srcPath, destPath);
+            // console.log(`Copied file: ${srcPath} -> ${destPath}`);
+        }
+    });
 }
 
-module.exports =  function (grunt) {
+async function minifyJavaScriptInHtml(htmlContent) {
+    try {
+        // let htmlContent = fs.readFileSync(filePath, 'utf-8');
+        const scripts = [];
+        const parser = new Parser({
+            onopentag(name, attributes) {
+                /*
+                 * This fires when a new tag is opened.
+                 *
+                 * If you don't need an aggregated `attributes` object,
+                 * have a look at the `onopentagname` and `onattribute` events.
+                 */
+                if (name === "script") {
+                    this.openScript = true;
+                    // console.log("JS! Hooray!");
+                }
+            },
+            onclosetag(tagname) {
+                /*
+                 * Fires when a tag is closed.
+                 *
+                 * You can rely on this event only firing when you have received an
+                 * equivalent opening tag before. Closing tags without corresponding
+                 * opening tags will be ignored.
+                 */
+                if (tagname === "script") {
+                    this.openScript = false;
+                    // console.log("That's it?!");
+                }
+            },
+            ontext(text) {
+                if (this.openScript) {
+                    scripts.push(text);
+                    // console.log("Streaming:", text);
+                }
+            },
+        });
+        parser.write(htmlContent);
+        parser.end();
+        // console.log('scripts', scripts);
+        for (const script of scripts) {
+            const minifiedResult = await minify(script);
+            htmlContent = htmlContent.replace(script, minifiedResult.code);
+        }
+
+        return htmlContent;
+    } catch (error) {
+        console.error(`Error minifying JavaScript in HTML file: ${error}`);
+        return '';
+    }
+}
+
+module.exports = function (grunt) {
     var task = grunt.task;
-     
+
     // 项目配置
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -124,7 +180,7 @@ module.exports =  function (grunt) {
                             'artisans/mods/ArtisanListWithHeader.js',
 
                             'artisan/mods/index.js',
-                            
+
 
                             'order/mods/OrderDetail.js',
                             'order/mods/OrderCancel.js',
@@ -135,7 +191,7 @@ module.exports =  function (grunt) {
 
                             'comment/mods/Viewport.js',
                             'comment/mods/AddComment.js',
-                             
+
                             'home/mods/index.js',
 
                             'product/mods/Product.js',
@@ -148,7 +204,7 @@ module.exports =  function (grunt) {
 
                             'gyz/mods/Gyz.js',
 
-                           
+
 
                             'widget/serviceaddr/SearchAddrModal.js',
                             'widget/serviceaddr/ServiceAddrModal.js',
@@ -216,6 +272,7 @@ module.exports =  function (grunt) {
                             'resources/style/**/*.css',
                             'resources/svg/**/*.*',
                             '!resources/**/*.css.map',
+                            'upload/**/*',
                             'startup.js'
                         ],
                         dest: '<%= dist%>'
@@ -288,26 +345,26 @@ module.exports =  function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    
+    grunt.registerTask('minifyJavaScriptInHtml', 'minifyJavaScriptInHtml', function (type) {
+        const done = this.async(); // Signal Grunt that this task is async
+        const startupJsContent = fs.readFileSync('./build/startup.js', 'utf-8');
 
-
-    grunt.registerTask('replace', 'replace',  function (type) {
-       const jscontent = fs.readFileSync('./build/startup.js', 'utf-8');
-       
-       readHtmlFiles('./build/', 0, function(file){
-           // console.log(file);
-           const content = fs.readFileSync(file, 'utf-8')
-               .replace('<script src=../startup.js type=text/javascript></script>', `<script type="text/javascript">${jscontent}</script>`);
-           fs.writeFileSync(file, content, {});
-       });
+        findHtmlFiles('./build/', 0, async function (file) {
+            // console.log(file);
+            let content = fs.readFileSync(file, 'utf-8')
+                .replace('<script src=../startup.js type=text/javascript></script>', `<script type="text/javascript">${startupJsContent}</script>`);
+            content = await minifyJavaScriptInHtml(content);
+            // console.log('content', content);
+            fs.writeFileSync(file, content, 'utf-8');
+        });
     });
 
-    grunt.registerTask('copy-imgs', 'copy-imgs', function (type) {
-        copyFiles("src/upload", "build/upload");
-    });
-
-    grunt.registerTask('build', ['clean', 'sass', 'kmc', 'copy', 'uglify', 'cssmin', 'htmlmin', 'replace', 'copy-imgs']);
+     
+    grunt.registerTask('build', ['clean', 'sass', 'kmc', 'copy', 'uglify', 'cssmin', 'htmlmin', 'minifyJavaScriptInHtml']);
     return grunt.registerTask('default', '默认流程', function (type) {
         task.run(['build']);
+        // task.run(['minifyJavaScriptInHtml']);
         // task.run(['clean', 'kmc', 'copy', 'uglify', 'cssmin', 'htmlmin']);
     });
 }

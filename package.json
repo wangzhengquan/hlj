@@ -17,6 +17,7 @@
     "grunt-contrib-watch": "",
     "grunt-kmc": "",
     "grunt-replace": "",
+    "htmlparser2": "^9.1.0",
     "http-server": "",
     "lodash": "^4.3.0",
     "terser": "^5.36.0"
