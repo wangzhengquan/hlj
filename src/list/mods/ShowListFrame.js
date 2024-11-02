@@ -32,7 +32,9 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 				title: this.title || "",
 				hasFooter: this.config.hasFooter
 			}));
-			this.scrollView = document.body;
+			console.log('this.el', this.el)
+			this.scrollView = this.el.getDOMNode();
+			// console.log('scrollView', this.scrollView);
 			this.header = this.el.one('.header');
 			this.footer = this.el.one('.footer');
 			this.items = this.createContent();
@@ -57,13 +59,15 @@ KISSY.add(function(S, Node,  Event, XTemplate, Container,
 		},
 		
 		addScrollListener: function(){
-			Event.on(window, 'scroll', this.scrollHandler);
-			//this.scrollView.on('scroll', this.scrollHandler);
+			// Event.on(window, 'scroll', this.scrollHandler);
+			this.scrollView.addEventListener('scroll', this.scrollHandler);
+			// Event.delegate(document, 'scroll', '.main',  this.scrollHandler);
 		},
 		
 		removeScrollListener: function(){
-			Event.detach(window, 'scroll', this.scrollHandler);
-			//this.scrollView.detach('scroll', this.scrollHandler);
+			// Event.detach(window, 'scroll', this.scrollHandler);
+			// this.scrollView.detach('scroll', this.scrollHandler);
+			this.scrollView.removeEventListener('scroll', this.scrollHandler);
 		}, 
 		//定位商圈
 		locationBusinessDistrict: function(suc, error){

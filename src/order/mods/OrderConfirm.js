@@ -253,7 +253,7 @@ KISSY.add(function (S, Node, XTemplate,
 			};
 
 			/*去支付*/
-			this.el.delegate('tap', '[action=submit-order]', function (event) {
+			this.el.delegate('tap click', 'button[action=submit-order]', function (event) {
 				var target = S.one(event.currentTarget);
 				var checkedPaywayEl = me.el.one('input[name=pay_way]:checked'),
 					pay_way;

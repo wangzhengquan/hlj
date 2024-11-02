@@ -51,7 +51,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 	 */
 	var setArtisanPhotoSize = function () {
 		calcArtisanPhotoSize();
-		S.all(".item-photo li a").css({
+		S.all(".item-photoes li a").css({
 			width: artisan_thumbnail_width,
 			height: artisan_thumbnail_height
 		});
@@ -135,7 +135,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 
 
 	//38c40bfaaddf4829a2ddfdd3416134cf
-	var datalazyload = new DataLazyload();
+	// var datalazyload = new DataLazyload();
 	function Artisan() {
 		Artisan.superclass.constructor.apply(this, arguments);
 	}
@@ -248,10 +248,8 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 				me.content.append(screen2);
 				me.productListTabContent = me.screen2.one('[name=product_list_tab_content]');
 				me.introTabContent = me.screen2.one('[name=intro_tab_content]');
-				//me.setActiveTab(0);
-				datalazyload.addCallback(screen2.getDOMNode(), function () {
-					me.setActiveTab(0);
-				});
+				me.setActiveTab(0);
+				 
 				//'	<button class="button button-clear button-right" action="'+(preview ? 'publish': 'edit')+'">'+(preview ? '发布': '编辑')+'</button>',
 				if (preview) {
 					me.setTitle('预览');
@@ -319,7 +317,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 		 */
 		createArtisanIntroContent: function () {
 			this.introTabContent.html(artisanIntroTpl.render(this.artisanData));
-			setArtisanPhotoSize();
+			// setArtisanPhotoSize();
 			this.initExpandableElem(this.introTabContent.one('.item-intro'), 44);
 		},
 
@@ -500,9 +498,9 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			/**
 			 * 点击手艺人缩略图
 			 */
-			me.el.delegate('click', '.item-photo a', function (event) {
+			me.el.delegate('click', '.item-photoes a', function (event) {
 				//console.log('click', event.currentTarget);
-				var index = me.el.all('.item-photo a').index(event.currentTarget);
+				var index = me.el.all('.item-photoes a').index(event.currentTarget);
 				var images = '',
 					data = [];
 				if (typeof me.artisanData.large_photos == 'undefined') {
@@ -533,7 +531,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			});
 
 			Event.on(win, "resize", function (event) {
-				setArtisanPhotoSize();
+				// setArtisanPhotoSize();
 			});
 
 		}

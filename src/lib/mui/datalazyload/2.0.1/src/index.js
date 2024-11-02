@@ -408,7 +408,7 @@ KISSY.add(function (S, D, E, Base, undefined) {
             if (self._containerIsNotDocument && !container.offsetWidth) {
                 return;
             }
-            self._windowRegion = self['_getBoundingRect']();
+            self._windowRegion = self['_getBoundingRect'](container);
             // 兼容，不检测 container
             if (!self._backCompact && self._containerIsNotDocument) {
                 self._containerRegion = self['_getBoundingRect'](self.get('container'));
@@ -594,7 +594,7 @@ KISSY.add(function (S, D, E, Base, undefined) {
         '_getBoundingRect': function (c) {
             var vh, vw, left, top;
 
-            if (c !== undefined) {
+            if (c) {
                 vh = D.outerHeight(c);
                 vw = D.outerWidth(c);
                 var offset = D.offset(c);

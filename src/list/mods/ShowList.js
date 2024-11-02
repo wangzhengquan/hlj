@@ -294,7 +294,7 @@ KISSY.add(function (S, Node, Event, DOM, XTemplate,
 
 			var me = this;
 			me.scrollHandler = function () {
-				//console.log('scroll', me.scrollView.scrollTop + me.scrollView.clientHeight);
+				// console.log('scroll', me.scrollView.scrollTop , me.scrollView.clientHeight, me.scrollView.scrollTop + me.scrollView.clientHeight, me.scrollView.scrollHeight);
 				if (me.scrollView.scrollTop + me.scrollView.clientHeight + (47 + 60) >= me.scrollView.scrollHeight) {
 
 					if (me.headerTabIndex == 0) {

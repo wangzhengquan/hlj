@@ -193,8 +193,6 @@ KISSY.add(function (S,
 					initSlide();
 					me.data = json.data;
 
-					var datalazyload = new Datalazyload({ diff: { bottom: 100 } });
-
 					S.all('textarea.lazyload').each(function (node, i) {
 						var domNode = node.getDOMNode(),
 							name = node.attr('name');
@@ -203,9 +201,7 @@ KISSY.add(function (S,
 							renderLazyData(domNode);
 							initExpandableElem(S.one('.item-district .detail'), 36);
 						} else {
-							datalazyload.addCallback(domNode, function () {
-								renderLazyData(domNode);
-							});
+							renderLazyData(domNode);
 						}
 					});
 
