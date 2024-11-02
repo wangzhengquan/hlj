@@ -185,6 +185,9 @@ p {
   gap: 8px;
 
   .item-product {
+    display: block;
+    width: 100%;
+
     .card-item {
       display: block;
       width: 100%;
@@ -211,9 +214,35 @@ p {
 		    left: 0;
 		    top: 0;
 		    width: 40%;
-		    -height: 85px;
 		    display: block;
 		  }
+
+      .item-info {
+        display: block;
+        padding: 10px 8px 15px;
+       
+        .desc {
+          display: block;
+          margin-bottom: 8px;
+          color: #444;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .price {
+          font-weight: bold;
+          color: #f97fac;
+          margin-right: auto;
+        }
+
+        .times {
+          color: #aaaaaa;
+          float: right;
+          font-size: 12px;
+          white-space: nowrap;
+        }
+      }
     }
 
     
@@ -237,32 +266,7 @@ p {
   background-size: 100%;
 }
 
-.item-info {
-  display: block;
-  padding: 10px 8px 15px;
- 
-  .desc {
-    display: block;
-    margin-bottom: 8px;
-    color: #444;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 
-  .price {
-    font-weight: bold;
-    color: #f97fac;
-    margin-right: auto;
-  }
-
-  .times {
-    color: #aaaaaa;
-    float: right;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-}
 
 .item-intro p {
   	@include transition-duration(300ms);

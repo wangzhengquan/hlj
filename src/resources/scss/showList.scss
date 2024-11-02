@@ -227,11 +227,13 @@
   gap: 8px;
 
   .product-item{
-    
+    width: 100%;
+    display: block;
   }
   
   .card-item {
     display: block;
+    width: 100%;
     overflow: hidden;
     background: #fff;
     position: relative;
@@ -250,6 +252,9 @@
       top: 0;
       width: 40%;
       display: block;
+    }
+    img {
+      aspect-ratio: 1 / 1;
     }
   }
 
