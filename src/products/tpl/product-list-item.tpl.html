@@ -1,10 +1,5 @@
 {{#each products}}
-	{{#if xindex%2===0}}
-	  {{#if xindex>0}} 
-	  </ul>
-	  {{/if}}
-	  <ul class="product-row clearfix">
-	{{/if}}
+	 
 		<li class="product-item">
 			<a class="card-item" href="javascript:;" data-id="{{product_id}}">
 				 {{#if promotion_pic}}
@@ -29,7 +24,5 @@
 				</span>
 			</a>
 		</li>
-	{{#if xindex===xcount-1}}
-	  </ul>
-	{{/if}}
+	 
 {{/each}}

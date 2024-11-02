@@ -1,5 +1,5 @@
 KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
-	DataLazyload, Mask, XTemplateUtil, 
+	Mask, Util, XTemplateUtil, 
 	spinnerLoadingSmallTpl, tpl, item_tpl) {
 	var page_size = 20;
 
@@ -141,18 +141,9 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				if (artisans.length < page_size) {
 					me.loadFinished = true;
 				}
-				if (!me.dataLazyload) {
-					me.dataLazyload = new DataLazyload({
-						container: me.el.one('.artisan-list-content'),
-						autoDestroy: false,
-						placeholder: "../resources/images/default_user.png"
-					});
-				} else {
-					me.dataLazyload.addElements(me.dataLazyload.get('container'));
-					me.dataLazyload.refresh();
-					// me.dataLazyload._loadFn();
-				}
-			
+
+				var imgs = me.el.getDOMNode().querySelectorAll(".artisan-list-content > .item-artisan:nth-last-child(-n + " + artisans.length + ") > img");
+				Util.loadImages(imgs);
 				
 			}, function (msg) {
 				console.log('msg', msg);
@@ -190,10 +181,11 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 	requires: ["node", "io", "event", "dom", "xtemplate",
 		"APP/action/Action",
 		"UFO/Component",
-		"MUI/datalazyload/index",
 		"UFO/mask/Mask",
+		"APP/common/Util",
 		"APP/util/XTemplateUtil",
 		"APP/widget/tpl/spinner-loading-small-tpl",
+
 		"../tpl/artisan-list-tpl",
 		"../tpl/artisan-list-item-tpl"
 	]

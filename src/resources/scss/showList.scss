@@ -219,64 +219,66 @@
 
 
 .list-content {
-  padding:4px;
+  padding:8px;
   background-color: rgb(235, 235, 235);
-}
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  gap: 8px;
 
-.product-row{
-	display: block;
-	.product-item{
-	  	float:left;
-	  	width:50%;
-	  	padding:4px;
-	}
-}
-
-.card-item {
-  display: block;
-  overflow: hidden;
-  background: #fff;
-  position: relative;
+  .product-item{
+    
+  }
   
-  .one2many-label{
-  	width:62px;
-  	height:17px;
-  	position: absolute;
-  	z-index:10;
-  	top:0;
-  	right:0;
-  }
-  .corner-label {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40%;
+  .card-item {
     display: block;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    
+    .one2many-label{
+      width:62px;
+      height:17px;
+      position: absolute;
+      z-index:10;
+      top:0;
+      right:0;
+    }
+    .corner-label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40%;
+      display: block;
+    }
+  }
+
+  .item-info {
+    display: block;
+    padding: 10px 8px 15px;
+
+    .desc {
+      display: block;
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    .times {
+      color: #aaaaaa;
+      float: right;
+      font-size: 12px;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #f97fac;
+      margin-right: auto;
+    }
   }
 }
 
-.item-info {
-  display: block;
-  padding: 10px 8px 15px;
 
-  .desc {
-    display: block;
-    margin-bottom: 8px;
-    color: #444;
-  }
 
-  .times {
-    color: #aaaaaa;
-    float: right;
-    font-size: 12px;
-  }
-
-  .price {
-    font-weight: bold;
-    color: #f97fac;
-    margin-right: auto;
-  }
-}
 
 .footer{
 	 border-top: 1px solid $love;

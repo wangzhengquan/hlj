@@ -1,6 +1,6 @@
 KISSY.add(function (S, Node, Event, XTemplate, 
-	Action, Component, DataLazyload,
-	Mask,
+	Action, Component, 
+	Mask, Util,
 	XTemplateUtil,
 	spinnerLoadingSmallTpl,
 	tpl,
@@ -168,19 +168,9 @@ KISSY.add(function (S, Node, Event, XTemplate,
 				if (products && products.length < page_size) {
 					me.loadFinished = true;
 				}
-
-				if (!me.dataLazyload) {
-					me.dataLazyload = new DataLazyload(
-						{
-							container: me.el.one('.list-content'),
-							autoDestroy: false,
-							placeholder: "../resources/images/default_product.png"
-						}
-					);
-				} else {
-					me.dataLazyload.addElements(me.dataLazyload.get('container'));
-					me.dataLazyload.refresh();
-				}
+				var imgs = me.el.getDOMNode().querySelectorAll('ul.list-content > li:nth-last-child(-n +' + products.length+ ')  > a > img');
+				Util.loadImages(imgs);
+				 
 			}, function (msg) {
 				console.error('Action.list error=', msg);
 				error && error(msg);
@@ -218,8 +208,8 @@ KISSY.add(function (S, Node, Event, XTemplate,
 	requires: ["node", "event", "xtemplate",
 		"APP/action/Action",
 		"UFO/Component",
-		"MUI/datalazyload/index",
 		"UFO/mask/Mask",
+		"APP/common/Util",
 		"APP/util/XTemplateUtil",
 		"APP/widget/tpl/spinner-loading-small-tpl",
 		"../tpl/product-list-tpl",
