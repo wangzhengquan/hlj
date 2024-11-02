@@ -1,5 +1,5 @@
 KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
-	Mask, Util, XTemplateUtil, 
+	Mask, ImageUtil, XTemplateUtil, 
 	spinnerLoadingSmallTpl, tpl, item_tpl) {
 	var page_size = 20;
 
@@ -143,7 +143,7 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 				}
 
 				var imgs = me.el.getDOMNode().querySelectorAll(".artisan-list-content > .item-artisan:nth-last-child(-n + " + artisans.length + ") > img");
-				Util.loadImages(imgs);
+				ImageUtil.loadImages(imgs);
 				
 			}, function (msg) {
 				console.log('msg', msg);
@@ -182,7 +182,7 @@ KISSY.add(function (S, Node, IO, Event, DOM, XTemplate, Action, Component,
 		"APP/action/Action",
 		"UFO/Component",
 		"UFO/mask/Mask",
-		"APP/common/Util",
+		"APP/util/ImageUtil",
 		"APP/util/XTemplateUtil",
 		"APP/widget/tpl/spinner-loading-small-tpl",
 

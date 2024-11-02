@@ -112,24 +112,21 @@
 		{{#if processes&&processes.length}}
 		<section class="section section-service-items">
 			<div class="item hairline-remove">服务内容（{{processes.length}}个步骤）</div>
-			<div id="service_items_slides" class="service-items-slides"><!--Slide控件开始-->
+			<!--service_items_slides 控件开始-->
+			<div id="service_items_slides" class="service-items-slides">
 				<div class="slides_container tab-content">
 				{{#each processes}}
 					<div class="tab-pannel">
-						 {{#if xcount>1}}
-						 <textarea class="data-lazyload">
-						 {{/if}}
+						  
 							<a href="javascript:;">
-								<img src="{{getImgAbsolutePath pic_url}}">
+								<img src="../resources/images/default_product.png" data-ks-lazyload="{{getImgAbsolutePath pic_url}}">
 								<span class="label-step">{{process_seq}}</span>
 								<div class="footer-wrapper">
 			        	   <h3>{{process_name}}<span>({{process_time}})</span></h3>
 			        	   <p>{{process_desc}}</p>
 		        	   </div>
 							</a>
-						{{#if xcount>1}}
-						</textarea>
-						{{/if}}
+						 
 					</div>
 				{{/each}}
 				</div>
@@ -210,7 +207,7 @@
 		{{/if}}
 		
 		
-		<textarea class="lazyload" name="section-artisan">
+		<textarea class="data-lazyload" name="section-artisan">
 		<section class="section section-artisan">
 			<a href="../artisan/index.html?artisan_id={{artisan.artisan_id}}" class="item item-thumbnail-left item-header item-icon-right">
 				<span class="item-image"  style="left:0;" href="javascript:;">

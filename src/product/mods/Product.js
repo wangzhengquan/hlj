@@ -5,6 +5,7 @@ KISSY.add(function (S,
 	Datalazyload,
 	Slide,
 	LoadingMask,
+	ImageUtil,
 	Action,
 	XTemplateUtil,
 	app,
@@ -51,16 +52,27 @@ KISSY.add(function (S,
 	};
 
 	var renderLazyData = function (textarea) {
-		textarea.style.display = 'none';
-		textarea.className = ''; // clear hook
-		var content = D.create('<div>');
-		// textarea 直接是 container 的儿子
-		textarea.parentNode.insertBefore(content, textarea);
+		const observer = new IntersectionObserver(function(entries) {
+        const entry = entries[0];
+        if(entry.isIntersecting ) {
+        	var content = D.create('<div>');
+					// textarea 直接是 container 的儿子
+					textarea.parentNode.insertBefore(content, textarea);
 
-		var html = textarea.value;
+					var html = textarea.value;
 
-		D.html(content, html, true);
-		D.remove(textarea);
+					D.html(content, html, true);
+					if (textarea.getAttribute('name') == "section-artisan") {
+						initExpandableElem(S.one('.item-district .detail'), 36);
+					}
+					D.remove(textarea);
+        }
+      }, {
+        threshold: 0,
+      }
+    );
+    observer.observe(textarea);
+		
 	};
 
 	/**
@@ -87,6 +99,10 @@ KISSY.add(function (S,
 			});
 		}
 
+		var imgs = service_items_slides_el.getDOMNode().querySelectorAll('.tab-pannel img');
+		ImageUtil.loadImages(imgs);
+				 
+
 		var material_slides_el = S.one('#material_slides');
 		if (material_slides_el) {
 			new Slide(material_slides_el, {
@@ -98,63 +114,7 @@ KISSY.add(function (S,
 		}
 	};
 
-	/**
-	 * 微信分享
-	 * @returns
-	 */
-	var weixinShare = function () {
-
-
-		var configWeixin = function (config) {
-			console.log(JSON.stringify(config));
-			wx.config({
-				debug: false,
-				appId: config.appid,
-				timestamp: config.timestamp,
-				nonceStr: config.nonceStr,
-				signature: config.signature,
-				jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage"]
-			});
-			wx.ready(function () {
-
-				Action.query('/v2/get_share_info', {
-					product_id: params.product_id
-				}, function (json) {
-					console.log(JSON.stringify(json));
-					var data_friend = json.data.weixin;
-					//分享到朋友圈
-					wx.onMenuShareTimeline({
-						title: data_friend.title, // 分享标题
-						link: encodeURI(window.location.href), // 分享链接
-						imgUrl: app.config.imgBaseUrl + data_friend.pic, // 分享图标
-						success: function () {
-							//self.callback && self.callback();
-						},
-						cancel: function () { }
-					});
-
-					//分享给好友
-					wx.onMenuShareAppMessage({
-						title: data_friend.title, // 分享标题
-						desc: data_friend.des, // 分享描述
-						link: encodeURI(window.location.href), // 分享链接
-						imgUrl: app.config.imgBaseUrl + data_friend.pic, // 分享图标
-						type: '', // 分享类型,music、video或link，不填默认为link
-						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-						success: function () { },
-						cancel: function () { }
-					});
-				});
-
-			});
-		};
-
-		Action.query('/v2/wx/config', {
-			'url': window.location.href
-		}, function (json) {
-			configWeixin(json);
-		});
-	};
+	 
 
 	return {
 		/**
@@ -186,23 +146,16 @@ KISSY.add(function (S,
 					}).render(json.data));
 
 					var body_width = S.one(doc.body).innerWidth();
-					console.log("body_width", body_width);
+					// console.log("body_width", body_width);
 					S.one('#product_pic_slides').height(body_width);
 
 
 					initSlide();
 					me.data = json.data;
 
-					S.all('textarea.lazyload').each(function (node, i) {
-						var domNode = node.getDOMNode(),
-							name = node.attr('name');
-
-						if (name == "section-artisan") {
-							renderLazyData(domNode);
-							initExpandableElem(S.one('.item-district .detail'), 36);
-						} else {
-							renderLazyData(domNode);
-						}
+					S.all('textarea.data-lazyload').each(function (node, i) {
+						renderLazyData(node.getDOMNode());
+						
 					});
 
 
@@ -212,7 +165,6 @@ KISSY.add(function (S,
 				mask.hide();
 
 			});
-			//  weixinShare();
 			this.attachEvents();
 		},
 
@@ -306,6 +258,7 @@ KISSY.add(function (S,
 		"MUI/datalazyload/index",
 		"MUI/slider/index",
 		"UFO/mask/LoadingMask",
+		"APP/util/ImageUtil",
 		"../../action/Action",
 		"../../util/XTemplateUtil",
 		"../../app",

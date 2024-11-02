@@ -195,6 +195,16 @@ body.app{
     white-space: normal;
 	}
 }
+
+textarea.data-lazyload {
+	visibility: hidden;
+	 
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
  
 
 

@@ -1,6 +1,6 @@
 KISSY.add(function (S, Node, Event, XTemplate, 
 	Action, Component, 
-	Mask, Util,
+	Mask, ImageUtil,
 	XTemplateUtil,
 	spinnerLoadingSmallTpl,
 	tpl,
@@ -20,29 +20,26 @@ KISSY.add(function (S, Node, Event, XTemplate,
 	 * 计算作品图片
 	 * @returns {Number}
 	 */
-	var calcProductImgSize = function () {
-		var width = (document.documentElement.offsetWidth - 4 * 6) / 2;
-		p_img_width = width,
-			p_img_height = width;
-		return {
-			width: p_img_width,
-			height: p_img_height
-		};
-	};
+	// var calcProductImgSize = function () {
+	// 	var width = (document.documentElement.offsetWidth - 4 * 6) / 2;
+	// 	p_img_width = width,
+	// 		p_img_height = width;
+	// 	return {
+	// 		width: p_img_width,
+	// 		height: p_img_height
+	// 	};
+	// };
 	/*
 	 * 设置作品图片大小
 	 */
-	var setProductImgSize = function () {
-		calcProductImgSize();
-		S.all(".product-item .card-item .product-img").attr({
-			width: p_img_width,
-			height: p_img_height
-		});
-		// S.all(".product-item .card-item .product-img").css({
-		// 	width: p_img_width,
-		// 	height: p_img_height
-		// });
-	};
+	// var setProductImgSize = function () {
+	// 	calcProductImgSize();
+	// 	S.all(".product-item .card-item .product-img").attr({
+	// 		width: p_img_width,
+	// 		height: p_img_height
+	// 	});
+		 
+	// };
 
 	function ProductList() {
 		ProductList.superclass.constructor.apply(this, arguments);
@@ -54,7 +51,6 @@ KISSY.add(function (S, Node, Event, XTemplate,
 			this.el = S.one(new XTemplate(tpl).render({ hideTabNavSort: this.hideTabNavSort }));
 			// this.queryUrl = "/resources/data/product_list_meirong.json?";
 			this.productListContent = this.el.one('.list-content');
-			calcProductImgSize();
 			ProductList.superclass.initComponent.apply(this, arguments);
 		},
 
@@ -160,16 +156,15 @@ KISSY.add(function (S, Node, Event, XTemplate,
 				suc && suc(json);
 				var products = json.data;
 				me.productListContent.append(listItemTpl.render({
-					products: products,
-					p_img_width: p_img_width,
-					p_img_height: p_img_height
+					products: products
+					 
 				}));
 
 				if (products && products.length < page_size) {
 					me.loadFinished = true;
 				}
 				var imgs = me.el.getDOMNode().querySelectorAll('ul.list-content > li:nth-last-child(-n +' + products.length+ ')  > a > img');
-				Util.loadImages(imgs);
+				ImageUtil.loadImages(imgs);
 				 
 			}, function (msg) {
 				console.error('Action.list error=', msg);
@@ -196,9 +191,9 @@ KISSY.add(function (S, Node, Event, XTemplate,
 				me.setActiveSortTab(S.one(event.currentTarget).parent('.sort-tab-item'));
 			});
 
-			Event.on(win, "resize", function (event) {
-				setProductImgSize();
-			});
+			// Event.on(win, "resize", function (event) {
+			// 	setProductImgSize();
+			// });
 
 		}
 
@@ -209,7 +204,7 @@ KISSY.add(function (S, Node, Event, XTemplate,
 		"APP/action/Action",
 		"UFO/Component",
 		"UFO/mask/Mask",
-		"APP/common/Util",
+		"APP/util/ImageUtil",
 		"APP/util/XTemplateUtil",
 		"APP/widget/tpl/spinner-loading-small-tpl",
 		"../tpl/product-list-tpl",

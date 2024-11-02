@@ -18,7 +18,7 @@ KISSY.add(function(S, Node, XTemplate , Modal, ScrollView, Action, DataLazyload)
            ].join('');
 	
 	var listProductTpl = new XTemplate([
-		'<ul class="list-product clear-float">',
+		'<ul class="list-product">',
 		'	{{#each this}}',
 		'	<li class="item-product">',
 		'		<a class="card-item" href="javascript:;" data-id="{{product_id}}">',

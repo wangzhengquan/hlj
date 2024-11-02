@@ -1,4 +1,4 @@
-KISSY.add("APP/common/Util", function(S, require, exports, module){
+KISSY.add(function(S, require, exports, module){
 	return {
 
     loadImages: function(imgs) {
@@ -6,8 +6,9 @@ KISSY.add("APP/common/Util", function(S, require, exports, module){
     		const img = imgs[i];
     		const observer = new IntersectionObserver(function(entries) {
 		        const entry = entries[0];
-		        if(entry.isIntersecting) {
+		        if(entry.isIntersecting && img.getAttribute('data-ks-lazyload')) {
 		        	img.src = img.getAttribute('data-ks-lazyload');
+		        	img.removeAttribute('data-ks-lazyload');
 		        }
 		      }, {
 		        threshold: 0,

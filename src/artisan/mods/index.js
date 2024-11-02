@@ -10,7 +10,7 @@
 	 * sign(验证发布权限的证书)
 	 * token 验证登录状态
 	 */
-KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
+KISSY.add(function (S, Node, Event, XTemplate, ImageUtil, Container,
 	PhotoBrowserModal, MessageBox, LoadingMask,
 	Action,
 	StarIntroModal,
@@ -135,7 +135,6 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 
 
 	//38c40bfaaddf4829a2ddfdd3416134cf
-	// var datalazyload = new DataLazyload();
 	function Artisan() {
 		Artisan.superclass.constructor.apply(this, arguments);
 	}
@@ -331,11 +330,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 			Action.query("/v2/get_artisan_products_six.json", params, function (json) {
 				var products = json.data;
 				me.productListTabContent.append(productListTpl.render(products));
-				new DataLazyload({
-						container: me.screen2.one('.list-product'),
-						autoDestroy: false,
-						placeholder: "../resources/images/default_product.png"
-				});
+				ImageUtil.loadImages(me.el.getDOMNode().querySelectorAll('.list-product .item-product img'));
 				suc && suc();
 				S.buffer(function(){
 					me.fire('artisan_products_loaded');
@@ -541,7 +536,7 @@ KISSY.add(function (S, Node, Event, XTemplate, DataLazyload, Container,
 	return Artisan;
 }, {
 	requires: ["node", "event", "xtemplate",
-		"MUI/datalazyload/index",
+		"APP/util/ImageUtil",
 		"UFO/container/Container",
 		'UFO/modal/PhotoBrowserModal',
 		'UFO/popup/MessageBox',
