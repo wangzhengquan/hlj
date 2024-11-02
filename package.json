@@ -5,6 +5,9 @@
   "description": "",
   "repository": "",
   "license": "MIT",
+  "dependencies": {
+    "kissy": "^1.4.8"
+  },
   "devDependencies": {
     "grunt": "",
     "grunt-cli": "",
@@ -28,4 +31,5 @@
     "build": "grunt",
     "pub": "ghp-import ./build -p -o"
   }
+  
 }

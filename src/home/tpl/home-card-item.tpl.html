@@ -1,51 +1,38 @@
- 		{{#each this}}
-	    {{set colidx=xindex+1}}
-      {{#if xindex===2}}
-				 </ul>
-					<ul class="column">
-			{{/if}}
+{{#each this}}
 
-      {{#if xindex===0}}
-				 <ul class="column">
-			{{/if}}
-
-      {{#if rowspan===2}}
-      		<li class="cell rowspan-2">
-  					<a href="{{getHref jump_type name}}" class="card-item card-item-appointment" style="background-color:#{{toHex background_normal}};">
-							<div class="flex" style="height:50%;">
-								<img src="{{img_url}}" style="margin: auto;">
-							</div>
-							<div class="flex" style="text-align: center; height:50%;">
-								<div style="margin: auto; ">
-									<h5 class="{{underLine description}}">
-										 {{name}}
-									</h5>
-									{{#each description}}
-										<h6>{{this}}</h6>
-									{{/each}}
-								</div>
-							</div>
-						</a>
-  	 		 </li>
-  	 	{{else}}
-  	 		 <li class="cell rowspan-1">
- 						<a href="{{getHref jump_type name}}" class="card-item clear-float" style="background-color:#{{toHex background_normal}};">
-						 <div class="fl flex" style="width:50%; height: 100%;">
-						 		<img src="{{img_url}}" style="margin:auto;">
-						 </div>
-						 <div class="fl flex"  style="width:50%;height: 100%;">
-						 		<div style="margin:auto 0;">
-	 						 	<h5 class="{{underLine description}}">{{name}}</h5>
-								{{#each description}}
-										<h6>{{this}}</h6>
-								{{/each}}
-						 		</div>
-						 </div>
-						</a>
-  	 		 </li>
-      {{/if}}
-      
-      {{#if xindex===xcount-1}}
-	      </ul>
-	    {{/if}}
-   {{/each}}
+	{{#if rowspan===2}}
+		<li class="cell rowspan-2">
+			<a href="{{getHref jump_type name}}" class="card-item card-item-appointment" style="background-color:#{{toHex background_normal}};">
+				<div class="flex" style="height:50%;">
+					<img src="{{img_url}}" style="margin: auto;">
+				</div>
+				<div class="flex" style="text-align: center; height:50%;">
+					<div style="margin: auto; ">
+						<h5 class="{{underLine description}}">
+							 {{name}}
+						</h5>
+						{{#each description}}
+							<h6>{{this}}</h6>
+						{{/each}}
+					</div>
+				</div>
+			</a>
+		 </li>
+	{{else}}
+		 <li class="cell rowspan-1">
+				<a href="{{getHref jump_type name}}" class="card-item clear-float" style="background-color:#{{toHex background_normal}};">
+			 <div class="fl flex" style="width:50%; height: 100%;">
+			 		<img src="{{img_url}}" style="margin:auto;">
+			 </div>
+			 <div class="fl flex"  style="width:50%;height: 100%;">
+			 		<div style="margin:auto 0;">
+					 	<h5 class="{{underLine description}}">{{name}}</h5>
+					{{#each description}}
+							<h6>{{this}}</h6>
+					{{/each}}
+			 		</div>
+			 </div>
+			</a>
+		 </li>
+	{{/if}}
+{{/each}}

@@ -117,60 +117,6 @@ KISSY.add(function(S){
           },
           {
             "jump_type": "html5",
-            "name": "高颜值",
-            "description": [
-              "美食·轰趴",
-              "美术·音乐",
-              "外语·摄影"
-            ],
-            "img_type": "tag_mei_shu",
-            "img_url": "../resources/images/type/icon_home_yanzhi3.png",
-            "background_normal": 16751490,
-            "background_highlighted": 16751490,
-            "length": 0,
-            
-            "search_types1": [
-              {
-                "name": "口语交流",
-                "value": "tag_kou_yu",
-                "img_type": "tag_kou_yu",
-                "img_url": "../resources/images/type/icon_bespeak_kouyu.png",
-                "background_normal": 12052381,
-                "background_highlighted": 12052381,
-              },
-              {
-                "name": "绘画摄影",
-                "value": "tag_mei_shu",
-                "img_type": "tag_mei_shu",
-                "img_url": "../resources/images/type/icon_bespeak_meishu.png",
-                "background_normal": 10788084,
-                "background_highlighted": 10788084,
-              },
-              {
-                "name": "声乐器乐",
-                "value": "tag_yin_yue",
-                "img_type": "tag_yin_yue",
-                "img_url": "../resources/images/type/icon_bespeak_yinyue.png",
-                "background_normal": 16753353,
-                "background_highlighted": 16753353,
-              }
-            ],
-            "search_conditions1": [],
-            "url2": "/v2/artisans?",
-            "search_types2": [
-              {
-                "name": "高颜值",
-                "value": "tag_gao_yan_zhi",
-                "img_type": "",
-                "img_url": "",
-                "background_normal": 10788084,
-                "background_highlighted": 10788084,
-              }
-            ],
-            "search_conditions2": []
-          },
-          {
-            "jump_type": "html5",
             "name": "美甲",
             "description": [
               "美甲",
@@ -282,6 +228,62 @@ KISSY.add(function(S){
             ],
             "search_conditions2": []
           },
+          {
+            "jump_type": "html5",
+            "name": "高颜值",
+            "description": [
+              "美食·轰趴",
+              "美术·音乐",
+              "外语·摄影"
+            ],
+            "img_type": "tag_mei_shu",
+            "img_url": "../resources/images/type/icon_home_yanzhi3.png",
+            "background_normal": 16751490,
+            "background_highlighted": 16751490,
+            "length": 0,
+            
+            "search_types1": [
+              {
+                "name": "口语交流",
+                "value": "tag_kou_yu",
+                "img_type": "tag_kou_yu",
+                "img_url": "../resources/images/type/icon_bespeak_kouyu.png",
+                "background_normal": 12052381,
+                "background_highlighted": 12052381,
+              },
+              {
+                "name": "绘画摄影",
+                "value": "tag_mei_shu",
+                "img_type": "tag_mei_shu",
+                "img_url": "../resources/images/type/icon_bespeak_meishu.png",
+                "background_normal": 10788084,
+                "background_highlighted": 10788084,
+              },
+              {
+                "name": "声乐器乐",
+                "value": "tag_yin_yue",
+                "img_type": "tag_yin_yue",
+                "img_url": "../resources/images/type/icon_bespeak_yinyue.png",
+                "background_normal": 16753353,
+                "background_highlighted": 16753353,
+              }
+            ],
+            "search_conditions1": [],
+            "url2": "/v2/artisans?",
+            "search_types2": [
+              {
+                "name": "高颜值",
+                "value": "tag_gao_yan_zhi",
+                "img_type": "",
+                "img_url": "",
+                "background_normal": 10788084,
+                "background_highlighted": 10788084,
+              }
+            ],
+            "search_conditions2": []
+          },
+          
+          
           {
             "jump_type": "html5",
             "name": "健身教练",
