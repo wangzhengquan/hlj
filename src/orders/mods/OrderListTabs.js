@@ -5,10 +5,9 @@
  * version
  * device_type
  */
-KISSY.add(function (S, Node, Event, XTemplate, TabSlider, XTemplateUtil) {
+KISSY.add(function (S, Node, Event, XTemplate, TabSlider, XTemplateUtil, OrderList) {
 	var body = document.body,
-		PARAMS = S.unparam(decodeURIComponent(location.search.slice(1)));
-
+			PARAMS = S.unparam(decodeURIComponent(location.search.slice(1)));
 
 	function OrderListTabs(config) {
 

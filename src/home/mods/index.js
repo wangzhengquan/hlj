@@ -1,8 +1,11 @@
 KISSY.add(function (S, Node, Event, XTemplate, 
-	TabPanel, HomeTab,  OrderListTabs, LoginModal, app) {
+	TabPanel, HomeTab, app) {
+
+	var LoginModalConstructor = undefined;
 	function HomeTabs(config) {
 		HomeTabs.superclass.constructor.call(this, config);
 	}
+
 
 	S.extend(HomeTabs, TabPanel);
 
@@ -25,10 +28,23 @@ KISSY.add(function (S, Node, Event, XTemplate,
 					navBar: { title: '订单', barCls: 'bar-love' },
 					type: "orderListTabs",
 					//有path参数可以实现按需加载
-					// path: "APP/orders/mods/OrderListTabs"
+					path: "APP/orders/mods/OrderListTabs"
 				}
 			];
 			HomeTabs.superclass.initComponent.apply(this, arguments);
+		},
+
+		openLoginModal: function (index, tab) {
+			var me = this;
+			var loginModal = new LoginModalConstructor({
+				animation: 'slide-in-up'
+			});
+			loginModal.one('loginsuc', function () {
+				loginModal.hide();
+				me.setActiveTab(index);
+			});
+			loginModal.show();
+			tab.removeAttr('disabled');
 		},
 
 		addCmpEvents: function () {
@@ -37,25 +53,28 @@ KISSY.add(function (S, Node, Event, XTemplate,
 			this.on('tabclick', function (index, tab) {
 
 				if (tab.attr('name') == 'order' && !app.isLogined()) {
-					if (!me.loginModal) {
-						me.loginModal = new LoginModal({
-							animation: 'slide-in-up'
-						});
-						me.loginModal.one('loginsuc', function () {
-							me.loginModal.hide();
-							me.setActiveTab(index);
-						});
-						me.loginModal.show();
-						tab.removeAttr('disabled');
+					if (LoginModalConstructor) {
+						me.openLoginModal(index, tab);
+						
 					} else {
-						me.loginModal.show();
-						tab.removeAttr('disabled');
+						S.use('APP/login/mods/LoginModal', function(S, OrderListTabs, LoginModal){
+					 		LoginModalConstructor = LoginModal;
+					 		me.openLoginModal(index, tab);
+						});
 					}
 					return false;
 				}
 			});
 
+			this.on('afterrender', function () {
+			 	S.use('APP/orders/mods/OrderListTabs, APP/login/mods/LoginModal', function(S, OrderListTabs, LoginModal){
+			 		LoginModalConstructor = LoginModal;
+					console.log('预加载完成');
+				});
+			});
+
 		}
+
 	});
 
 	return HomeTabs;
@@ -64,8 +83,6 @@ KISSY.add(function (S, Node, Event, XTemplate,
 		"node", "event", "xtemplate",
 		"UFO/tab/TabPanel",
 		"./Home",
-		"APP/orders/mods/OrderListTabs",
-		"APP/login/mods/LoginModal",
 		"../../app"
 	]
 });
