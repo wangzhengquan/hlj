@@ -1,0 +1,2 @@
+/*! 2024-11-04 */
+KISSY.add("APP/util/ParamUtil",function(a){return{processParam:function(b){for(var c in b){var d=b[c];a.isArray(d)&&(b[c]=d[0])}return b},packParam:function(b){return a.unparam(b.substring(b.indexOf("?")+1))}}});

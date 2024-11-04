@@ -1,0 +1,2 @@
+/*! 2024-11-04 */
+KISSY.add("APP/data/exchange",function(a){return{data:[1618,11139,212,213],processTime:0,requestId:"b87b01e7-5366-432d-b38f-599c3e5076f6",ret:!0,serverTime:1708603875877,studio_list:[],success:!0,unavailable_studio_list:[]}});
